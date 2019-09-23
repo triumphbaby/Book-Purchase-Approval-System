@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>角色控制器</title>
+    <link rel="styleSheet" href="../../asserts/css/Base.css" type="text/css">
+    <script src="../../asserts/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var url = "http://localhost:8624/goushushenpixitong";
+
+            $("#amStaff").click(function () {
+                var id = $("input[name='id']").val();
+                var name = $("input[name='name']").val();
+                var majorId = $("input[name='majorId']").val();
+                var instituteId = $("input[name='instituteId']").val();
+                var tel = $("input[name='tel']").val();
+                var pwd = $("input[name='pwd']").val();
+                var remarks = $("input[name='remarks']").val();
+
+                $.post(url + "/staff",
+                    {id: 1001,name:name,majorId:majorId,instituteId:instituteId,tel:tel,pwd:pwd,remarks:remarks},
+                    function (json) {
+                    console.log(json.data);
+                })
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+<div class="List">
+
+    <table>
+        <tbody>
+        <td>1001</td>
+        <td>1</td>
+        <td>ee</td>
+        </tbody>
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>type</td>
+            <td>remarks</td>
+        </tr>
+        </thead>
+    </table>
+
+</div>
+
+<div class="ModifyOrAdd">
+
+    <form>
+        工号：<input type="text" name="id"><br>
+        名字：<input type="text" name="name"><br>
+        专业编号：<input type="text" name="majorId"><br>
+        学院编号：<input type="text" name="instituteId"><br>
+        电话：<input type="text" name="tel"><br>
+        密码：<input type="password" name="pwd"><br>
+        备注：<input type="text" name="remarks"><br>
+        <input type="button" value="提交" id="amStaff">
+    </form>
+
+</div>
+
+<div class="Delete">
+    <form action="http://localhost:8624/goushushenpixitong/staff/excel"  method="post" enctype="multipart/form-data">
+        <input type="file" name="file" value="文件" />
+        <input type="submit" value="提交"/>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="generator/config.properties"/>
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!-- 配置通用Mapper的MBG插件相关信息 -->
+        <plugin type="${mapper.plugin}">
+            <property name="mappers" value="${mapper.Mapper}"/>
+        </plugin>
+
+        <!-- 配置连接数据库的基本信息 -->
+        <jdbcConnection
+                driverClass="${jdbc.driverClass}"
+                connectionURL="${jdbc.url}"
+                userId="${jdbc.user}"
+                password="${jdbc.password}">
+        </jdbcConnection>
+
+        <!-- 配置Java实体类存放位置 -->
+        <javaModelGenerator
+                targetPackage="${targetModelPackage}"
+                targetProject="${targetJavaProject}"/>
+
+        <!-- 配置XxxMapper.xml存放位置 -->
+        <sqlMapGenerator
+                targetPackage="${targetXMLPackage}"
+                targetProject="${targetResourcesProject}"/>
+
+        <!-- 配置XxxMapper.java存放位置 -->
+        <javaClientGenerator
+                targetPackage="${targetMapperPackage}"
+                targetProject="${targetJavaProject}"
+                type="XMLMAPPER"/>
+
+        <!--建立表对应的entity、dao、xxx.xml文件-->
+        <!--学院-->
+        <!--<table tableName="institute" domainObjectName="Institute">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--专业-->
+        <!--<table tableName="major" domainObjectName="Major">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--人员-->
+        <!--<table tableName="staff" domainObjectName="Staff">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--角色-->
+        <!--<table tableName="role" domainObjectName="Role">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--学期-->
+        <!--<table tableName="term" domainObjectName="Term">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--课程-->
+        <!--<table tableName="course" domainObjectName="Course">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--教材等级-->
+        <!--<table tableName="level" domainObjectName="Level">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--书-->
+        <!--<table tableName="book" domainObjectName="Book">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--课程用书-->
+        <!--<table tableName="subject" domainObjectName="Subject">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--审批表-->
+        <!--<table tableName="approval" domainObjectName="Approval">-->
+            <!--<generatedKey column="subject_id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--教研处-->
+        <!--<table tableName="laboratory" domainObjectName="Laboratory">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--开课教学单位-->
+        <!--<table tableName="teaching_unit" domainObjectName="TeachingUnit">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--教务处-->
+        <!--<table tableName="dean_office" domainObjectName="DeanOffice">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--</table>-->
+
+
+    </context>
+</generatorConfiguration>

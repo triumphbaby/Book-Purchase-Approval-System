@@ -1,0 +1,35 @@
+div.List {
+    margin-left: 10px;
+    margin-top: 10px;
+
+    width: 55%;
+    height: 450px;
+
+    background-color: aqua;
+
+    float: left;
+}
+
+div.ModifyOrAdd {
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    width: 43%;
+    height: 350px;
+
+    background-color: greenyellow;
+
+    float: right;
+}
+
+div.Delete {
+    margin-top: 15px;
+    margin-right: 10px;
+
+    width: 43%;
+    height: 350px;
+
+    background-color: antiquewhite;
+    float: right;
+}

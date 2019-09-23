@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>学院控制器</title>
+    <link rel="styleSheet" href="../../asserts/css/Base.css" type="text/css">
+    <script src="../../asserts/js/jquery.min.js"></script>
+    <script src="../../asserts/js/InstituteController.js"></script>
+</head>
+<body>
+
+<div class="List">
+
+    <table>
+        <tbody></tbody>
+        <thead>
+        <tr>
+            <td>id</td>
+            <td>type</td>
+            <td>remarks</td>
+            <td>operation</td>
+        </tr>
+        </thead>
+    </table>
+    <a href="#">首页</a> <a href="#">上一页</a> <a href="#">下一页</a> <a href="#">末页</a>
+
+</div>
+
+<div class="ModifyOrAdd">
+
+    <form>
+        学院编号：<input type="text" name="id"><br>
+        学院名称：<input type="text" name="name"><br>
+        备注：<input type="text" name="remarks"><br>
+        <input type="button" value="提交" id="amInstitute">
+    </form>
+
+    <br><br>
+    想修改的学院编号：<input type="text" name="fixId">
+    <button id="getOne">调出原始数据</button>
+
+    <br><br>
+    想删除的学院编号：<input type="text" name="deleteId">
+    <button id="delete">删除</button>
+
+</div>
+
+<div class="Delete">
+
+</div>
+
+</body>
+</html>
