@@ -240,6 +240,31 @@ CREATE TABLE `dean_office`(
 #### 数据库表的关联关系
 ![](./file/picture/数据库表设计.png)  
 
+#### 修改后端配置
+将``application.yml``中的配置：
+- 将``username``和``password``修改为自己本地数据库的**用户名**和**密码**  
+- 将``url: jdbc:mysql://10.0.78.26:3306/goushushenpixitong?useUnicode=true&characterEncoding=utf8&useSSL=false``中的
+``10.0.78.26``改成``localhost``，如果有修改过端口，就需要将端口修改下，其余不需要改动  
+
+````
+# application.yml
+
+spring:
+  datasource:
+    #   数据源基本配置
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.0.78.26:3306/goushushenpixitong?useUnicode=true&characterEncoding=utf8&useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+    #上半区公共部分对应的是 org.springframework.boot.autoconfigure.jdbc.DataSourceProperties 中的属性
+    #下半区属性对应的是 com.alibaba.druid.pool.DruidDataSource 中的属性，Spring Boot 默认是不注入不了这些属性值的，需要自己绑定
+    #druid 数据源专有配置
+    allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
+    ....
+````
+
+
 #### 说明
 > 1. 表结构若看不清，可以下载visio，打开[数据库表设计图](./file/数据库表设计.vsdx)文件 
 > 2. 数据库默认连接的是本人在学校中部署的云数据库,ip为``10.0.78.26``，
