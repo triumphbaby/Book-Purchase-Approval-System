@@ -69,6 +69,7 @@ public class DeanOfficeController {
     }
 
     /**
+     *  todo eoliker 无法插入
      * 添加教务处审核结果
      *
      * @param subjectId  课程用书id
