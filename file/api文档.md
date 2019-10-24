@@ -6,7 +6,7 @@
 [3、添加学期记录](#3添加学期记录)<br/>
 [4、更新学期记录](#4更新学期记录)<br/>
 [5、删除学期记录](#5删除学期记录)<br/>
-#### 二、学期
+#### 二、开课教学单位审核
 [6、分页获取开课教学单位审核条目](#6分页获取开课教学单位审核条目)<br/>
 [7、获取单条审核条目记录](#7获取单条审核条目记录)<br/>
 [8、添加开课教学单位审核结果](#8添加开课教学单位审核结果)<br/>
@@ -717,7 +717,7 @@
     |publishDate  |N        |string     |出版时间
     |edition      |Y        |int        |版次
     |nation       |N        |string     |所属国家
-    |type         |N        |string     |类型
+    |type         |N        |int    |类型
     |purpose      |N        |int        |用途
     |levelId      |Y        |int        |教材等级
     |price        |Y        |int        |价格
@@ -747,7 +747,7 @@
     |publishDate  |N        |string     |出版时间
     |edition      |Y        |int        |版次
     |nation       |N        |string     |所属国家
-    |type         |N        |string     |类型
+    |type         |N        |int        |类型
     |purpose      |N        |int        |用途
     |levelId      |Y        |int        |教材等级
     |price        |Y        |int        |价格
