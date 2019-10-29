@@ -3,6 +3,9 @@ package com.ddu.goushushenpixitong.controller;
 import com.ddu.goushushenpixitong.entity.Subject;
 import com.ddu.goushushenpixitong.service.SubjectService;
 import com.ddu.goushushenpixitong.util.CommonResult;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+@RequiresRoles(logical = Logical.OR,value = {"管理员", "教研室主任","教务干事","课程负责人"})
 @RestController
 @RequestMapping("/subject")
 public class SubjectController {
@@ -73,6 +77,7 @@ public class SubjectController {
      * @param id
      * @return
      */
+    @RequiresRoles("管理员")
     @DeleteMapping
     public CommonResult delete(@RequestParam("id") Integer id) {
         return CommonResult.expect(subjectService.remove(id));

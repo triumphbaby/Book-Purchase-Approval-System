@@ -1,5 +1,6 @@
 package com.ddu.goushushenpixitong.controller;
 
+import com.ddu.goushushenpixitong.entity.Staff;
 import com.ddu.goushushenpixitong.util.CommonResult;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -23,7 +24,6 @@ public class LoginController {
                               @RequestParam("password") String password) {
         //添加用户认证信息
         Subject subject = SecurityUtils.getSubject();
-        Session session = subject.getSession();
 
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(
                 id,
@@ -32,6 +32,11 @@ public class LoginController {
         try {
             //进行验证，这里可以捕获异常，然后返回对应信息
             subject.login(usernamePasswordToken);
+
+            Session session = subject.getSession();
+            Staff user=(Staff) subject.getPrincipal();
+            session.setAttribute("user",user);
+            session.setTimeout(360000);
 
         } catch (AuthenticationException e) {
             e.printStackTrace();

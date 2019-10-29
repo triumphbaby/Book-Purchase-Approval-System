@@ -70,17 +70,17 @@ public class CustomRealm extends AuthorizingRealm {
         if (authenticationToken.getPrincipal() == null) {
             return null;
         }
-        //获取用户信息
+
         String staffId = authenticationToken.getPrincipal().toString();
-
-
-        //调用数据库获取用户信息,这里是模拟
+        //获取员工信息
         Staff staff = staffService.findById(staffId);
 
         if (staff == null) {
             //这里返回后会报出对应异常
             throw new UnknownAccountException();
         }
+
+
         //这里验证authenticationToken和simpleAuthenticationInfo的信息
         SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(staffId, staff.getPwd().toString(), getName());
         return simpleAuthenticationInfo;

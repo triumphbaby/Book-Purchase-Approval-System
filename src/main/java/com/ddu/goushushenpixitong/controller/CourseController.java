@@ -3,6 +3,9 @@ package com.ddu.goushushenpixitong.controller;
 import com.ddu.goushushenpixitong.entity.Course;
 import com.ddu.goushushenpixitong.service.CourseService;
 import com.ddu.goushushenpixitong.util.CommonResult;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/course")
+@RequiresRoles(logical = Logical.OR,value = {"管理员", "教务干事","课程负责人"})
 public class CourseController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -74,6 +78,7 @@ public class CourseController {
      * @param id
      * @return
      */
+    @RequiresRoles("管理员")
     @DeleteMapping
     public CommonResult delete(@RequestParam("id") String id) {
         return CommonResult.expect(courseService.remove(id));
