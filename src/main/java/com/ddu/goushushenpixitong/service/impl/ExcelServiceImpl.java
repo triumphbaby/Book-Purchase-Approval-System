@@ -3,7 +3,6 @@ package com.ddu.goushushenpixitong.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.ddu.goushushenpixitong.dto.BookPurchasingSchedule;
 import com.ddu.goushushenpixitong.entity.*;
-import com.ddu.goushushenpixitong.mapper.*;
 import com.ddu.goushushenpixitong.service.*;
 import com.ddu.goushushenpixitong.util.ApprovalFormUtil;
 import com.ddu.goushushenpixitong.util.FastjsonUtil;
@@ -17,7 +16,10 @@ import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.util.PropertyTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Map;
 
 @Service
@@ -224,6 +226,90 @@ public class ExcelServiceImpl implements ExcelService {
         ApprovalFormUtil.setSignatureDateOfDean(dataMap, "年   月   日");
 
         return dataMap;
+    }
+
+    @Override
+    public void uploadBookPurchasingSchedule(MultipartFile file) {
+
+        String fileName = file.getName();
+
+        Workbook wb;
+        Sheet sheet;
+        Row row;
+        String content;
+
+        try {
+            wb = PoiUtil.getWorkbook(fileName);
+
+            sheet = wb.getSheetAt(0);
+            /**
+             * 获取标题
+             */
+            row = sheet.getRow(0);
+            content = row.getCell(0).getStringCellValue();
+
+
+            /**
+             * 基本信息
+             */
+            //开课单位
+            String[] temp;
+            row = sheet.getRow(1);
+            content = row.getCell(0).getStringCellValue();
+            temp = content.split("：");
+            if (temp.length > 1) {
+                System.out.println(temp[1].toString());
+            }
+            //课程性质
+            content = row.getCell(3).getStringCellValue();
+            temp = content.split("：");
+            if (temp.length > 1) {
+                System.out.println(temp[1].toString());
+            }
+            //报送时间
+            content = row.getCell(8).getStringCellValue();
+            temp = content.split("：");
+            if (temp.length > 1) {
+                System.out.println(temp[1].toString());
+            }
+
+            //循环每一行解析成  BookPurchasingSchedule  对象  然后输出
+            for (int i =3;i< sheet.getLastRowNum()-3;i++){
+                row = sheet.getRow(i);
+                BookPurchasingSchedule schedule = new BookPurchasingSchedule(
+                        PoiUtil.double2Int(row.getCell(0).getNumericCellValue()), //序号
+                        row.getCell(1).getStringCellValue().replace(" ", "").replace("\n", ""), //课程名称
+
+                        row.getCell(2).getStringCellValue().replace(" ", "").replace("\n", ""), //教材名称
+                        row.getCell(3).getStringCellValue().replace(" ", "").replace("\n", ""), //书号
+                        row.getCell(4).getStringCellValue().replace(" ", "").replace("\n", ","), //出版社/作者
+                        row.getCell(5).getStringCellValue(), //出版时间
+                        row.getCell(6).getStringCellValue().replace(" ", ",").replace("\n", ","), //教材等级
+                        row.getCell(7).getNumericCellValue(), //单价
+                        row.getCell(8).getStringCellValue().replace(" ", ",").replace("\n", ","), //使用年级、专业及方向
+                        PoiUtil.double2Int(row.getCell(9).getNumericCellValue()), //学生数量
+                        PoiUtil.double2Int(row.getCell(10).getNumericCellValue()), //教师领用量
+                        row.getCell(11).getStringCellValue(), //选用人
+                        String.valueOf(row.getCell(12).getNumericCellValue()).replace(".", "").split("E")[0],//联系电话
+                        row.getCell(13).getStringCellValue(),//备注
+                        "2017-2018学年第二学期",
+                        "计算机学院",
+                        "必修课",
+                        ""
+                );
+                System.out.println(schedule);
+            }
+
+
+
+
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
+
+
     }
 
 

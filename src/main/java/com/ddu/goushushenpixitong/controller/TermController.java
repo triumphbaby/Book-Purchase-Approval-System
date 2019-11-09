@@ -3,8 +3,6 @@ package com.ddu.goushushenpixitong.controller;
 import com.ddu.goushushenpixitong.entity.Term;
 import com.ddu.goushushenpixitong.service.TermService;
 import com.ddu.goushushenpixitong.util.CommonResult;
-import org.apache.shiro.authz.annotation.Logical;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-@RequiresRoles(logical = Logical.OR,value = {"管理员", "课程负责人","教务干事"})
+@RequiresRoles("管理员")
 @RestController
 @RequestMapping("/term")
 public class TermController {
@@ -76,7 +74,6 @@ public class TermController {
      * @param id
      * @return
      */
-    @RequiresRoles("管理员")
     @DeleteMapping
     public CommonResult delete(@RequestParam("id") Integer id) {
         return CommonResult.expect(termService.remove(id));

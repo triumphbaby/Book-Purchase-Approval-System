@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@RequiresRoles(logical = Logical.OR,value = {"管理员", "教务干事","课程负责人"})
 @RestController
 @RequestMapping("/book")
 public class BookController {
@@ -29,6 +28,7 @@ public class BookController {
      * @param pageSize    每页显示的总记录数
      * @return
      */
+    @RequiresRoles(logical = Logical.OR,value = {"管理员", "课程负责人","教研室主任"})
     @GetMapping("/list")
     public CommonResult list(@RequestParam("currentPage") Integer currentPage, @RequestParam("pageSize") Integer pageSize) {
         return CommonResult.success(bookService.findBooksByPage(currentPage, pageSize));
@@ -40,6 +40,7 @@ public class BookController {
      * @param id
      * @return
      */
+    @RequiresRoles(logical = Logical.OR,value = {"管理员", "课程负责人","教研室主任"})
     @GetMapping
     public CommonResult getOne(@RequestParam("id") String id) {
         return CommonResult.success(bookService.findById(id));
@@ -51,6 +52,7 @@ public class BookController {
      * @param book
      * @return
      */
+    @RequiresRoles(logical = Logical.OR,value = {"管理员", "课程负责人"})
     @PostMapping
     public CommonResult register(Book book) {
         return CommonResult.expect(bookService.add(book));
@@ -62,6 +64,7 @@ public class BookController {
      * @param book
      * @return
      */
+    @RequiresRoles(logical = Logical.OR,value = {"管理员", "课程负责人"})
     @PutMapping
     public CommonResult amend(@Valid Book book) {
         if (book.getId() == null) {

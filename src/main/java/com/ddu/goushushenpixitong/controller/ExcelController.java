@@ -13,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -35,7 +34,7 @@ public class ExcelController {
 
     @PostMapping("/schedule")
     public CommonResult importSchedule(@RequestParam("file") MultipartFile file) {
-//        excelService.uploadBookPurchasingSchedule(file);
+        excelService.uploadBookPurchasingSchedule(file);
         //todo 完成功能
         return null;
     }

@@ -24,4 +24,5 @@ public interface ExcelService {
      */
     Map<String, String> prepareApprovalFormData(Integer subjectId);
 
+    void uploadBookPurchasingSchedule(MultipartFile file);
 }
