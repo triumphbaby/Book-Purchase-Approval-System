@@ -18,8 +18,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
@@ -165,5 +163,10 @@ public class StaffServiceImpl implements StaffService {
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
         }
         return false;
+    }
+
+    @Override
+    public String findIdByname(String name) {
+        return staffMapper.selectIdByName(name);
     }
 }

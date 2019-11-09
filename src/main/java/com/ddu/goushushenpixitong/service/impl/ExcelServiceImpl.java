@@ -247,6 +247,8 @@ public class ExcelServiceImpl implements ExcelService {
              */
             row = sheet.getRow(0);
             content = row.getCell(0).getStringCellValue();
+            String year = content.substring(content.indexOf("-") - 4, content.indexOf("-") + 5);
+            Integer termid = termService.findIdByName(year);
 
 
             /**
@@ -266,6 +268,7 @@ public class ExcelServiceImpl implements ExcelService {
             if (temp.length > 1) {
                 System.out.println(temp[1].toString());
             }
+
             //报送时间
             content = row.getCell(8).getStringCellValue();
             temp = content.split("：");
@@ -273,31 +276,23 @@ public class ExcelServiceImpl implements ExcelService {
                 System.out.println(temp[1].toString());
             }
 
+
+
             //循环每一行解析成  BookPurchasingSchedule  对象  然后输出
             for (int i =3;i< sheet.getLastRowNum()-3;i++){
                 row = sheet.getRow(i);
-                BookPurchasingSchedule schedule = new BookPurchasingSchedule(
-                        PoiUtil.double2Int(row.getCell(0).getNumericCellValue()), //序号
-                        row.getCell(1).getStringCellValue().replace(" ", "").replace("\n", ""), //课程名称
+                Integer id =PoiUtil.double2Int(row.getCell(0).getNumericCellValue());//序号
+                String CourseName = row.getCell(1).getStringCellValue().replace(" ", "").replace("\n", "");//课程名称
+                String teacherName = row.getCell(11).getStringCellValue();//选用人
+                String staffId = staffService.findIdByname(teacherName);
 
-                        row.getCell(2).getStringCellValue().replace(" ", "").replace("\n", ""), //教材名称
-                        row.getCell(3).getStringCellValue().replace(" ", "").replace("\n", ""), //书号
-                        row.getCell(4).getStringCellValue().replace(" ", "").replace("\n", ","), //出版社/作者
-                        row.getCell(5).getStringCellValue(), //出版时间
-                        row.getCell(6).getStringCellValue().replace(" ", ",").replace("\n", ","), //教材等级
-                        row.getCell(7).getNumericCellValue(), //单价
-                        row.getCell(8).getStringCellValue().replace(" ", ",").replace("\n", ","), //使用年级、专业及方向
-                        PoiUtil.double2Int(row.getCell(9).getNumericCellValue()), //学生数量
-                        PoiUtil.double2Int(row.getCell(10).getNumericCellValue()), //教师领用量
-                        row.getCell(11).getStringCellValue(), //选用人
-                        String.valueOf(row.getCell(12).getNumericCellValue()).replace(".", "").split("E")[0],//联系电话
-                        row.getCell(13).getStringCellValue(),//备注
-                        "2017-2018学年第二学期",
-                        "计算机学院",
-                        "必修课",
-                        ""
-                );
-                System.out.println(schedule);
+                //可以添加验证是否这个老师是否存在  不存在返回错误信息
+
+                Course course = new Course(null,termid,CourseName,null,null,null,null,null,staffId,null);
+
+                courseService.add(course);
+
+
             }
 
 

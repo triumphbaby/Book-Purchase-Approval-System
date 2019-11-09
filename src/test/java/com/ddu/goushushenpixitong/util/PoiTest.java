@@ -164,6 +164,9 @@ public class PoiTest extends BaseTest {
              */
             row = sheet.getRow(0);
             content = row.getCell(0).getStringCellValue();
+
+            String year = content.substring(content.indexOf("-") - 4, content.indexOf("-") + 5);
+            System.out.println(year);
             System.out.println(content);
 
             /**
