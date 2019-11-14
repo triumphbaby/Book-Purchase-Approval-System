@@ -10,7 +10,7 @@ public class InstituteMapperTest extends BaseTest {
     private InstituteMapper instituteMapper;
 
     @Test
-    public void testSelectOne(){
+    public void testSelectOne() {
 
     }
 
@@ -40,34 +40,34 @@ public class InstituteMapperTest extends BaseTest {
     }
 
     @Test
-    public void testInsert(){
+    public void testInsert() {
 //        Institute major = new Institute("institute01","test");
 //        System.out.println(instituteMapper.insert(major));
     }
 
     @Test
-    public void testInsertSelective(){
-        Institute major = new Institute(null,"institute01","test");
+    public void testInsertSelective() {
+        Institute major = new Institute(null, "institute01", "test");
         System.out.println(instituteMapper.insertSelective(major));
     }
 
     @Test
-    public void testUpdateByPrimaryKey(){
+    public void testUpdateByPrimaryKey() {
 
     }
 
     @Test
-    public void testUpdateByPrimaryKeySelective(){
+    public void testUpdateByPrimaryKeySelective() {
 
     }
 
     @Test
-    public void testDelete(){
+    public void testDelete() {
 
     }
 
     @Test
-    public void testDeleteByPrimaryKey(){
+    public void testDeleteByPrimaryKey() {
 
     }
 

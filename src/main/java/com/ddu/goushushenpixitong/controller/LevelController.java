@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/level")
 public class LevelController {
@@ -27,7 +28,7 @@ public class LevelController {
      * @param pageSize    每页显示的总记录数
      * @return
      */
-    @RequiresRoles(logical = Logical.OR,value = {"管理员", "课程负责人","教研室主任"})
+    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人", "教研室主任"})
     @GetMapping("/list")
     public CommonResult list(@RequestParam("currentPage") Integer currentPage, @RequestParam("pageSize") Integer pageSize) {
         return CommonResult.success(levelService.findLevelByPage(currentPage, pageSize));
@@ -39,7 +40,7 @@ public class LevelController {
      * @param id
      * @return
      */
-    @RequiresRoles(logical = Logical.OR,value = {"管理员","课程负责人","教研室主任"})
+    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人", "教研室主任"})
     @GetMapping
     public CommonResult getOne(@RequestParam("id") Integer id) {
         return CommonResult.success(levelService.findById(id));
@@ -51,7 +52,7 @@ public class LevelController {
      * @param level
      * @return
      */
-    @RequiresRoles(logical = Logical.OR,value = {"管理员", "课程负责人"})
+    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人"})
     @PostMapping
     public CommonResult register(Level level) {
         return CommonResult.expect(levelService.add(level));
@@ -63,7 +64,7 @@ public class LevelController {
      * @param level
      * @return
      */
-    @RequiresRoles(logical = Logical.OR,value = {"管理员","课程负责人"})
+    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人"})
     @PutMapping
     public CommonResult amend(@Valid Level level) {
         if (level.getId() == null) {

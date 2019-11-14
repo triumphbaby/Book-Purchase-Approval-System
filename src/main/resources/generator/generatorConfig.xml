@@ -42,67 +42,67 @@
         <!--建立表对应的entity、dao、xxx.xml文件-->
         <!--学院-->
         <!--<table tableName="institute" domainObjectName="Institute">-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
 
         <!--专业-->
         <!--<table tableName="major" domainObjectName="Major">-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
 
         <!--人员-->
         <!--<table tableName="staff" domainObjectName="Staff">-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
 
         <!--角色-->
         <!--<table tableName="role" domainObjectName="Role">-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
 
         <!--学期-->
         <!--<table tableName="term" domainObjectName="Term">-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
 
         <!--课程-->
         <!--<table tableName="course" domainObjectName="Course">-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
 
         <!--教材等级-->
         <!--<table tableName="level" domainObjectName="Level">-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
 
         <!--书-->
         <!--<table tableName="book" domainObjectName="Book">-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
 
         <!--课程用书-->
         <!--<table tableName="subject" domainObjectName="Subject">-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
 
         <!--审批表-->
         <!--<table tableName="approval" domainObjectName="Approval">-->
-            <!--<generatedKey column="subject_id" sqlStatement="Mysql" identity="true"/>-->
+        <!--<generatedKey column="subject_id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
 
         <!--教研处-->
         <!--<table tableName="laboratory" domainObjectName="Laboratory">-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
 
         <!--开课教学单位-->
         <!--<table tableName="teaching_unit" domainObjectName="TeachingUnit">-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
 
         <!--教务处-->
         <!--<table tableName="dean_office" domainObjectName="DeanOffice">-->
-            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
 
 

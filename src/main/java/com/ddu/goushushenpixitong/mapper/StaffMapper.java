@@ -9,9 +9,10 @@ public interface StaffMapper extends Mapper<Staff> {
 
     /**
      * 根据教师名称获取id
+     *
      * @param name
      * @return
      */
-    @Select("select id from staff where name = {name} ")
+    @Select("select id from staff where name = #{name} ")
     public String selectIdByName(String name);
 }

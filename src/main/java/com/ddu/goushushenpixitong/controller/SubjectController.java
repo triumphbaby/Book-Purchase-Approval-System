@@ -28,7 +28,7 @@ public class SubjectController {
      * @param pageSize    每页显示的总记录数
      * @return
      */
-    @RequiresRoles(logical = Logical.OR,value = {"管理员","课程负责人","教研室主任"})
+    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人", "教研室主任"})
     @GetMapping("/list")
     public CommonResult list(@RequestParam("currentPage") Integer currentPage, @RequestParam("pageSize") Integer pageSize) {
         return CommonResult.success(subjectService.findSubjectsByPage(currentPage, pageSize));
@@ -40,7 +40,7 @@ public class SubjectController {
      * @param id
      * @return
      */
-    @RequiresRoles(logical = Logical.OR,value = {"管理员","课程负责人","教研室主任"})
+    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人", "教研室主任"})
     @GetMapping
     public CommonResult getOne(@RequestParam("id") Integer id) {
         return CommonResult.success(subjectService.findById(id));
@@ -52,7 +52,7 @@ public class SubjectController {
      * @param subject
      * @return
      */
-    @RequiresRoles(logical = Logical.OR,value = {"管理员", "课程负责人"})
+    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人"})
     @PostMapping
     public CommonResult register(Subject subject) {
         return CommonResult.expect(subjectService.add(subject));
@@ -64,7 +64,7 @@ public class SubjectController {
      * @param subject
      * @return
      */
-    @RequiresRoles(logical = Logical.OR,value = {"管理员","课程负责人"})
+    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人"})
     @PutMapping
     public CommonResult amend(@Valid Subject subject) {
         if (subject.getId() == null) {

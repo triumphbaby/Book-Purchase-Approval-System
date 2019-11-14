@@ -1,6 +1,5 @@
 package com.ddu.goushushenpixitong.controller;
 
-import com.ddu.goushushenpixitong.entity.Staff;
 import com.ddu.goushushenpixitong.util.CommonResult;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -33,10 +32,11 @@ public class LoginController {
             //进行验证，这里可以捕获异常，然后返回对应信息
             subject.login(usernamePasswordToken);
 
+
             Session session = subject.getSession();
-            Staff user=(Staff) subject.getPrincipal();
-            session.setAttribute("user",user);
-            session.setTimeout(360000);
+            String user_id = (String) subject.getPrincipal();
+            //设置一小时登陆过期时间
+            session.setTimeout(3600000);
 
         } catch (AuthenticationException e) {
             e.printStackTrace();
@@ -50,6 +50,7 @@ public class LoginController {
 
     /**
      * 未登录，shiro应重定向到登录界面，此处返回未登录状态信息由前端控制跳转页面
+     *
      * @return
      */
     @RequestMapping(value = "/login")

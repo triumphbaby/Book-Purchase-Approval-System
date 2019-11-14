@@ -22,7 +22,7 @@ public class InstituteServiceImpl implements InstituteService {
     public Boolean add(Institute institute) {
         try {
             return instituteMapper.insertSelective(institute) == SUCCESS;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }

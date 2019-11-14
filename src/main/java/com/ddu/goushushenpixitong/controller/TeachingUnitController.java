@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@RequiresRoles(logical = Logical.OR,value = {"管理员", "教研室主任"})
+@RequiresRoles(logical = Logical.OR, value = {"管理员", "教研室主任"})
 @RestController
 @RequestMapping("/teachingunit")
 public class TeachingUnitController {

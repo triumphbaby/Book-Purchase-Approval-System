@@ -57,12 +57,13 @@ public class RoleController {
 
     /**
      * 更新信息
+     *
      * @param role
      * @return
      */
     @PutMapping
-    public CommonResult amend(@Valid Role role){
-        if (role.getId() == null){
+    public CommonResult amend(@Valid Role role) {
+        if (role.getId() == null) {
             return CommonResult.failure("id不能为空");
         }
         return CommonResult.expect(roleService.modify(role));

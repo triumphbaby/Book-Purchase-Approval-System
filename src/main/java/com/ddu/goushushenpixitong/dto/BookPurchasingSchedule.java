@@ -106,11 +106,11 @@ public class BookPurchasingSchedule {
      */
     private String SubmitTime;
 
-    public static String[] getBookPurchasingScheduleInfo(){
+    public static String[] getBookPurchasingScheduleInfo() {
         String[] list = new String[]{
-                "序号","课程名称","教材名称","书名","出版社/作者",
-                "出版时间","教材等级","单价(元)","使用年级、专业及方向",
-                "学生数量","教师领用量","选用人","联系电话","备注"
+                "序号", "课程名称", "教材名称", "书名", "出版社/作者",
+                "出版时间", "教材等级", "单价(元)", "使用年级、专业及方向",
+                "学生数量", "教师领用量", "选用人", "联系电话", "备注"
         };
         return list;
     }

@@ -22,6 +22,7 @@ public class ShiroConfig {
     /**
      * shiro自动代理
      * DelegatingFilterProxy作用是自动到spring容器查找名字为shiroFilter（filter-name）的bean并把所有Filter的操作委托给它。
+     *
      * @return
      */
     @Bean
@@ -58,7 +59,7 @@ public class ShiroConfig {
 
         Map<String, String> map = new HashMap<>();
 
-        map.put("/test","anon");
+        map.put("/test", "anon");
         //对所有用户认证
         map.put("/**", "authc");
         //登录

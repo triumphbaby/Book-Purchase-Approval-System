@@ -14,17 +14,17 @@ public class ApprovalServiceTest extends BaseTest {
     private ApprovalService approvalService;
 
     @Test
-    public void testFindLaboratoryOpinions(){
+    public void testFindLaboratoryOpinions() {
         Integer subjectId = 1;
         for (JSONObject jo : approvalService.findLaboratoryOpinions(subjectId)) {
             Integer id = jo.getInteger("id");
             String res = jo.getString("opinion");
-            System.out.println("id="+id+",opinion="+res);
+            System.out.println("id=" + id + ",opinion=" + res);
         }
     }
 
     @Test
-    public void testSet(){
+    public void testSet() {
         Set<Integer> iSet = new TreeSet<>();
         iSet.add(1);
         iSet.add(1);
@@ -32,7 +32,7 @@ public class ApprovalServiceTest extends BaseTest {
     }
 
     @Test
-    public void testAddLaboratoryOpinions(){
+    public void testAddLaboratoryOpinions() {
         String jsonStr01 = "[{\"id\":6,\"opinion\":\"yes\"},{\"id\":5,\"opinion\":\"yes\"},{\"id\":4,\"opinion\":\"yes\"}]";
         String jsonStr02 = "[{\"id\":a,\"opinion\":\"yes\"},{\"id\":5,\"opinion\":\"yes\"},{\"id\":4,\"opinion\":\"yes\"}]";
         String jsonStr03 = "[{\"id\":6,\"opinion\":\"gg\"},{\"id\":5,\"opinion\":\"yes\"},{\"id\":4,\"opinion\":\"yes\"}]";
@@ -40,15 +40,15 @@ public class ApprovalServiceTest extends BaseTest {
 
         Integer subjectId = 1;
 
-        System.out.println(approvalService.addLaboratoryOpinions(subjectId,jsonStr01));
-        System.out.println(approvalService.addLaboratoryOpinions(subjectId,jsonStr02));
-        System.out.println(approvalService.addLaboratoryOpinions(subjectId,jsonStr03));
-        System.out.println(approvalService.addLaboratoryOpinions(subjectId,jsonStr04));
+        System.out.println(approvalService.addLaboratoryOpinions(subjectId, jsonStr01));
+        System.out.println(approvalService.addLaboratoryOpinions(subjectId, jsonStr02));
+        System.out.println(approvalService.addLaboratoryOpinions(subjectId, jsonStr03));
+        System.out.println(approvalService.addLaboratoryOpinions(subjectId, jsonStr04));
 
     }
 
     @Test
-    public void testAdd(){
+    public void testAdd() {
         Approval approval = new Approval();
         System.out.println(approvalService.add(approval));
     }

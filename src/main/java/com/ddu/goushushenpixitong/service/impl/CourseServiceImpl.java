@@ -45,6 +45,6 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public Course findById(String id, Integer termId) {
-        return courseMapper.select(new Course(id,termId)).get(0);
+        return courseMapper.select(new Course(id, termId)).get(0);
     }
 }

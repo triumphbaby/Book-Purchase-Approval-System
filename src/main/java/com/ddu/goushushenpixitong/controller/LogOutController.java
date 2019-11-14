@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 退出登陆
+ *
  * @auther ChunKit
  * @date 2019/10/27-16:31
  */
@@ -16,7 +17,7 @@ public class LogOutController {
 
     @RequestMapping(value = "/logout")
     public CommonResult logout() {
-        Subject lvSubject= SecurityUtils.getSubject();
+        Subject lvSubject = SecurityUtils.getSubject();
         lvSubject.logout();
         return CommonResult.success().setMessage("退出成功");
     }

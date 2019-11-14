@@ -141,9 +141,9 @@ $(function () {
         var json = JSON.stringify(result);
         var subjectId = $("input[name='subjectId']").val();
 
-        console.log("json:"+json);
-        console.log("subjectId:"+subjectId);
-        $.post(url+"/opinions",
+        console.log("json:" + json);
+        console.log("subjectId:" + subjectId);
+        $.post(url + "/opinions",
             {subjectId: subjectId, jsonString: json},
             function (json) {
                 if (json.code == 200) {

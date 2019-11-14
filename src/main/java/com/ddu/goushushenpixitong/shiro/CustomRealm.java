@@ -33,7 +33,7 @@ public class CustomRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        //获取登陆学号
+        //获取登陆账号
         String staffId = (String) principalCollection.getPrimaryPrincipal();
         //根据学号查询人员信息
         Staff staff = staffService.findById(staffId);
@@ -42,8 +42,8 @@ public class CustomRealm extends AuthorizingRealm {
         //根据学号获取角色
         List<Role> roles1 = roleService.findById(staffId);
 
-        for (Role r:
-             roles1) {
+        for (Role r :
+                roles1) {
             RoleType roleType = RoleType.typeOf(r.getType());
             roles.add(roleType.getTypeInfo());
         }
@@ -86,7 +86,6 @@ public class CustomRealm extends AuthorizingRealm {
         return simpleAuthenticationInfo;
 
     }
-
 
 
 }

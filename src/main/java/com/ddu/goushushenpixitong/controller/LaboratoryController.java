@@ -13,7 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-@RequiresRoles(logical = Logical.OR,value = {"管理员", "教研室主任"})
+
+@RequiresRoles(logical = Logical.OR, value = {"管理员", "教研室主任"})
 @RestController
 @RequestMapping("/laboratory")
 public class LaboratoryController {

@@ -10,9 +10,9 @@ public class CourseMapperTest extends BaseTest {
     private CourseMapper courseMapper;
 
     @Test
-    public void testGetUsableMajor(){
-        Course course01 = courseMapper.select(new Course("02170001",1)).get(0);
-        Course course02 = courseMapper.select(new Course("02170002",1)).get(0);
+    public void testGetUsableMajor() {
+        Course course01 = courseMapper.select(new Course("02170001", 1)).get(0);
+        Course course02 = courseMapper.select(new Course("02170002", 1)).get(0);
 
         for (String s : Course.getUsableRangeElements(course01.getUsableRange())) {
             System.out.println(s);
@@ -23,12 +23,12 @@ public class CourseMapperTest extends BaseTest {
     }
 
     @Test
-    public void testSelect(){
+    public void testSelect() {
         String id = "02170001";
         Integer termId = 1;
 
-        System.out.println(courseMapper.select(new Course(id,termId)).get(0));
-        System.out.println(courseMapper.selectCount(new Course(id,termId)));
+        System.out.println(courseMapper.select(new Course(id, termId)).get(0));
+        System.out.println(courseMapper.selectCount(new Course(id, termId)));
 
     }
 

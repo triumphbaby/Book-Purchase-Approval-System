@@ -4,6 +4,8 @@ import com.ddu.goushushenpixitong.service.ExcelService;
 import com.ddu.goushushenpixitong.util.CommonResult;
 import com.ddu.goushushenpixitong.util.FreemakerUtil;
 import com.ddu.goushushenpixitong.util.PoiUtil;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,11 +34,10 @@ public class ExcelController {
 
     }
 
+    @RequiresRoles(logical = Logical.OR, value = {"管理员",  "教务干事"})
     @PostMapping("/schedule")
     public CommonResult importSchedule(@RequestParam("file") MultipartFile file) {
-        excelService.uploadBookPurchasingSchedule(file);
-        //todo 完成功能
-        return null;
+        return excelService.uploadBookPurchasingSchedule(file);
     }
 
     @GetMapping("/approvalform")
