@@ -10,8 +10,8 @@ public class LevelServiceTest extends BaseTest {
     private LevelService levelService;
 
     @Test
-    public void testAdd(){
-        Level level = new Level(null,"test01",null);
+    public void testAdd() {
+        Level level = new Level(null, "test01", null);
         System.out.println(levelService.add(level));
     }
 

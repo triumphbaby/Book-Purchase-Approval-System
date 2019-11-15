@@ -19,10 +19,18 @@
                 var remarks = $("input[name='remarks']").val();
 
                 $.post(url + "/staff",
-                    {id: id,name:name,majorId:majorId,instituteId:instituteId,tel:tel,pwd:pwd,remarks:remarks},
+                    {
+                        id: id,
+                        name: name,
+                        majorId: majorId,
+                        instituteId: instituteId,
+                        tel: tel,
+                        pwd: pwd,
+                        remarks: remarks
+                    },
                     function (json) {
-                    console.log(json.code);
-                })
+                        console.log(json.code);
+                    })
 
             });
 

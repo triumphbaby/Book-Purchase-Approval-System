@@ -62,4 +62,13 @@ public interface StaffService {
      * @return
      */
     Boolean parseExcel(MultipartFile file);
+
+    /**
+     * 根据教授姓名获取id
+     *
+     * @param name
+     * @return
+     */
+    String findIdByname(String name);
+
 }

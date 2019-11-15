@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * 分页bean
+ *
  * @param <T>
  */
 @Getter

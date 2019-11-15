@@ -10,6 +10,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -137,6 +138,22 @@ public class PoiUtil {
         Workbook wb;
         String ext = fileName.substring(fileName.lastIndexOf("."));
         InputStream is = new FileInputStream(fileName);
+        ZipSecureFile.setMinInflateRatio(-1.0d);
+        if (excel2003L.equals(ext)) {
+            wb = new HSSFWorkbook(is);
+        } else if (excel2007U.equals(ext)) {
+            wb = new XSSFWorkbook(is);
+        } else {
+            wb = null;
+        }
+        return wb;
+    }
+
+
+    public static Workbook getWorkbooks(MultipartFile file,String fileName) throws IOException {
+        Workbook wb;
+        String ext = fileName.substring(fileName.lastIndexOf("."));
+        InputStream is = file.getInputStream();
         ZipSecureFile.setMinInflateRatio(-1.0d);
         if (excel2003L.equals(ext)) {
             wb = new HSSFWorkbook(is);

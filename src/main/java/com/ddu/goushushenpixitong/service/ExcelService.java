@@ -1,5 +1,6 @@
 package com.ddu.goushushenpixitong.service;
 
+import com.ddu.goushushenpixitong.util.CommonResult;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,4 +25,5 @@ public interface ExcelService {
      */
     Map<String, String> prepareApprovalFormData(Integer subjectId);
 
+    CommonResult uploadBookPurchasingSchedule(MultipartFile file);
 }

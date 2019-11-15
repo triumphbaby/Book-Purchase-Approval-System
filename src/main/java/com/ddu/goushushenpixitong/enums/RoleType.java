@@ -8,12 +8,12 @@ import lombok.Getter;
  */
 @AllArgsConstructor
 @Getter
-public enum  RoleType {
+public enum RoleType {
 
-    ADMIN(0,"管理员"),
-    ACADEMIC_DIRECTOR(1,"教务干事"),
-    COURSE_DIRECTOR(2,"课程负责人"),
-    TEACHING_DEAN(3,"教研室主任");
+    ADMIN(0, "管理员"),
+    ACADEMIC_DIRECTOR(1, "教务干事"),
+    COURSE_DIRECTOR(2, "课程负责人"),
+    TEACHING_DEAN(3, "教研室主任");
 
     private Integer type;
     private String typeInfo;

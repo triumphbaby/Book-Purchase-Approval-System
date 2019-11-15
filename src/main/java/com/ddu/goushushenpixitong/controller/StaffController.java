@@ -4,6 +4,7 @@ import com.ddu.goushushenpixitong.entity.Staff;
 import com.ddu.goushushenpixitong.service.StaffService;
 import com.ddu.goushushenpixitong.util.CommonResult;
 import com.ddu.goushushenpixitong.util.PoiUtil;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+@RequiresRoles("管理员")
 @RestController
 @RequestMapping("/staff")
 public class StaffController {

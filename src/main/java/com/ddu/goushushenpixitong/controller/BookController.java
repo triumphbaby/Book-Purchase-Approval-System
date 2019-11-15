@@ -3,6 +3,8 @@ package com.ddu.goushushenpixitong.controller;
 import com.ddu.goushushenpixitong.entity.Book;
 import com.ddu.goushushenpixitong.service.BookService;
 import com.ddu.goushushenpixitong.util.CommonResult;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,7 @@ public class BookController {
      * @param pageSize    每页显示的总记录数
      * @return
      */
+    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人", "教研室主任"})
     @GetMapping("/list")
     public CommonResult list(@RequestParam("currentPage") Integer currentPage, @RequestParam("pageSize") Integer pageSize) {
         return CommonResult.success(bookService.findBooksByPage(currentPage, pageSize));
@@ -37,6 +40,7 @@ public class BookController {
      * @param id
      * @return
      */
+    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人", "教研室主任"})
     @GetMapping
     public CommonResult getOne(@RequestParam("id") String id) {
         return CommonResult.success(bookService.findById(id));
@@ -48,6 +52,7 @@ public class BookController {
      * @param book
      * @return
      */
+    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人"})
     @PostMapping
     public CommonResult register(Book book) {
         return CommonResult.expect(bookService.add(book));
@@ -59,6 +64,7 @@ public class BookController {
      * @param book
      * @return
      */
+    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人"})
     @PutMapping
     public CommonResult amend(@Valid Book book) {
         if (book.getId() == null) {
@@ -73,6 +79,7 @@ public class BookController {
      * @param id
      * @return
      */
+    @RequiresRoles("管理员")
     @DeleteMapping
     public CommonResult delete(@RequestParam("id") String id) {
         return CommonResult.expect(bookService.remove(id));
