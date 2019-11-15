@@ -10,7 +10,7 @@ public class TermMapperTest extends BaseTest {
     private TermMapper termMapper;
 
     @Test
-    public void testGetAbbreviation(){
+    public void testGetAbbreviation() {
         Term term = termMapper.selectByPrimaryKey(1);
         System.out.println(Term.getAbbreviation(term.getName()));
     }

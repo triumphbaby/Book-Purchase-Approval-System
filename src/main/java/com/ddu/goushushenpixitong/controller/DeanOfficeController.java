@@ -4,6 +4,8 @@ import com.ddu.goushushenpixitong.entity.DeanOffice;
 import com.ddu.goushushenpixitong.service.ApprovalService;
 import com.ddu.goushushenpixitong.service.DeanOfficeService;
 import com.ddu.goushushenpixitong.util.CommonResult;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+@RequiresRoles(logical = Logical.OR, value = {"管理员", "教研室主任"})
 @RestController
 @RequestMapping("/deanoffice")
 public class DeanOfficeController {
@@ -101,6 +104,7 @@ public class DeanOfficeController {
      * @param id
      * @return
      */
+    @RequiresRoles("管理员")
     @DeleteMapping
     public CommonResult delete(@RequestParam("id") Integer id) {
         return CommonResult.expect(deanOfficeService.remove(id));

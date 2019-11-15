@@ -19,10 +19,18 @@
                 var remarks = $("input[name='remarks']").val();
 
                 $.post(url + "/staff",
-                    {id: 1001,name:name,majorId:majorId,instituteId:instituteId,tel:tel,pwd:pwd,remarks:remarks},
+                    {
+                        id: 1001,
+                        name: name,
+                        majorId: majorId,
+                        instituteId: instituteId,
+                        tel: tel,
+                        pwd: pwd,
+                        remarks: remarks
+                    },
                     function (json) {
-                    console.log(json.data);
-                })
+                        console.log(json.data);
+                    })
 
             });
 
@@ -66,8 +74,8 @@
 </div>
 
 <div class="Delete">
-    <form action="http://localhost:8624/goushushenpixitong/staff/excel"  method="post" enctype="multipart/form-data">
-        <input type="file" name="file" value="文件" />
+    <form action="http://localhost:8624/goushushenpixitong/staff/excel" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" value="文件"/>
         <input type="submit" value="提交"/>
     </form>
 </div>

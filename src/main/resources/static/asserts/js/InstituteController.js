@@ -49,12 +49,12 @@ $(function () {
                         window.location.href = "InstituteController.html";
                     }
                 })
-        }else {
+        } else {
             $.ajax({
-                type:'PUT',
-                url:url,
-                data:{id: id, name: name, remarks: remarks},
-                complete:function (json) {
+                type: 'PUT',
+                url: url,
+                data: {id: id, name: name, remarks: remarks},
+                complete: function (json) {
                     console.log(json.responseJSON);
                     if (json.responseJSON.code == 200) {
                         alert("修改成功");
@@ -89,10 +89,10 @@ $(function () {
         // console.log(id);
 
         $.ajax({
-            type:'DELETE',
-            url:url,
-            data:{id: id},
-            complete:function (json) {
+            type: 'DELETE',
+            url: url,
+            data: {id: id},
+            complete: function (json) {
                 console.log(json.responseJSON);
                 if (json.responseJSON.code == 200) {
                     alert("删除成功");

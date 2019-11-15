@@ -86,12 +86,12 @@ public class ApprovalServiceImpl implements ApprovalService {
 
     @Override
     public Boolean addDeanOfficeOpinions(Integer subjectId, String json) {
-        if (validityCheck(json)){
+        if (validityCheck(json)) {
             Approval approval = approvalMapper.selectByPrimaryKey(subjectId);
-            if (approval == null){
-                approval = new Approval(subjectId,null,null,json);
+            if (approval == null) {
+                approval = new Approval(subjectId, null, null, json);
                 approvalMapper.insertSelective(approval);
-            }else {
+            } else {
                 approval.setOptionDean(json);
                 approvalMapper.updateByPrimaryKeySelective(approval);
             }

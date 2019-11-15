@@ -3,6 +3,7 @@ package com.ddu.goushushenpixitong.controller;
 import com.ddu.goushushenpixitong.entity.Role;
 import com.ddu.goushushenpixitong.service.RoleService;
 import com.ddu.goushushenpixitong.util.CommonResult;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+@RequiresRoles("管理员")
 @RestController
 @RequestMapping("/role")
 public class RoleController {
@@ -55,12 +57,13 @@ public class RoleController {
 
     /**
      * 更新信息
+     *
      * @param role
      * @return
      */
     @PutMapping
-    public CommonResult amend(@Valid Role role){
-        if (role.getId() == null){
+    public CommonResult amend(@Valid Role role) {
+        if (role.getId() == null) {
             return CommonResult.failure("id不能为空");
         }
         return CommonResult.expect(roleService.modify(role));

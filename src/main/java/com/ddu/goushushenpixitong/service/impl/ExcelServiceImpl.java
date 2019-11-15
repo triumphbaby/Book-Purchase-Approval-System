@@ -3,9 +3,9 @@ package com.ddu.goushushenpixitong.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.ddu.goushushenpixitong.dto.BookPurchasingSchedule;
 import com.ddu.goushushenpixitong.entity.*;
-import com.ddu.goushushenpixitong.mapper.*;
 import com.ddu.goushushenpixitong.service.*;
 import com.ddu.goushushenpixitong.util.ApprovalFormUtil;
+import com.ddu.goushushenpixitong.util.CommonResult;
 import com.ddu.goushushenpixitong.util.FastjsonUtil;
 import com.ddu.goushushenpixitong.util.PoiUtil;
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -17,8 +17,14 @@ import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.util.PropertyTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 public class ExcelServiceImpl implements ExcelService {
@@ -224,6 +230,98 @@ public class ExcelServiceImpl implements ExcelService {
         ApprovalFormUtil.setSignatureDateOfDean(dataMap, "年   月   日");
 
         return dataMap;
+    }
+
+    @Override
+    public CommonResult uploadBookPurchasingSchedule(MultipartFile file) {
+
+        String fileName = file.getOriginalFilename();
+
+        Workbook wb;
+        Sheet sheet;
+        Row row;
+        String content;
+
+        try {
+            wb = PoiUtil.getWorkbooks(file,fileName);
+
+            sheet = wb.getSheetAt(0);
+            /**
+             * 获取标题
+             */
+            row = sheet.getRow(0);
+            content = row.getCell(0).getStringCellValue();
+            String year = content.substring(content.indexOf("-") - 4, content.indexOf("-") + 11);
+            Integer termid = termService.findIdByName(year);
+
+            if(termid == null) return CommonResult.failure("学期填写不正确");
+
+            /**
+             * 基本信息
+             */
+            //开课单位
+            String[] temp;
+            row = sheet.getRow(1);
+            content = row.getCell(0).getStringCellValue();
+            temp = content.split("：");
+            if (temp.length > 1) {
+                System.out.println(temp[1].toString());
+            }
+            //课程性质
+            content = row.getCell(3).getStringCellValue();
+            temp = content.split("：");
+            if (temp.length > 1) {
+                System.out.println(temp[1].toString());
+            }
+
+            //报送时间
+            content = row.getCell(8).getStringCellValue();
+            temp = content.split("：");
+            if (temp.length > 1) {
+                System.out.println(temp[1].toString());
+            }
+
+            List<Course> cources = new ArrayList<>();
+
+            //循环每一行解析成  BookPurchasingSchedule  对象  然后输出
+            for (int i = 3; i < sheet.getLastRowNum() - 3; i++) {
+                row = sheet.getRow(i);
+                Integer id = PoiUtil.double2Int(row.getCell(0).getNumericCellValue());//序号
+                String CourseName = row.getCell(1).getStringCellValue().replace(" ", "").replace("\n", "");//课程名称
+                String teacherName = row.getCell(11).getStringCellValue();//选用人
+
+                if(teacherName == null || CourseName ==null || teacherName==""){
+                    continue;
+                }
+                String staffId = staffService.findIdByname(teacherName);
+                //验证是否这个老师是否存在  不存在返回错误信息
+                if(staffId == null) {
+                    return CommonResult.failure("不存在"+teacherName+"，请检查或联系管理员");
+                }
+
+                 String usable_range =  row.getCell(8).getStringCellValue().replace(" ", ",").replace("\n", ","); //使用年级、专业及方向
+                 Integer student_num =  PoiUtil.double2Int(row.getCell(9).getNumericCellValue()); //学生数量
+                 Integer teacher_num =  PoiUtil.double2Int(row.getCell(10).getNumericCellValue()); //教师领用量
+
+                Course course = new Course(UUID.randomUUID().toString().substring(0,8), termid, CourseName, null, null, usable_range, student_num, teacher_num, staffId, null);
+                cources.add(course);
+
+            }
+
+            if(!cources.isEmpty()){
+                for (Course c:
+                     cources) {
+                    courseService.add(c);
+                }
+            }
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    return CommonResult.success();
     }
 
 

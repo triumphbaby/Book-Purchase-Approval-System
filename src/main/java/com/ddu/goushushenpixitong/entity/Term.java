@@ -37,14 +37,15 @@ public class Term {
     /**
      * 获得学期的简写
      * 例如：2019-2020第一学期 --> 2019-2020-1
+     *
      * @param termName
      * @return
      */
-    public static String getAbbreviation(String termName){
+    public static String getAbbreviation(String termName) {
         String subStr = termName.split("第")[0];
-        if (termName.contains("一")){
+        if (termName.contains("一")) {
             subStr += "-1";
-        }else {
+        } else {
             subStr += "-2";
         }
         return subStr;

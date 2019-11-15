@@ -47,5 +47,4 @@ public interface LevelService {
     Level findById(Integer id);
 
 
-
 }

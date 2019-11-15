@@ -3,6 +3,7 @@ package com.ddu.goushushenpixitong.controller;
 import com.ddu.goushushenpixitong.entity.Institute;
 import com.ddu.goushushenpixitong.service.InstituteService;
 import com.ddu.goushushenpixitong.util.CommonResult;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+@RequiresRoles("管理员")
 @RestController
 @RequestMapping("/institute")
 public class InstituteController {

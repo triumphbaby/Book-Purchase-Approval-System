@@ -47,4 +47,10 @@ public class TermServiceImpl implements TermService {
     public Term findById(Integer id) {
         return termMapper.selectByPrimaryKey(id);
     }
+
+    @Override
+    public Integer findIdByName(String name) {
+        return termMapper.selectIdByname(name);
+    }
+
 }

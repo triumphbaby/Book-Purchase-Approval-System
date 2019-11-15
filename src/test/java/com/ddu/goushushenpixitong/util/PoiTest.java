@@ -1,16 +1,26 @@
 package com.ddu.goushushenpixitong.util;
 
 import com.ddu.goushushenpixitong.dto.BookPurchasingSchedule;
+import com.ddu.goushushenpixitong.entity.Course;
 import com.ddu.goushushenpixitong.entity.Staff;
-import org.apache.poi.hssf.usermodel.*;
-import org.apache.poi.openxml4j.util.ZipSecureFile;
+import com.ddu.goushushenpixitong.service.CourseService;
+import com.ddu.goushushenpixitong.service.StaffService;
+import com.ddu.goushushenpixitong.service.TermService;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.util.PropertyTemplate;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PoiTest extends BaseTest {
 
@@ -44,7 +54,7 @@ public class PoiTest extends BaseTest {
                     System.out.println(staff);
                 } catch (NullPointerException e) {
                     System.out.println("信息不全");
-                }catch (Exception e1){
+                } catch (Exception e1) {
                     System.out.println("检查类型");
                 }
             }
@@ -134,6 +144,8 @@ public class PoiTest extends BaseTest {
          */
         FileOutputStream outputStream = new FileOutputStream("E:\\教职工信息表.xls");
         wb.write(outputStream);
+
+
         outputStream.flush();
     }
 
@@ -143,7 +155,7 @@ public class PoiTest extends BaseTest {
     @Test
     public void test02() {
 
-        String fileName = "E:\\教材征订计划表样例.xlsx";
+        String fileName = "F:\\教材征订表.xls";
 
         Workbook wb;
         Sheet sheet;
@@ -159,6 +171,9 @@ public class PoiTest extends BaseTest {
              */
             row = sheet.getRow(0);
             content = row.getCell(0).getStringCellValue();
+
+            String year = content.substring(content.indexOf("-") - 4, content.indexOf("-") + 5);
+            System.out.println(year);
             System.out.println(content);
 
             /**
@@ -198,31 +213,36 @@ public class PoiTest extends BaseTest {
             /**
              * 表格内容
              */
-            row = sheet.getRow(27);
+
+            //循环每一行解析成  BookPurchasingSchedule  对象  然后输出
+            for (int i = 3; i < sheet.getLastRowNum() - 3; i++) {
+                row = sheet.getRow(i);
+                BookPurchasingSchedule schedule = new BookPurchasingSchedule(
+                        PoiUtil.double2Int(row.getCell(0).getNumericCellValue()), //序号
+                        row.getCell(1).getStringCellValue().replace(" ", "").replace("\n", ""), //课程名称
+                        row.getCell(2).getStringCellValue().replace(" ", "").replace("\n", ""), //教材名称
+                        row.getCell(3).getStringCellValue().replace(" ", "").replace("\n", ""), //书号
+                        row.getCell(4).getStringCellValue().replace(" ", "").replace("\n", ","), //出版社/作者
+                        row.getCell(5).getStringCellValue(), //出版时间
+                        row.getCell(6).getStringCellValue().replace(" ", ",").replace("\n", ","), //教材等级
+                        row.getCell(7).getNumericCellValue(), //单价
+                        row.getCell(8).getStringCellValue().replace(" ", ",").replace("\n", ","), //使用年级、专业及方向
+                        PoiUtil.double2Int(row.getCell(9).getNumericCellValue()), //学生数量
+                        PoiUtil.double2Int(row.getCell(10).getNumericCellValue()), //教师领用量
+                        row.getCell(11).getStringCellValue(), //选用人
+                        String.valueOf(row.getCell(12).getNumericCellValue()).replace(".", "").split("E")[0],//联系电话
+                        row.getCell(13).getStringCellValue(),//备注
+                        "2017-2018学年第二学期",
+                        "计算机学院",
+                        "必修课",
+                        ""
+                );
+                System.out.println(schedule);
+            }
+
 //            System.out.println(PoiUtil.double2Int(row.getCell(10).getNumericCellValue()));
 //            System.out.println(String.valueOf(row.getCell(12).getNumericCellValue()).replace(".","").split("E")[0]);
 //            System.out.println(row.getCell(12).getStringCellValue().replace(" ",",").replace("\n",","));
-            BookPurchasingSchedule schedule = new BookPurchasingSchedule(
-                    PoiUtil.double2Int(row.getCell(0).getNumericCellValue()), //序号
-                    row.getCell(1).getStringCellValue().replace(" ", "").replace("\n", ""), //课程名称
-                    row.getCell(2).getStringCellValue().replace(" ", "").replace("\n", ""), //教材名称
-                    row.getCell(3).getStringCellValue().replace(" ", "").replace("\n", ""), //书号
-                    row.getCell(4).getStringCellValue().replace(" ", "").replace("\n", ","), //出版社/作者
-                    row.getCell(5).getStringCellValue(), //出版时间
-                    row.getCell(6).getStringCellValue().replace(" ", ",").replace("\n", ","), //教材等级
-                    row.getCell(7).getNumericCellValue(), //单价
-                    row.getCell(8).getStringCellValue().replace(" ", ",").replace("\n", ","), //使用年级、专业及方向
-                    PoiUtil.double2Int(row.getCell(9).getNumericCellValue()), //学生数量
-                    PoiUtil.double2Int(row.getCell(10).getNumericCellValue()), //教师领用量
-                    row.getCell(11).getStringCellValue(), //选用人
-                    String.valueOf(row.getCell(12).getNumericCellValue()).replace(".", "").split("E")[0],//联系电话
-                    row.getCell(13).getStringCellValue(),//备注
-                    "2017-2018学年第二学期",
-                    "计算机学院",
-                    "必修课",
-                    ""
-            );
-            System.out.println(schedule);
 
 
         } catch (FileNotFoundException e) {
@@ -230,6 +250,96 @@ public class PoiTest extends BaseTest {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
+    }
+
+    @Autowired
+    TermService termService;
+    @Autowired
+    StaffService staffService;
+    @Autowired
+    CourseService courseService;
+    @Test
+    public void uploadBookPurchasingSchedule() {
+
+        String fileName = "F:\\教材征订表.xls";;
+
+        Workbook wb;
+        Sheet sheet;
+        Row row;
+        String content;
+
+        try {
+            wb = PoiUtil.getWorkbook(fileName);
+
+            sheet = wb.getSheetAt(0);
+            /**
+             * 获取标题
+             */
+            row = sheet.getRow(0);
+            content = row.getCell(0).getStringCellValue();
+            String year = content.substring(content.indexOf("-") - 4, content.indexOf("-") + 11);
+            System.out.println(year);
+            Integer termid = termService.findIdByName(year);
+
+
+            /**
+             * 基本信息
+             */
+            //开课单位
+            String[] temp;
+            row = sheet.getRow(1);
+            content = row.getCell(0).getStringCellValue();
+            temp = content.split("：");
+            if (temp.length > 1) {
+                System.out.println(temp[1].toString());
+            }
+            //课程性质
+            content = row.getCell(3).getStringCellValue();
+            temp = content.split("：");
+            if (temp.length > 1) {
+                System.out.println(temp[1].toString());
+            }
+
+            //报送时间
+            content = row.getCell(8).getStringCellValue();
+            temp = content.split("：");
+            if (temp.length > 1) {
+                System.out.println(temp[1].toString());
+            }
+
+
+            List<Course> courses = new ArrayList<>();
+
+            //循环每一行解析成  BookPurchasingSchedule  对象  然后输出
+            for (int i = 3; i < sheet.getLastRowNum() - 3; i++) {
+                row = sheet.getRow(i);
+                Integer id = PoiUtil.double2Int(row.getCell(0).getNumericCellValue());//序号
+                String CourseName = row.getCell(1).getStringCellValue().replace(" ", "").replace("\n", "");//课程名称
+                String teacherName = row.getCell(11).getStringCellValue();//选用人
+                String staffId = staffService.findIdByname(teacherName);
+
+                if(staffId == null) {
+                    System.out.println("无"+teacherName);
+                }
+                if(CourseName.isEmpty() ){
+                    continue;
+                }
+                
+                //可以添加验证是否这个老师是否存在  不存在返回错误信息
+
+                Course course = new Course(null, termid, CourseName, null, null, null, null, null, staffId, null);
+
+                courses.add(course);
+            }
+
+            System.out.println();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+
     }
 
     /**
