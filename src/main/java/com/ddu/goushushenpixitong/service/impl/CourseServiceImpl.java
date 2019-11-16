@@ -25,7 +25,7 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public Boolean remove(String id) {
-        return courseMapper.deleteByPrimaryKey(id) == SUCCESS;
+        return courseMapper.deleteById(id) == SUCCESS;
     }
 
     @Override

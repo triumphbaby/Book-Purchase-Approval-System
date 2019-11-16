@@ -151,8 +151,8 @@ public class StaffServiceImpl implements StaffService {
 
                 String id = PoiUtil.double2Int(row.getCell(0).getNumericCellValue()) + "";
                 String name = row.getCell(1).getStringCellValue();
-                String majorId = PoiUtil.double2Int(row.getCell(2).getNumericCellValue()) + "";
-                String instituteId = PoiUtil.double2Int(row.getCell(3).getNumericCellValue()) + "";
+                String majorId = row.getCell(2).getStringCellValue() ;
+                String instituteId = row.getCell(3).getStringCellValue();
                 Staff staff = new Staff(id, name, majorId, instituteId, null, null, null);
                 staffMapper.insertSelective(staff);
             }
