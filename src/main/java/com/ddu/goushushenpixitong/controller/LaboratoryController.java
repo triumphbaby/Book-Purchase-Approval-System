@@ -73,7 +73,6 @@ public class LaboratoryController {
     }
 
     /**
-     * //todo eolinker 无法插入
      * 添加教研室审核结果
      *
      * @param subjectId  课程用书id
@@ -81,7 +80,7 @@ public class LaboratoryController {
      * @return
      */
     @PostMapping("/opinions")
-    public CommonResult submitOpinion(@RequestParam("subjectId") Integer subjectId, @RequestParam("jsonString") String jsonString) {
+    public CommonResult submitOpinion(@RequestParam("subjectId") Integer subjectId, @RequestBody String jsonString) {
         return CommonResult.expect(approvalService.addLaboratoryOpinions(subjectId, jsonString));
     }
 

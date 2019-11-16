@@ -69,4 +69,14 @@ public class RoleController {
         return CommonResult.expect(roleService.modify(role));
     }
 
+    /**
+     * 删除角色
+     * @param id
+     * @return
+     */
+    @DeleteMapping
+    public CommonResult delete(@RequestParam("id") String id) {
+        return CommonResult.expect(roleService.remove(id));
+    }
+
 }

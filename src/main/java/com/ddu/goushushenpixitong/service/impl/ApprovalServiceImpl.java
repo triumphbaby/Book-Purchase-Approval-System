@@ -116,20 +116,22 @@ public class ApprovalServiceImpl implements ApprovalService {
     private static Boolean validityCheck(String jsonStr) {
         try {
             JSONObject[] jsonObjects = FastjsonUtil.jsonStr2Array(jsonStr);
+            int len = jsonObjects.length;
             Boolean isCorrect = true;
             Set<Integer> iSet = new TreeSet<>(); //存放id
             for (JSONObject jo : jsonObjects) {
-                if (iSet.contains(jo.getInteger("id"))) {
-                    isCorrect = false;
-                    break;
-                } else {
-                    iSet.add(jo.getInteger("id"));
-                }
-                if (!jo.getString("opinion").matches("yes") &&
-                        !jo.getString("opinion").matches("no")) {
-                    isCorrect = false;
-                    break;
-                }
+                System.out.println(jo.isEmpty());
+                    if (iSet.contains(jo.getInteger("id"))) {
+                        isCorrect = false;
+                        break;
+                    } else {
+                        iSet.add(jo.getInteger("id"));
+                    }
+                    if (!jo.getString("opinion").matches("yes") &&
+                            !jo.getString("opinion").matches("no")) {
+                        isCorrect = false;
+                        break;
+                    }
             }
             return isCorrect;
         } catch (Exception e) {
