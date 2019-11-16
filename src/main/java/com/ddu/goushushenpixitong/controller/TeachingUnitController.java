@@ -80,7 +80,7 @@ public class TeachingUnitController {
      * @return
      */
     @PostMapping("/opinions")
-    public CommonResult submitOpinion(@RequestParam("subjectId") Integer subjectId, @RequestParam("jsonString") String jsonString) {
+    public CommonResult submitOpinion(@RequestParam("subjectId") Integer subjectId, @RequestBody String jsonString) {
         return CommonResult.expect(approvalService.addTeachingUnitOpinions(subjectId, jsonString));
     }
 

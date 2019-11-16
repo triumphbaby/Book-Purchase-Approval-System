@@ -26,6 +26,7 @@ public class ExcelController {
     @Autowired
     private ExcelService excelService;
 
+    @RequiresRoles("管理员")
     @GetMapping("/schedule")
     public void exportScheduleTemplate(HttpServletRequest request, HttpServletResponse response) {
 
@@ -40,6 +41,7 @@ public class ExcelController {
         return excelService.uploadBookPurchasingSchedule(file);
     }
 
+    @RequiresRoles(logical = Logical.OR, value = {"管理员",  "教研室主任"})
     @GetMapping("/approvalform")
     public void exportApprovalForm(HttpServletRequest request, HttpServletResponse response, @RequestParam("subjectId") Integer subjectId) {
         try {

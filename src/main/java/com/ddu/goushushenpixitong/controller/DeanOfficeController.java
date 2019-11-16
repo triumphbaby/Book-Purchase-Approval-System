@@ -72,7 +72,6 @@ public class DeanOfficeController {
     }
 
     /**
-     *  todo eoliker 无法插入
      * 添加教务处审核结果
      *
      * @param subjectId  课程用书id
@@ -80,7 +79,7 @@ public class DeanOfficeController {
      * @return
      */
     @PostMapping("/opinions")
-    public CommonResult submitOpinion(@RequestParam("subjectId") Integer subjectId, @RequestParam("jsonString") String jsonString) {
+    public CommonResult submitOpinion(@RequestParam("subjectId") Integer subjectId,@RequestBody String jsonString) {
         return CommonResult.expect(approvalService.addDeanOfficeOpinions(subjectId, jsonString));
     }
 
