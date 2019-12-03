@@ -152,6 +152,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <executable>true</executable>
+                    <mainClass>com.ddu.goushushenpixitong.GoushushenpixitongApplication</mainClass>
                 </configuration>
             </plugin>
 
