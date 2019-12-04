@@ -28,7 +28,7 @@ public class CourseController {
      * @param pageSize    每页显示的总记录数
      * @return
      */
-    @RequiresRoles(logical = Logical.OR, value = {"管理员", "教研室主任"})
+    @RequiresRoles(logical = Logical.OR, value = {"管理员", "教研室主任","课程负责人"})
     @GetMapping("/list")
     public CommonResult list(@RequestParam("currentPage") Integer currentPage, @RequestParam("pageSize") Integer pageSize) {
         return CommonResult.success(courseService.findCoursesByPage(currentPage, pageSize));
@@ -41,7 +41,7 @@ public class CourseController {
      * @param termId 学期编号
      * @return
      */
-    @RequiresRoles(logical = Logical.OR, value = {"管理员",  "教研室主任"})
+    @RequiresRoles(logical = Logical.OR, value = {"管理员",  "教研室主任","课程负责人"})
     @GetMapping
     public CommonResult getOne(@RequestParam("id") String id, @RequestParam("termId") Integer termId) {
         return CommonResult.success(courseService.findById(id, termId));
@@ -53,7 +53,7 @@ public class CourseController {
      * @param course
      * @return
      */
-    @RequiresRoles(logical = Logical.OR, value = {"管理员"})
+    @RequiresRoles(logical = Logical.OR, value = {"管理员","课程负责人"})
     @PostMapping
     public CommonResult register(Course course) {
         return CommonResult.expect(courseService.add(course));
@@ -65,7 +65,7 @@ public class CourseController {
      * @param course
      * @return
      */
-    @RequiresRoles(logical = Logical.OR, value = {"管理员"})
+    @RequiresRoles(logical = Logical.OR, value = {"管理员","课程负责人"})
     @PutMapping
     public CommonResult amend(@Valid Course course) {
         if (course.getId() == null) {
