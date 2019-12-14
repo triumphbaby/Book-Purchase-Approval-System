@@ -14,5 +14,9 @@ public interface StaffMapper extends Mapper<Staff> {
      * @return
      */
     @Select("select id from staff where name = #{name} ")
-    public String selectIdByName(String name);
+    String selectIdByName(String name);
+
+
+
+
 }

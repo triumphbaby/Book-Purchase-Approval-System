@@ -26,7 +26,7 @@ public class ExcelController {
     @Autowired
     private ExcelService excelService;
 
-    @RequiresRoles("管理员")
+    @RequiresRoles(logical = Logical.OR, value = {"管理员",  "教务干事"})
     @GetMapping("/schedule")
     public void exportScheduleTemplate(HttpServletRequest request, HttpServletResponse response) {
 

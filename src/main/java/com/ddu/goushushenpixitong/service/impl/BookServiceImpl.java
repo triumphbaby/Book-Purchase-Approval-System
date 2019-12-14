@@ -47,4 +47,9 @@ public class BookServiceImpl implements BookService {
     public Book findById(String id) {
         return bookMapper.selectByPrimaryKey(id);
     }
+
+    @Override
+    public List<Book> findBookByLike(String string) {
+        return bookMapper.getByLike(string);
+    }
 }

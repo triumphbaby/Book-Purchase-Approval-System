@@ -47,6 +47,17 @@ public class BookController {
     }
 
     /**
+     * 模糊查询获取书本
+     * @param like  模糊查询条件
+     * @return
+     */
+    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人", "教研室主任"})
+    @GetMapping("/like")
+    public CommonResult getByLike(@RequestParam("Like") String like) {
+        return CommonResult.success(bookService.findBookByLike(like));
+    }
+
+    /**
      * 添加书本记录
      *
      * @param book

@@ -49,4 +49,12 @@ public class Subject {
      * 必修（required）或选修（elective）
      */
     private String remarks;
+
+    /**
+     * 学院编号
+     */
+    @Column(name = "institute_id")
+    @NotNull(message = "instituteId不能为空")
+    private String instituteId;
+
 }

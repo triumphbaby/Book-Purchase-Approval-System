@@ -64,7 +64,7 @@ public interface StaffService {
     Boolean parseExcel(MultipartFile file);
 
     /**
-     * 根据教授姓名获取id
+     * 根据教师姓名获取id
      *
      * @param name
      * @return

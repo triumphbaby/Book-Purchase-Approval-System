@@ -45,4 +45,12 @@ public interface BookService {
      * @return
      */
     Book findById(String id);
+
+    /**
+     * 通过模糊搜索获取书本
+     * @param string  模糊搜索的条件
+     * @return
+     */
+    List<Book> findBookByLike(String string);
+
 }

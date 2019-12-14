@@ -35,11 +35,12 @@ public class CustomRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         //获取登陆账号
         String staffId = (String) principalCollection.getPrimaryPrincipal();
+
         //根据学号查询人员信息
         Staff staff = staffService.findById(staffId);
 
         Set<String> roles = new HashSet<>();
-        //根据学号获取角色
+        //根据工号号获取角色
         List<Role> roles1 = roleService.findById(staffId);
 
         for (Role r :
