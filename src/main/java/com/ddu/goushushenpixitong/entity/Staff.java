@@ -7,6 +7,7 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 /**
  * 人员
@@ -15,7 +16,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-public class Staff {
+public class Staff implements Serializable {
     @Id
     private String id;
 

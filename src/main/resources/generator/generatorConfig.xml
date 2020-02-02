@@ -25,18 +25,18 @@
 
         <!-- 配置Java实体类存放位置 -->
         <javaModelGenerator
-                targetPackage="${targetModelPackage}"
-                targetProject="${targetJavaProject}"/>
+                targetPackage="com.ddu.goushushenpixitong.auth.entity"
+                targetProject="src/main/java"/>
 
         <!-- 配置XxxMapper.xml存放位置 -->
         <sqlMapGenerator
-                targetPackage="${targetXMLPackage}"
-                targetProject="${targetResourcesProject}"/>
+                targetPackage="com.ddu.goushushenpixitong.auth.mapper"
+                targetProject="src/main/java"/>
 
         <!-- 配置XxxMapper.java存放位置 -->
         <javaClientGenerator
-                targetPackage="${targetMapperPackage}"
-                targetProject="${targetJavaProject}"
+                targetPackage="com.ddu.goushushenpixitong.auth.mapper"
+                targetProject="src/main/java"
                 type="XMLMAPPER"/>
 
         <!--建立表对应的entity、dao、xxx.xml文件-->
@@ -105,6 +105,18 @@
         <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
 
-
+        <!--权限-->
+<!--            <table tableName="staff_role" domainObjectName="Staff_Role">-->
+<!--                <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--            </table>-->
+<!--            <table tableName="role" domainObjectName="Role">-->
+<!--                <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--            </table>-->
+<!--            <table tableName="role_power" domainObjectName="Role_Power">-->
+<!--                <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--            </table>-->
+<!--            <table tableName="power" domainObjectName="Power">-->
+<!--                <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--            </table>-->
     </context>
 </generatorConfiguration>

@@ -1,9 +1,13 @@
-package com.ddu.goushushenpixitong.service;
+package com.ddu.goushushenpixitong.auth.Service;
 
-import com.ddu.goushushenpixitong.entity.Role;
+import com.ddu.goushushenpixitong.auth.entity.Role;
 
 import java.util.List;
 
+/**
+ * @auther ChunKitAu
+ * @create 2020-01-31 31
+ */
 public interface RoleService {
     /**
      * 增加记录
@@ -44,6 +48,6 @@ public interface RoleService {
      * @param id 工号id
      * @return
      */
-    List<Role> findById(String id);
+    List<Role> findById(int id);
 
 }

@@ -45,8 +45,8 @@ public class SubjectServiceImpl implements SubjectService {
     public List<Subject> findSubjectsByPage(int currentPage, int pageSize) {
 
         PageHelper.startPage(currentPage, pageSize);
-
         Staff staff = staffMapper.selectByPrimaryKey(LoginStaffUtil.getLogInStaffId());
+        //根据当前人员所属的学院获取subject
         List<Subject> allSubjects = subjectMapper.getSubjectByInstituteId(staff.getInstituteId());
 
         int countNums = subjectMapper.selectCount(new Subject());

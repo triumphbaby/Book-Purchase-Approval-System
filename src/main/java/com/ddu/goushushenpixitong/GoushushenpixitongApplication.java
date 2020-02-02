@@ -4,14 +4,11 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
-
+import tk.mybatis.spring.annotation.MapperScan;
 import java.util.Properties;
 
+@MapperScan({"com.ddu.goushushenpixitong.mapper","com.ddu.goushushenpixitong.auth.mapper"})
 @SpringBootApplication
-@tk.mybatis.spring.annotation.MapperScan(basePackages = "com.ddu.goushushenpixitong.mapper") //通用mapper
 public class GoushushenpixitongApplication {
 
     public static void main(String[] args) {

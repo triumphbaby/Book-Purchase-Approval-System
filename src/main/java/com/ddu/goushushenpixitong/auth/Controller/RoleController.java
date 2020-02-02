@@ -1,7 +1,7 @@
-package com.ddu.goushushenpixitong.controller;
+package com.ddu.goushushenpixitong.auth.Controller;
 
-import com.ddu.goushushenpixitong.entity.Role;
-import com.ddu.goushushenpixitong.service.RoleService;
+import com.ddu.goushushenpixitong.auth.Service.RoleService;
+import com.ddu.goushushenpixitong.auth.entity.Role;
 import com.ddu.goushushenpixitong.util.CommonResult;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
@@ -29,7 +29,7 @@ public class RoleController {
      * @return
      */
     @GetMapping("/list")
-    public CommonResult list(@RequestParam("currentPage") Integer currentPage, @RequestParam("pageSize") Integer pageSize) {
+        public CommonResult list(@RequestParam("currentPage") Integer currentPage, @RequestParam("pageSize") Integer pageSize) {
         return CommonResult.success(roleService.findRoleByPage(currentPage, pageSize));
     }
 
@@ -40,7 +40,7 @@ public class RoleController {
      * @return
      */
     @GetMapping
-    public CommonResult getOne(@RequestParam("id") String id) {
+    public CommonResult getOne(@RequestParam("id") int id) {
         return CommonResult.success(roleService.findById(id));
     }
 

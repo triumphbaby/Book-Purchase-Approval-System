@@ -1,10 +1,7 @@
 package com.ddu.goushushenpixitong.util;
 
-import com.ddu.goushushenpixitong.entity.Staff;
-import com.ddu.goushushenpixitong.service.StaffService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 用于获取当前登陆人员的信息
