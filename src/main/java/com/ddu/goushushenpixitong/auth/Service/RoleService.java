@@ -9,45 +9,46 @@ import java.util.List;
  * @create 2020-01-31 31
  */
 public interface RoleService {
+
+
     /**
-     * 增加记录
-     *
-     * @param role
+     * 添加角色
+     * @param role 角色
      * @return
      */
     Boolean add(Role role);
 
     /**
-     * 删除记录
+     * 删除角色
      *
-     * @param id
+     * @param roleId 角色id
      * @return
      */
-    Boolean remove(String id);
+    Boolean remove(int roleId);
+
 
     /**
-     * 更新信息
-     *
-     * @param role
+     * 修改角色信息
+     * @param role 修改的角色信息
      * @return
      */
-    Boolean modify(Role role);
+    Boolean updateRole(Role role);
+
 
     /**
-     * 分页获取所有人员的角色信息
+     * 分页获取所有角色
      *
      * @param currentPage 当前页数
      * @param pageSize    每页显示的总记录数
      * @return
      */
-    List<Role> findRoleByPage(int currentPage, int pageSize);
+    List<Role> findAllRole(int currentPage, int pageSize);
 
     /**
-     * 用工号查其所有的角色
-     *
-     * @param id 工号id
+     * 查询某个角色信息
+     * @param roleId 角色id
      * @return
      */
-    List<Role> findById(int id);
+    Role findRoleByRoleId(int roleId);
 
 }

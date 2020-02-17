@@ -3,8 +3,10 @@ package com.ddu.goushushenpixitong.controller;
 import com.ddu.goushushenpixitong.entity.DeanOffice;
 import com.ddu.goushushenpixitong.service.ApprovalService;
 import com.ddu.goushushenpixitong.service.DeanOfficeService;
+import com.ddu.goushushenpixitong.service.SubjectService;
 import com.ddu.goushushenpixitong.util.CommonResult;
 import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,9 @@ public class DeanOfficeController {
     @Autowired
     private ApprovalService approvalService;
 
+    @Autowired
+    private SubjectService subjectService;
+
     /**
      * 分页获取教务处审核条目
      *
@@ -34,7 +39,9 @@ public class DeanOfficeController {
      * @return
      */
     @GetMapping("/list")
-    public CommonResult list(@RequestParam("currentPage") Integer currentPage, @RequestParam("pageSize") Integer pageSize) {
+    @RequiresPermissions(logical = Logical.OR,value = {"deanOffice_query","root"})
+    public CommonResult list(@RequestParam(name = "currentPage",defaultValue = "1") Integer currentPage,
+                             @RequestParam(name = "pageSize",defaultValue = "10") Integer pageSize) {
         return CommonResult.success(deanOfficeService.findDeanOfficeByPage(currentPage, pageSize));
     }
 
@@ -45,6 +52,7 @@ public class DeanOfficeController {
      * @return
      */
     @GetMapping
+    @RequiresPermissions(logical = Logical.OR,value = {"deanOffice_query","root"})
     public CommonResult getOne(@RequestParam("id") Integer id) {
         return CommonResult.success(deanOfficeService.findById(id));
     }
@@ -56,6 +64,7 @@ public class DeanOfficeController {
      * @return
      */
     @GetMapping("/opinions")
+    @RequiresPermissions(logical = Logical.OR,value = {"approval_query","root"})
     public CommonResult showOpinion(@RequestParam("subjectId") Integer subjectId) {
         return CommonResult.success(approvalService.findDeanOfficeOpinions(subjectId));
     }
@@ -67,6 +76,7 @@ public class DeanOfficeController {
      * @return
      */
     @PostMapping
+    @RequiresPermissions(logical = Logical.OR,value = {"deanOffice_add","root"})
     public CommonResult register(DeanOffice deanOffice) {
         return CommonResult.expect(deanOfficeService.add(deanOffice));
     }
@@ -79,8 +89,10 @@ public class DeanOfficeController {
      * @return
      */
     @PostMapping("/opinions")
+    @RequiresPermissions(logical = Logical.OR,value = {"approval_add","root"})
     public CommonResult submitOpinion(@RequestParam("subjectId") Integer subjectId,@RequestBody String jsonString) {
-        return CommonResult.expect(approvalService.addDeanOfficeOpinions(subjectId, jsonString));
+        if(subjectService.findById(subjectId) == null) return CommonResult.failure("当前课程用书不存在");
+        return approvalService.addDeanOfficeOpinions(subjectId, jsonString);
     }
 
     /**
@@ -90,6 +102,7 @@ public class DeanOfficeController {
      * @return
      */
     @PutMapping
+    @RequiresPermissions(logical = Logical.OR,value = {"deanOffice_update","root"})
     public CommonResult amend(@Valid DeanOffice deanOffice) {
         if (deanOffice.getId() == null) {
             return CommonResult.failure("id不能为空");
@@ -103,7 +116,7 @@ public class DeanOfficeController {
      * @param id
      * @return
      */
-    @RequiresRoles("管理员")
+    @RequiresPermissions("root")
     @DeleteMapping
     public CommonResult delete(@RequestParam("id") Integer id) {
         return CommonResult.expect(deanOfficeService.remove(id));

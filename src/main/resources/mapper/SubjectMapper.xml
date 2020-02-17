@@ -11,4 +11,40 @@
         <result column="book_id" property="bookId" jdbcType="VARCHAR"/>
         <result column="remarks" property="remarks" jdbcType="VARCHAR"/>
     </resultMap>
+
+    <resultMap id="Book" type="com.ddu.goushushenpixitong.entity.Book">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <id column="name" property="name" jdbcType="VARCHAR"/>
+        <id column="author" property="author" jdbcType="VARCHAR"/>
+        <id column="publisher" property="publisher" jdbcType="VARCHAR"/>
+        <id column="publish_date" property="publish_date" jdbcType="VARCHAR"/>
+        <id column="edition" property="edition" jdbcType="VARCHAR"/>
+        <id column="nation" property="nation" jdbcType="VARCHAR"/>
+        <id column="type" property="type" jdbcType="VARCHAR"/>
+        <id column="purpose" property="purpose" jdbcType="VARCHAR"/>
+        <id column="level_id" property="levelId" jdbcType="VARCHAR"/>
+        <id column="price" property="price" jdbcType="VARCHAR"/>
+        <id column="renew" property="renew" jdbcType="VARCHAR"/>
+        <id column="remarks" property="remarks" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+
+    <select id="fuzzySearch" resultMap="Book" parameterType="String">
+        SELECT b.`author`,b.`edition`,b.`id`,b.`level_id`,b.`name`,b.`nation`,b.`price`,
+	           b.`publisher`,b.`publish_date`,b.`purpose`,b.`remarks`,b.`renew`,b.`type`
+        FROM `subject`
+        LEFT JOIN book AS b
+            ON subject.`book_id` = b.`id`
+        LEFT JOIN term
+            ON term.`id` = subject.`term_id`
+        LEFT JOIN course
+            ON course.`id` = subject.`course_id`
+        WHERE 1 =1
+        <if test="termName != null">AND term.`name` LIKE '%#{termName}%'</if>
+        <if test = 'courseName != null'> AND course.`name` LIKE '%#{courseName}%' </if>
+        <if test = 'bookName != null'> AND b.`name` LIKE '%#{bookName}%' </if>
+    </select>
+
+    
 </mapper>

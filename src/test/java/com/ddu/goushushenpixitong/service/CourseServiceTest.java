@@ -13,7 +13,7 @@ public class CourseServiceTest extends BaseTest {
     public void testFindById() {
         String id = "02170001";
         Integer termId = 1;
-        System.out.println(courseService.findById(id, termId));
+        System.out.println(courseService.findByIdAndTermId(id, termId));
     }
 
     @Test

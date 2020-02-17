@@ -1,6 +1,7 @@
 package com.ddu.goushushenpixitong.service;
 
 import com.ddu.goushushenpixitong.entity.Staff;
+import com.ddu.goushushenpixitong.util.CommonResult;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -61,7 +62,7 @@ public interface StaffService {
      * @param file
      * @return
      */
-    Boolean parseExcel(MultipartFile file);
+    CommonResult parseExcel(MultipartFile file);
 
     /**
      * 根据教师姓名获取id

@@ -28,7 +28,7 @@ public class Role_Power {
      * 权限id
      */
     @Column(name = "powr_id")
-    private Integer powrId;
+    private Integer powerId;
 
 
 }

@@ -3,6 +3,7 @@ package com.ddu.goushushenpixitong.controller;
 import com.ddu.goushushenpixitong.entity.Laboratory;
 import com.ddu.goushushenpixitong.service.ApprovalService;
 import com.ddu.goushushenpixitong.service.LaboratoryService;
+import com.ddu.goushushenpixitong.service.SubjectService;
 import com.ddu.goushushenpixitong.util.CommonResult;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -27,6 +28,8 @@ public class LaboratoryController {
     @Autowired
     private ApprovalService approvalService;
 
+    @Autowired
+    private SubjectService subjectService;
     /**
      * 分页获取教研室审核条目
      *
@@ -35,7 +38,9 @@ public class LaboratoryController {
      * @return
      */
     @GetMapping("/list")
-    public CommonResult list(@RequestParam("currentPage") Integer currentPage, @RequestParam("pageSize") Integer pageSize) {
+    @RequiresPermissions(logical = Logical.OR,value = {"laboratory_query","root"})
+    public CommonResult list(@RequestParam(name = "currentPage",defaultValue = "1") Integer currentPage,
+                             @RequestParam(name = "pageSize",defaultValue = "10") Integer pageSize) {
         return CommonResult.success(laboratoryService.findLaboratoryByPage(currentPage, pageSize));
     }
 
@@ -46,6 +51,7 @@ public class LaboratoryController {
      * @return
      */
     @GetMapping
+    @RequiresPermissions(logical = Logical.OR,value = {"laboratory_query","root"})
     public CommonResult getOne(@RequestParam("id") Integer id) {
         return CommonResult.success(laboratoryService.findById(id));
     }
@@ -57,6 +63,7 @@ public class LaboratoryController {
      * @return
      */
     @GetMapping("/opinions")
+    @RequiresPermissions(logical = Logical.OR,value = {"approval_query","root"})
     public CommonResult showOpinion(@RequestParam("subjectId") Integer subjectId) {
         return CommonResult.success(approvalService.findLaboratoryOpinions(subjectId));
     }
@@ -68,6 +75,7 @@ public class LaboratoryController {
      * @return
      */
     @PostMapping
+    @RequiresPermissions(logical = Logical.OR,value = {"laboratory_add","root"})
     public CommonResult register(Laboratory laboratory) {
         return CommonResult.expect(laboratoryService.add(laboratory));
     }
@@ -80,8 +88,10 @@ public class LaboratoryController {
      * @return
      */
     @PostMapping("/opinions")
+    @RequiresPermissions(logical = Logical.OR,value = {"approval_add","root"})
     public CommonResult submitOpinion(@RequestParam("subjectId") Integer subjectId, @RequestBody String jsonString) {
-        return CommonResult.expect(approvalService.addLaboratoryOpinions(subjectId, jsonString));
+        if(subjectService.findById(subjectId) == null) return CommonResult.failure("当前课程用书不存在");
+        return approvalService.addLaboratoryOpinions(subjectId, jsonString);
     }
 
     /**
@@ -91,6 +101,7 @@ public class LaboratoryController {
      * @return
      */
     @PutMapping
+    @RequiresPermissions(logical = Logical.OR,value = {"laboratory_update","root"})
     public CommonResult amend(@Valid Laboratory laboratory) {
         if (laboratory.getId() == null) {
             return CommonResult.failure("id不能为空");
@@ -104,7 +115,7 @@ public class LaboratoryController {
      * @param id
      * @return
      */
-    @RequiresRoles("管理员")
+    @RequiresPermissions("root")
     @DeleteMapping
     public CommonResult delete(@RequestParam("id") Integer id) {
         return CommonResult.expect(laboratoryService.remove(id));

@@ -21,7 +21,7 @@ public class Power {
      * 权限名
      */
     @Column(name = "powerName")
-    private String powername;
+    private String powerName;
 
     /**
      * 备注

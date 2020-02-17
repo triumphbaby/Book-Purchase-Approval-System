@@ -3,6 +3,8 @@ package com.ddu.goushushenpixitong.controller;
 import com.ddu.goushushenpixitong.entity.Term;
 import com.ddu.goushushenpixitong.service.TermService;
 import com.ddu.goushushenpixitong.util.CommonResult;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,8 +30,10 @@ public class TermController {
      * @param pageSize    每页显示的总记录数
      * @return
      */
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
     @GetMapping("/list")
-    public CommonResult list(@RequestParam("currentPage") Integer currentPage, @RequestParam("pageSize") Integer pageSize) {
+    public CommonResult list(@RequestParam(name = "currentPage",defaultValue = "1") Integer currentPage,
+                             @RequestParam(name = "pageSize",defaultValue = "10") Integer pageSize) {
         return CommonResult.success(termService.findTermByPage(currentPage, pageSize));
     }
 
@@ -39,6 +43,7 @@ public class TermController {
      * @param id
      * @return
      */
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
     @GetMapping
     public CommonResult getOne(@RequestParam("id") Integer id) {
         return CommonResult.success(termService.findById(id));
@@ -50,6 +55,7 @@ public class TermController {
      * @param term
      * @return
      */
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
     @PostMapping
     public CommonResult register(Term term) {
         return CommonResult.expect(termService.add(term));
@@ -61,6 +67,7 @@ public class TermController {
      * @param term
      * @return
      */
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
     @PutMapping
     public CommonResult amend(@Valid Term term) {
         if (term.getId() == null) {
@@ -75,6 +82,7 @@ public class TermController {
      * @param id
      * @return
      */
+    @RequiresPermissions("root")
     @DeleteMapping
     public CommonResult delete(@RequestParam("id") Integer id) {
         return CommonResult.expect(termService.remove(id));

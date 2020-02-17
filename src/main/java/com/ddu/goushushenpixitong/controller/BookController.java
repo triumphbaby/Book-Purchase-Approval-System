@@ -4,6 +4,7 @@ import com.ddu.goushushenpixitong.entity.Book;
 import com.ddu.goushushenpixitong.service.BookService;
 import com.ddu.goushushenpixitong.util.CommonResult;
 import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/book")
+@RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人", "教研室主任"})
 public class BookController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -28,9 +30,11 @@ public class BookController {
      * @param pageSize    每页显示的总记录数
      * @return
      */
-    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人", "教研室主任"})
+
+    @RequiresPermissions(logical = Logical.OR,value = {"book_query","root"})
     @GetMapping("/list")
-    public CommonResult list(@RequestParam("currentPage") Integer currentPage, @RequestParam("pageSize") Integer pageSize) {
+    public CommonResult list(@RequestParam(name = "currentPage",defaultValue = "1") Integer currentPage,
+                             @RequestParam(name = "pageSize",defaultValue = "10") Integer pageSize) {
         return CommonResult.success(bookService.findBooksByPage(currentPage, pageSize));
     }
 
@@ -40,20 +44,20 @@ public class BookController {
      * @param id
      * @return
      */
-    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人", "教研室主任"})
+    @RequiresPermissions(logical = Logical.OR,value = {"book_query","root"})
     @GetMapping
     public CommonResult getOne(@RequestParam("id") String id) {
         return CommonResult.success(bookService.findById(id));
     }
 
     /**
-     * 模糊查询获取书本
-     * @param like  模糊查询条件
+     * 根据书本名模糊查询获取书本
+     * @param like  模糊书本名
      * @return
      */
-    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人", "教研室主任"})
+    @RequiresPermissions(logical = Logical.OR,value = {"book_query","root"})
     @GetMapping("/like")
-    public CommonResult getByLike(@RequestParam("Like") String like) {
+        public CommonResult getByLike(@RequestParam("bookName") String like) {
         return CommonResult.success(bookService.findBookByLike(like));
     }
 
@@ -63,7 +67,7 @@ public class BookController {
      * @param book
      * @return
      */
-    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人"})
+    @RequiresPermissions(logical = Logical.OR,value = {"book_add","root"})
     @PostMapping
     public CommonResult register(Book book) {
         return CommonResult.expect(bookService.add(book));
@@ -75,7 +79,7 @@ public class BookController {
      * @param book
      * @return
      */
-    @RequiresRoles(logical = Logical.OR, value = {"管理员", "课程负责人"})
+    @RequiresPermissions(logical = Logical.OR,value = {"book_update","root"})
     @PutMapping
     public CommonResult amend(@Valid Book book) {
         if (book.getId() == null) {
@@ -90,7 +94,7 @@ public class BookController {
      * @param id
      * @return
      */
-    @RequiresRoles("管理员")
+    @RequiresPermissions("root")
     @DeleteMapping
     public CommonResult delete(@RequestParam("id") String id) {
         return CommonResult.expect(bookService.remove(id));

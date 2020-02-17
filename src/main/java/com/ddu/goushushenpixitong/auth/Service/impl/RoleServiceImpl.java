@@ -1,9 +1,11 @@
 package com.ddu.goushushenpixitong.auth.Service.impl;
 
 import com.ddu.goushushenpixitong.auth.Service.RoleService;
+import com.ddu.goushushenpixitong.auth.dao.AuthDAO;
 import com.ddu.goushushenpixitong.auth.entity.Role;
+import com.ddu.goushushenpixitong.auth.entity.Staff_Role;
 import com.ddu.goushushenpixitong.auth.mapper.RoleMapper;
-import com.ddu.goushushenpixitong.entity.Staff;
+import com.ddu.goushushenpixitong.auth.mapper.Staff_RoleMapper;
 import com.ddu.goushushenpixitong.mapper.StaffMapper;
 import com.ddu.goushushenpixitong.util.PageBean;
 import com.github.pagehelper.PageHelper;
@@ -24,8 +26,6 @@ public class RoleServiceImpl implements RoleService {
     @Autowired
     private RoleMapper roleMapper;
 
-    @Autowired
-    private StaffMapper staffMapper;
 
     @Override
     public Boolean add(Role role) {
@@ -33,37 +33,25 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Boolean remove(String id) {
-        return roleMapper.deleteByPrimaryKey(id) == SUCCESS;
+    public Boolean remove(int roleId) {
+        return roleMapper.deleteByPrimaryKey(roleId) == SUCCESS;
     }
 
     @Override
-    public Boolean modify(Role role) {
+    public Boolean updateRole(Role role) {
         return roleMapper.updateByPrimaryKey(role) == SUCCESS;
     }
 
 
     @Override
-    public List<Role> findRoleByPage(int currentPage, int pageSize) {
-        PageHelper.startPage(currentPage, pageSize);
-
-        //获取所有人员
-        List<Staff> staffs = staffMapper.selectAll();
-        Integer countNums = staffs.size();
-        //查询每个人员的角色
-        for (Staff s:staffs) {
-        }
-
-        List<Role> allRoles = roleMapper.selectAll();
-
-
-        PageBean<Role> pageData = new PageBean<>(currentPage, pageSize, countNums);
-        pageData.setItems(allRoles);
-        return pageData.getItems();
+    public List<Role> findAllRole(int currentPage, int pageSize) {
+        return roleMapper.selectAll();
     }
 
     @Override
-    public List<Role> findById(int id) {
-        return roleMapper.select(new Role(id, null, null));
+    public Role findRoleByRoleId(int roleId) {
+        return roleMapper.selectByPrimaryKey(roleId);
     }
+
+
 }

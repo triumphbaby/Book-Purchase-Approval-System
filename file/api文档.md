@@ -35,132 +35,159 @@
 ## 目录：
 
 #### 一、学期
-[1、查询所有学期信息](#1查询所有学期信息)<br/>
-[2、查询学期单条记录](#2查询学期单条记录)<br/>
-[3、添加学期记录](#3添加学期记录)<br/>
-[4、更新学期记录](#4更新学期记录)<br/>
-[5、删除学期记录](#5删除学期记录)<br/>
+[查询所有学期信息](#查询所有学期信息)<br/>
+[查询学期单条记录](#查询学期单条记录)<br/>
+[添加学期记录](#添加学期记录)<br/>
+[更新学期记录](#更新学期记录)<br/>
+[删除学期记录](#删除学期记录)<br/>
 
 #### 二、开课教学单位审核
-[6、分页获取开课教学单位审核条目](#6分页获取开课教学单位审核条目)<br/>
-[7、获取单条审核条目记录](#7获取单条审核条目记录)<br/>
-[8、添加开课教学单位审核结果](#8添加开课教学单位审核结果)<br/>
-[9、获取科研室审核结果](#9获取科研室审核结果)<br/>
-[10、添加审核条目](#10添加审核条目)<br/>
-[11、更新条目信息](#11更新条目信息)<br/>
-[12、删除条目信息](#12更新条目信息)<br/>
+[分页获取开课教学单位审核条目](#分页获取开课教学单位审核条目)<br/>
+[获取单条审核条目记录](#获取单条审核条目记录)<br/>
+[添加开课教学单位审核结果](#添加开课教学单位审核结果)<br/>
+[获取科研室审核结果](#获取科研室审核结果)<br/>
+[添加审核条目](#添加审核条目)<br/>
+[更新条目信息](#更新条目信息)<br/>
+[删除条目信息](#更新条目信息)<br/>
 
 #### 三、课程
-[13、查询所有课程信息](#13查询所有课程信息)<br/>
-[14、查询单条记录](#14查询单条记录)<br/>
-[15、添加](#15添加)<br/>
-[16、更新](#16更新)<br/>
-[17、删除](#17删除)<br/>
+[查询所有课程信息](#查询所有课程信息)<br/>
+[查询单条记录](#查询单条记录)<br/>
+[添加](#添加)<br/>
+[更新](#更新)<br/>
+[删除](#删除)<br/>
 
 #### 四、课程用书
-[18、查询所有课程用书信息](#18查询所有课程用书信息)<br/>
-[19、查询单条记录](#19查询单条记录)<br/>
-[20、添加](#20添加)<br/>
-[21、更新](#21更新)<br/>
-[22、删除](#22删除)<br/>
+[查询所有课程用书信息](#查询所有课程用书信息)<br/>
+[查询单条记录](#查询单条记录)<br/>
+[添加](#添加)<br/>
+[更新](#更新)<br/>
+[删除](#删除)<br/>
+
 #### 五、书本
-[23、查询所有书本记录](#23查询所有书本记录)<br/>
-[24、查询单条记录](#24查询单条记录)<br/>
-
-[23.5 模糊搜索书本](#23.5 模糊搜索书本)<br/>
-
-[25、添加书本记录](#25添加书本记录)<br/>
-[26、更新](#26更新)<br/>
-[27、删除](#27删除)<br/>
+[查询所有书本记录](#查询所有书本记录)<br/>
+[查询单条记录](#查询单条记录)<br/>
+[ 模糊搜索书本](# 模糊搜索书本)<br/>
+[添加书本记录](#添加书本记录)<br/>
+[更新](#更新)<br/>
+[删除](#删除)<br/>
 
 #### 六、教务处审核
-[28、分页获取教务处审核条目](#28分页获取教务处审核条目)<br/>
-[29、获取单条审核条目记录](#29获取单条审核条目记录)<br/>
-[30、获取科研室审核结果](#30获取科研室审核结果)<br/>
-[31、添加审核条目](#31添加审核条目)<br/>
-[32、添加教务处审核结果](#32添加教务处审核结果)<br/>
-[33、更新条目信息](#33更新条目信息)<br/>
-[34、删除条目](#34删除条目)<br/>
+[分页获取教务处审核条目](#分页获取教务处审核条目)<br/>
+[获取单条审核条目记录](#获取单条审核条目记录)<br/>
+[获取科研室审核结果](#获取科研室审核结果)<br/>
+[添加审核条目](#添加审核条目)<br/>
+[添加教务处审核结果](#添加教务处审核结果)<br/>
+[更新条目信息](#更新条目信息)<br/>
+[删除条目](#删除条目)<br/>
 
 #### 七、学院
-[35、分页查询学院列表](#35分页查询学院列表)<br/>
-[36、通过编号查询学院](#36通过编号查询学院)<br/>
-[37、注册学院](#37注册学院)<br/>
-[38、修改学院信息](#38修改学院信息)<br/>
-[39、删除学院](#39删除学院)<br/>
+[分页查询学院列表](#分页查询学院列表)<br/>
+[通过编号查询学院](#通过编号查询学院)<br/>
+[注册学院](#注册学院)<br/>
+[修改学院信息](#修改学院信息)<br/>
+[删除学院](#删除学院)<br/>
 #### 八、教研室审核
-[40、分页获取教研室审核条目](#40分页获取教研室审核条目)<br/>
-[41、获取单条审核条目记录](#41获取单条审核条目记录)<br/>
-[42、获取科研室审核结果](#42获取科研室审核结果)<br/>
-[43、添加审核条目](#43添加审核条目)<br/>
-[44、添加教研室审核结果](#44添加教研室审核结果)<br/>
-[45、更新条目信息](#45更新条目信息)<br/>
-[46、删除条目](#46删除条目)<br/>
+[分页获取教研室审核条目](#分页获取教研室审核条目)<br/>
+[获取单条审核条目记录](#获取单条审核条目记录)<br/>
+[获取科研室审核结果](#获取科研室审核结果)<br/>
+[添加审核条目](#添加审核条目)<br/>
+[添加教研室审核结果](#添加教研室审核结果)<br/>
+[更新条目信息](#更新条目信息)<br/>
+[删除条目](#删除条目)<br/>
 
 #### 九、书本等级
-[47、分页查询等级记录](#47注册学院)<br/>
-[48、通过id获取单条记录](#48注册学院)<br/>
-[49、添加](#49注册学院)<br/>
-[50、修改](#50修改)<br/>
-[51、删除](#51删除)<br/>
+[分页查询等级记录](#注册学院)<br/>
+[通过id获取单条记录](#注册学院)<br/>
+[添加](#注册学院)<br/>
+[修改](#修改)<br/>
+[删除](#删除)<br/>
 #### 十、专业
-[52、分页查询专业记录](#52分页查询专业记录)<br/>
-[53、查询单条专业记录](#53查询单条专业记录)<br/>
-[54、添加专业](#54添加专业)<br/>
-[55、更新记录](#55更新记录)<br/>
-[56、删除专业](#56删除专业)<br/>
+[分页查询专业记录](#分页查询专业记录)<br/>
+[查询单条专业记录](#查询单条专业记录)<br/>
+[添加专业](#添加专业)<br/>
+[更新记录](#更新记录)<br/>
+[删除专业](#删除专业)<br/>
 
 #### 十一、角色
-[57、查询所有人员的角色信息](#57查询所有人员的角色信息)<br/>
-[58、查询某个工号的所有角色信息](#58查询某个工号的所有角色信息)<br/>
-[59、添加角色记录](#59添加角色记录)<br/>
-[60、更新信息](#60更新信息)<br/>[61、删除角色](#61删除角色)<br/>
+[查询所有角色](#查询所有角色)<br/>
+[查询某个角色信息](#查询某个角色信息])<br/>
+[添加角色](#添加角色)<br/>
+[修改角色信息](#修改角色信息)<br/>
+[删除角色](#删除角色)<br/>
+
+[查询所有人员的角色信息](#查询所有人员的角色信息)<br/>
+[查询某个工号的所有角色信息](#查询某个工号的所有角色信息)<br/>
+[删除某个人员的角色](#删除某个人员的角色)<br/>
+[为某个成员添加角色](#为某个成员添加角色)<br/>
+
+
+
+#### 十二、权限
+
+[查询所有权限](#查询所有权限)<br/>
+[查询某个权限信息](#查询某个权限信息)<br/>
+[添加权限](#添加权限)<br/>
+[修改权限信息](#修改权限信息)<br/>
+[删除权限](#删除权限)<br/>
+[查询所有人员的权限信息](#查询所有人员的权限信息)<br/>
+[查询某个工号的所有权限信息](#查询某个工号的所有权限信息)<br/>
+[为某个角色添加权限](#为某个角色添加权限)<br/>
+[删除某个角色的权限](#删除某个角色的权限)<br/>
+
+
 
 #### 十二、人员
-[62、查询所有人员信息](#62查询所有人员信息)<br/>
-[63、查询单条记录](#63查询单条记录)<br/>
-[64、添加人员](#64添加人员)<br/>
-[65、更新信息](#65更新信息)<br/>
-[66、删除人员](#66删除人员)<br/>
+[查询所有人员信息](#查询所有人员信息)<br/>
+[查询单条记录](#查询单条记录)<br/>
+[添加人员](#添加人员)<br/>
+[更新信息](#更新信息)<br/>
+[删除人员](#删除人员)<br/>
 
 #### 十三 、登陆
 
-[67、登陆](#67登陆)<br/>
-
-[68、退出登陆](#68退出登陆)<br/>
+[登陆](#登陆)<br/>
+[退出登陆](#退出登陆)<br/>
 
 #### 十三 、文件 操作
+[导出教材征订计划表](#导出教材征订计划表)<br/>
+[导入教材征订计划表数据](#导入教材征订计划表数据（添加course）)<br/>
+[导出教材征订计划表](#导出教材征订计划表)<br/>
+[导入教材征订计划表](#导入教职工信息表数据（添加staff）)<br/>
 
 
+## 学期
 
-[69、导出教材征订计划表](#69导出教材征订计划表)<br/>
+### 查询所有学期信息
 
-[70、导入教材征订计划表数据](#70导入教材征订计划表数据（添加course）)<br/>
-
-[71、导出教材征订计划表](#71导出教材征订计划表)<br/>
-
-[72、导入教材征订计划表](#72、导入教职工信息表数据（添加staff）)<br/>
-
-### 1、查询所有学期信息
-
-#### 角色：
+**角色：**
 
 ~~~
 管理员
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+请求URL：**
+~~~
 	http://localhost:8624/goushushenpixitong/term/list
-
-#### 请求方式：
-	GET
-
-#### 参数类型：
-	|参数		|是否必选    |类型    |说明
-	|currentPage    |Y          |int     |当前页数
-	|pageSize       |Y          |int     |每页显示的总记录数
-#### 返回示例：
-
+~~~
+**请求方式：**
+~~~
+GET
+~~~
+**参数类型：**
+~~~
+	|参数			 |是否必选    |类型    |说明
+	|currentPage    |N          |int     |当前页数(默认为1)
+	|pageSize       |N          |int     |每页显示的总记录数(默认为10)
+~~~
+**返回示例：**
+~~~
 	{
 	    "code": 200,
 	    "success": true,
@@ -173,25 +200,34 @@
 	        }
 	    ]
 	}
+~~~
+### 查询学期单条记录
 
-### 2、查询学期单条记录
-
-#### 角色：
+**角色：**
 
 ~~~
 管理员
 ~~~
+**Header：**
 
-#### 请求URL：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+**请求URL：**
+~~~
 	http://localhost:8624/goushushenpixitong/term
-
-#### 请求方式：
+~~~
+**请求方式：**
+~~~
 	GET
-
-#### 参数类型：
+~~~
+**参数类型：**
+~~~
 	|参数     |是否必选    |类型    |说明
 	|id       |Y          |int     |学期ID
-#### 返回示例：
+~~~
+**返回示例：**
+~~~
 	{
 	    "code": 200,
 	    "success": true,
@@ -202,108 +238,143 @@
 	        "remarks": ""
 	    }
 	}
+~~~
+### 添加学期记录
 
-### 3、添加学期记录
-
-#### 角色：
+**角色：**
 
 ~~~
 管理员
 ~~~
+**Header：**
 
-#### 请求URL：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+**请求URL：**
+~~~
 	http://localhost:8624/goushushenpixitong/term
-
-#### 请求方式：
+~~~
+**请求方式：**
+~~~
 	POST
-
-#### 参数类型：
+~~~
+**参数类型：**
+~~~
 	|参数     |是否必选  |类型     |说明|
 	|id       |Y        |int      |学期ID|
 	|name     |Y        |string   |学期名称|
 	|remarks  |N        |string   |备注|
-#### 返回示例：
-
+~~~
+**返回示例：**
+~~~
 	{
 	    "code": 200,
 	    "success": true,
 	    "message": "请求成功",
 	    "data": null
 	}
+~~~
+### 更新学期记录
 
-### 4、更新学期记录
-
-#### 角色：
+**角色：**
 
 ~~~
 管理员
 ~~~
+**Header：**
 
-#### 请求URL：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+**请求URL：**
+~~~
 	http://localhost:8624/goushushenpixitong/term
-
-#### 请求方式：
+~~~
+**请求方式：**
+~~~
     PUT
-
-#### 参数类型：query
+~~~
+**参数类型：**
+~~~
 	|参数     |是否必选  |类型     |说明|
 	|id       |Y        |int      |学期ID|
 	|name     |Y        |string   |学期名称|
 	|remarks  |N        |string   |备注|
-#### 返回示例：
+~~~
+**返回示例：**
+~~~
 	{
 	    "code": 200,
 	    "success": true,
 	    "message": "请求成功",
 	    "data": null
 	}
+~~~
+### 删除学期记录
 
-### 5、删除学期记录
-
-#### 角色：
+**角色：**
 
 ~~~
 管理员
 ~~~
+**Header：**
 
-#### 请求URL：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+**请求URL：**
+~~~
 	http://localhost:8624/goushushenpixitong/term
-
-#### 请求方式：
+~~~
+**请求方式：**
+~~~
 	DELETE	
-
-#### 参数类型：
+~~~
+**参数类型：**
+~~~
 	|参数     |是否必选    |类型    |说明
 	|id       |Y          |int     |学期ID   
-#### 返回示例：
-
+~~~
+**返回示例：**
+~~~
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
+~~~
+## 开课教学单位审核
 
-### 6、分页获取开课教学单位审核条目
+### 分页获取开课教学单位审核条目
 
-#### 角色：
+**角色：**
 
 ~~~
 管理员 教研室主任
 ~~~
+**Header：**
 
-#### 请求URL：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+**请求URL：**
+~~~
 	http://localhost:8624/goushushenpixitong/teachingunit/list
-
-#### 请求方式：
+~~~
+**请求方式：**
+~~~
 	GET
-
-#### 参数类型:
-	|参数	        |是否必选    |类型    |说明
-	|currentPage    |Y          |int     |当前页数
-	|pageSize       |Y          |int     |每页显示的总记录数
-#### 返回示例：
-
+~~~
+**参数类型:**
+~~~
+	|参数	          |是否必选    |类型    |说明
+	|currentPage    |N          |int     |当前页数(默认为1)
+	|pageSize       |N          |int     |每页显示的总记录数(默认为10)
+~~~
+**返回示例：**
+~~~
     {
         "code": 200,
         "success": true,
@@ -321,27 +392,34 @@
             }
         ]
     }
+~~~
+### 获取单条审核条目记录
 
-### 7、获取单条审核条目记录
-
-#### 角色：
+**角色：**
 
 ~~~
 管理员 教研室主任
 ~~~
+**Header：**
 
-#### 请求URL：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+**请求URL：**
+~~~
 	http://localhost:8624/goushushenpixitong/teachingunit
-
-#### 请求方式：
+~~~
+**请求方式：**
+~~~
 	GET
-
-#### 参数类型:
-
+~~~
+**参数类型:**
+~~~
 	|参数     |是否必选   |类型     |说明
 	|id       |Y         |int      |ID
-
-#### 返回示例：
+~~~
+**返回示例：**
+~~~
     {
         "code": 200,
         "success": true,
@@ -352,65 +430,84 @@
             "remarks": ""
         }
     }
+~~~
+### 添加开课教学单位审核结果
+**角色：**
 
-### 8、添加开课教学单位审核结果
+~~~
+管理员 教研室主任
+~~~
+**Header：**
 
-#### 请求URL：
-
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+**请求URL：**
+~~~
 	http://localhost:8624/goushushenpixitong/teachingunit/opinions
+~~~
+**请求方式：**
 
-#### 请求方式：
-
+~~~
 	POST
-
-#### 参数类型:
-
+~~~
+**参数类型:**
+~~~
 	|参数	       |是否必选 |类型     |说明
 	|subjectId  |Y       |int      |ID
 	|josnStr  	|Y		 |String   |
-	json格式:
+	json格式:（开课教学单位结果规定为1个）
 	[
 	   {
 	      "id":1,
 	      "opinion":"yes"
-	    },
-	    {
-	      "id":2,
-	      "opinion":"yes"
-	    },
-	    {
-	      "id":3,
-	      "opinion":"yes"
 	    }
 	]
-
-#### 返回示例：
-
+~~~
+**返回示例：**
+~~~
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
+    
+    {
+        "code": 10000,
+        "success": false,
+        "message": "开课教学单位结果规定为1个",
+        "data": null
+	}
+~~~
+### 获取科研室审核结果
 
-### 9、获取科研室审核结果
+**角色：**
 
+~~~
+管理员 教研室主任
+~~~
+**Header：**
 
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-#### 请求URL：
+**请求URL：**
+~~~
 	http://localhost:8624/goushushenpixitong/teachingunit/opinions
-
-#### 请求方式：
-
+~~~
+**请求方式：**
+~~~
 	GET
-
-#### 参数类型:
-
+~~~
+**参数类型:**
+~~~
 	|参数	       |是否必选 |类型     |说明
 	|subjectId  |Y       |int      |ID
-
-#### 返回示例：
-
+~~~
+**返回示例：**
+~~~
     {
         "code": 200,
         "success": true,
@@ -434,105 +531,179 @@
             }
         ]
     }
+~~~
+### 添加审核条目
 
-### 10、添加审核条目
-
-#### 角色：
+**角色：**
 
 ~~~
 管理员 教研室主任
 ~~~
+**Header：**
 
-#### 请求URL：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+**请求URL：**
+
+~~~
 	http://localhost:8624/goushushenpixitong/teachingunit
-
-#### 请求方式：
+~~~
+**请求方式：**
+~~~
 	POST
-#### 参数类型:
+~~~
+**参数类型:**
+~~~
 	|参数       |是否必选 |类型     |说明
 	|id         |Y       |int      |ID
 	|content    |Y       |string   |内容
 	|remarks    |N       |string   |备注
-
-#### 返回示例：
+~~~
+**返回示例：**
+~~~
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
+~~~
+### 更新条目信息
 
-### 11、更新条目信息
-
-#### 角色：
+**角色：**
 
 ~~~
 管理员 教研室主任
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/teachingunit
+**Header：**
 
-#### 请求方式：
-    PUT
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-#### 参数类型:
-    |参数	    |是否必选 |类型     |说明
+**请求URL：**
+
+```
+  http://localhost:8624/goushushenpixitong/teachingunit
+```
+
+**请求方式：**
+
+```
+PUT
+```
+
+**参数类型:**
+    
+
+```
+|参数	    |是否必选 |类型     |说明
     |id         |Y       |int      |ID
     |content    |Y       |string   |内容
     |remarks    |N       |string   |备注
+```
 
-#### 返回示例：
-    {
+**返回示例：**
+
+```
+ {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
-### 12、删除条目信息
+```
 
-#### 角色：
+
+
+### 删除条目信息
+
+**角色：**
 
 ~~~
 管理员 
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/teachingunit
+**Header：**
 
-#### 请求方式：
-    DELETE
-#### 参数类型:
-    |参数	    |是否必选 |类型     |说明
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+    
+
+```
+http://localhost:8624/goushushenpixitong/teachingunit
+```
+
+**请求方式：**
+    
+
+```
+DELETE
+```
+
+**参数类型:**
+
+```
+ 	|参数	      |是否必选 |类型     |说明
     |id         |Y       |int      |ID
+```
 
-#### 返回示例：
-    {
+**返回示例：**
+
+```
+   {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
+```
 
-### 13、查询所有课程信息
 
-#### 角色：
+
+## 课程
+
+### 查询所有课程信息
+
+**角色：**
 
 ~~~
 管理员 课程负责人 教研室主任
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
     http://localhost:8624/goushushenpixitong/course/list
+```
 
-#### 请求方式：
+**请求方式：**
+
+```
     GET
+```
 
-#### 参数类型:
-	|参数		|是否必选    |类型    |说明
-	|currentPage    |Y          |int     |当前页数
-	|pageSize       |Y          |int     |每页显示的总记录数
-#### 返回示例：
+**参数类型:**
+	
+
+```
+	|参数			 |是否必选    |类型    |说明
+	|currentPage    |N          |int     |当前页数(默认为1)
+	|pageSize       |N          |int     |每页显示的总记录数(默认为10)
+```
+
+**返回示例：**
 
     {
         "code": 200,
@@ -566,25 +737,44 @@
         ]
     }
 
-### 14、查询单条记录
+### 根据课程id和学期id查询单条记录
 
-#### 角色：
+**角色：**
 
 ~~~
 管理员 课程负责人 教研室主任
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/course
+**Header：**
 
-#### 请求方式：
-    GET
-#### 参数类型:
-    |参数	    |是否必选  |类型     |说明
-    |id         |Y        |int      |ID
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+http://localhost:8624/goushushenpixitong/course/idAndTerm
+```
+
+**请求方式：**
+
+```
+ GET
+```
+
+**参数类型:**
+
+```
+    |参数	    |是否必选  |类型       |说明
+    |id         |Y        |String   |课程ID
     |termId     |Y        |int      |学期ID
-#### 返回示例：
-    {
+```
+
+**返回示例：**
+
+```
+ {
         "code": 200,
         "success": true,
         "message": "请求成功",
@@ -601,22 +791,95 @@
             "remarks": ""
         }
     }
+```
 
-### 15、添加
+### 查询课程单条记录
 
-#### 角色：
+**角色：**
+
+~~~
+管理员 课程负责人 教研室主任
+~~~
+
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+localhost:8624/goushushenpixitong/course
+```
+
+**请求方式：**
+
+```
+ GET
+```
+
+**参数类型:**
+
+```
+    |参数	    |是否必选  |类型       |说明
+    |id         |Y      |String   |课程ID
+```
+
+**返回示例：**
+
+```
+{
+    "code": 200,
+    "success": true,
+    "message": "请求成功",
+    "data": {
+        "id": "1002",
+        "termId": 1,
+        "name": "游戏智能",
+        "period": 48,
+        "credit": 3,
+        "usableRange": "数字媒体技术_14_1-2",
+        "studentNum": 50,
+        "teacherNum": 2,
+        "principalId": "1001",
+        "remarks": "空"
+    }
+}
+```
+
+
+
+### 添加
+
+**角色：**
 
 ~~~
 管理员 课程负责人 
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/course
+**Header：**
 
-#### 请求方式：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+   http://localhost:8624/goushushenpixitong/course
+```
+
+**请求方式：**
+
+```
     POST
-#### 参数类型:
-    |参数	      |是否必选 |类型      |说明
+```
+
+**参数类型:**
+
+```
+   |参数	      |是否必选 |类型      |说明
     |id           |Y       |String    |课程编号
     |termId       |Y       |int       |学期编号
     |name         |Y       |String    |课程名称
@@ -627,30 +890,52 @@
     |teacherNum   |Y       |int       |老师领用量
     |principalId  |Y       |String    |负责人工号
     |remarks      |N       |String    |备注
+```
 
-#### 返回示例：
-    {
+**返回示例：**
+    
+
+```
+{
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     } 
+```
 
-### 16、更新
 
-#### 角色：
+
+### 更新
+
+**角色：**
 
 ~~~
 管理员 课程负责人 
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/course
+**Header：**
 
-#### 请求方式：
-    PUT
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-#### 参数类型:
+**请求URL：**
+
+```
+ http://localhost:8624/goushushenpixitong/course
+```
+
+**请求方式：**
+    
+
+```
+PUT
+```
+
+**参数类型:**
+
+```
     |参数         |是否必选 |类型      |说明
     |id           |Y       |String    |课程编号
     |termId       |Y       |int       |学期编号
@@ -662,32 +947,55 @@
     |teacherNum   |Y       |int       |老师领用量
     |principalId  |Y       |String    |负责人工号
     |remarks      |N       |String    |备注
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     } 
-### 17、删除
+```
 
-#### 角色：
+
+
+### 删除
+
+**角色：**
 
 ~~~
 管理员
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/course
+**Header：**
 
-#### 请求方式：
-    DELETE
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-#### 参数类型:
+**请求URL：**
+
+```
+   http://localhost:8624/goushushenpixitong/course
+```
+
+**请求方式：**
+
+```
+  DELETE
+```
+
+**参数类型:**
+
+```
     |参数	    |是否必选 |类型     |说明
     |id         |Y       |int      |ID
-#### 返回示例：
+```
+
+**返回示例：**
 
     {
         "code": 200,
@@ -695,61 +1003,270 @@
         "message": "请求成功",
         "data": null
     } 
-### 18、查询所有课程用书信息
+## 课程用书
 
-#### 角色：
+### 查询所有的课程用书信息
+
+**角色：**
 
 ~~~
 管理员 课程负责人 教研室主任
 ~~~
 
+**请求URL：**
+
+```
+    http://localhost:8624/goushushenpixitong/subject/allList
+```
+
+**请求方式：**
+
+```
+    GET
+```
+
+**参数类型:**
+
+```
+	|参数		      |是否必选    |类型    |说明
+	|currentPage    |N          |int     |当前页数(默认为1)
+	|pageSize       |N          |int     |每页显示的总记录数(默认为10)
+```
+
+**返回示例：**
+
+```
+{
+    "code": 200,
+    "success": true,
+    "message": "请求成功",
+    "data": [
+        {
+            "id": 1,
+            "courseId": "2",
+            "termId": 1,
+            "bookId": "20180706",
+            "remarks": "required",
+            "instituteId": "XX1052"
+        },
+        {
+            "id": 2,
+            "courseId": "8a632075",
+            "termId": 1,
+            "bookId": "20191005",
+            "remarks": null,
+            "instituteId": "HK1011"
+        },
+        {
+            "id": 3,
+            "courseId": "2",
+            "termId": 1,
+            "bookId": "20191005",
+            "remarks": "",
+            "instituteId": "YS1025"
+        }
+    ]
+}
+```
 
 
-#### 请求URL：
+
+
+
+### 通过书名，学期名，课程名模糊查询课程用书
+
+**角色：**
+
+~~~
+管理员 课程负责人 教研室主任
+~~~
+
+**请求URL：**
+
+```
+    http://localhost:8624/goushushenpixitong/subject/fuzzySearch
+```
+
+**请求方式：**
+
+```
+    GET
+```
+
+**参数类型:**
+
+```
+	|参数		      |是否必选    |类型    |说明
+	|currentPage    |N          |int     |当前页数(默认为1)
+	|pageSize       |N          |int     |每页显示的总记录数(默认为10)
+	|bookName	    |N		   |String  |书名
+	|termName	    |N		   |String  |学期名
+	|courseName	    |N		   |String  |课程名
+	（三个值都不填或为空 就默认返回所有课程用书（Books））
+```
+
+**返回示例：**
+
+```
+{
+    "code": 200,
+    "success": true,
+    "message": "请求成功",
+    "data": [
+        {
+            "id": "20180706",
+            "name": "Python编程入门",
+            "author": "叶维忠",
+            "publisher": "人民邮电出版社",
+            "publishDate": "2014年7月",
+            "edition": 2,
+            "nation": "中国",
+            "type": 1,
+            "purpose": 1,
+            "levelId": 2,
+            "price": 56,
+            "renew": true,
+            "remarks": null
+        },
+        {
+            "id": "20191005",
+            "name": "计算机算法设计与分析",
+            "author": "王晓东",
+            "publisher": "电子工业出版社",
+            "publishDate": "2012年2月",
+            "edition": 4,
+            "nation": "中国",
+            "type": null,
+            "purpose": null,
+            "levelId": 2,
+            "price": 38,
+            "renew": true,
+            "remarks": "教材知识新颖"
+        },
+        {
+            "id": "20191005",
+            "name": "计算机算法设计与分析",
+            "author": "王晓东",
+            "publisher": "电子工业出版社",
+            "publishDate": "2012年2月",
+            "edition": 4,
+            "nation": "中国",
+            "type": null,
+            "purpose": null,
+            "levelId": 2,
+            "price": 38,
+            "renew": true,
+            "remarks": "教材知识新颖"
+        },
+        {
+            "id": "20191005",
+            "name": "计算机算法设计与分析",
+            "author": "王晓东",
+            "publisher": "电子工业出版社",
+            "publishDate": "2012年2月",
+            "edition": 4,
+            "nation": "中国",
+            "type": null,
+            "purpose": null,
+            "levelId": 2,
+            "price": 38,
+            "renew": true,
+            "remarks": "教材知识新颖"
+        }
+    ]
+}
+```
+
+
+
+
+
+### 查询人员所属学院的课程用书信息
+
+**角色：**
+
+~~~
+管理员 课程负责人 教研室主任
+~~~
+
+**请求URL：**
+
+```
     http://localhost:8624/goushushenpixitong/subject/list
+```
 
-#### 请求方式：
+**请求方式：**
+
+```
     GET
+```
 
-#### 参数类型:
+**参数类型:**
+
+```
 	|参数		|是否必选    |类型    |说明
-	|currentPage    |Y          |int     |当前页数
-	|pageSize       |Y          |int     |每页显示的总记录数
+	|currentPage    |N          |int     |当前页数(默认为1)
+	|pageSize       |N          |int     |每页显示的总记录数(默认为10)
+```
 
-#### 返回示例：
-    {
-        "code": 200,
-        "success": true,
-        "message": "请求成功",
-        "data": [
-            {
-                "id": 1,
-                "courseId": "2",
-                "termId": 1,
-                "bookId": "20180706",
-                "remarks": "1"
-            }
-        ]
-    }
+**返回示例：**
 
-### 19、查询单条记录
+```
+{
+    "code": 200,
+    "success": true,
+    "message": "请求成功",
+    "data": [
+        {
+            "id": 1,
+            "courseId": "2",
+            "termId": 1,
+            "bookId": "20180706",
+            "remarks": "required",
+            "instituteId": "XX1052"
+        }
+    ]
+}
+```
 
-#### 角色：
+
+
+### 查询单条记录
+
+**角色：**
 
 ~~~
 管理员 课程负责人 教研室主任
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/subject
+**Header：**
 
-#### 请求方式：
-    GET
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-#### 参数类型:
+**请求URL：**
+
+```
+   http://localhost:8624/goushushenpixitong/subject
+```
+
+**请求方式：**
+
+```
+  GET
+```
+
+**参数类型:**
+
+```
     |参数       |是否必选  |类型     |说明
     |id         |Y        |int      |学期ID
-#### 返回示例：
+```
+
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
@@ -762,114 +1279,221 @@
             "remarks": "1"
         }
     }
+```
 
-### 20、添加
 
-#### 角色：
+
+### 添加
+
+**角色：**
 
 ~~~
 管理员 课程负责人 
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/subject
+**Header：**
 
-#### 请求方式：
-    POST
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-### 参数类型:
-    |参数	      |是否必选 |类型      |说明
-    |id           |Y       |int       |id
+**请求URL：**
+
+```
+  http://localhost:8624/goushushenpixitong/subject
+```
+
+**请求方式：**
+
+```
+  POST
+```
+
+**参数类型:**
+
+```
+    |参数	        |是否必选 |类型      |说明
     |termId       |Y       |int       |学期编号
     |bookId       |Y       |String    |图书编号
     |courseId     |Y       |String    |课程编号
     |remarks      |N       |String    |备注
+    |instituteId  |Y       |String    |学院编号
+```
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
-    } 
-### 21、更新
+    }
+    课程不存在：
+    {
+        "code": 10000,
+        "success": false,
+        "message": "当前课程不存在",
+        "data": null
+    }
+    学期不存在：
+    {
+        "code": 10000,
+        "success": false,
+        "message": "当前学期不存在",
+        "data": null
+    }
+    图书不存在：
+    {
+        "code": 10000,
+        "success": false,
+        "message": "当前图书不存在",
+        "data": null
+    }
+    学院不存在：
+    {
+        "code": 10000,
+        "success": false,
+        "message": "当前学院不存在",
+        "data": null
+    }
 
-#### 角色：
+### 更新
+
+**角色：**
 
 ~~~
 管理员 课程负责人 
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/subject
+**Header：**
 
-#### 请求方式：
-    PUT
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-### 参数类型:
+**请求URL：**
+
+```
+  http://localhost:8624/goushushenpixitong/subject
+```
+
+**请求方式：**
+
+```
+ PUT
+```
+
+**参数类型:**
+
+```
      |参数	       |是否必选 |类型      |说明
      |id           |Y       |int       |id
      |termId       |Y       |int       |学期编号
      |bookId       |Y       |String    |图书编号
      |courseId     |Y       |String    |课程编号
      |remarks      |N       |String    |备注
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     } 
-### 22、删除
+```
 
-#### 角色：
+
+
+### 删除
+
+**角色：**
 
 ~~~
 管理员 
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
     http://localhost:8624/goushushenpixitong/subject
+```
 
-#### 请求方式：
-    DELETE
+**请求方式：**
 
-### 参数类型:
+```
+ DELETE
+```
+
+**参数类型:**
+
+```
     |参数	    |是否必选 |类型     |说明
     |id         |Y       |int      |ID
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
-### 23、查询所有书本记录
+     }
+```
 
-#### 角色：
+
+
+## 书本
+
+### 查询所有书本记录
+
+**角色：**
 
 ~~~
 管理员 课程负责人 教研室主任
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/book/list
-
-#### 请求方式：
-    GET
-
-### 参数类型:
- 	|参数	        |是否必选    |类型    |说明
+**Header：**
 
 ~~~
-|currentPage    |Y          |int     |当前页数
-|pageSize       |Y          |int     |每页显示的总记录数
+Authorization  :  token (登陆获取的token)
 ~~~
 
-#### 返回示例：
-    {
+**请求URL：**
+
+```
+ http://localhost:8624/goushushenpixitong/book/list
+```
+
+**请求方式：**
+    
+
+```
+GET
+```
+
+**参数类型:**
+
+~~~
+|参数	        |是否必选    |类型    |说明
+|currentPage    |N         |int     |当前页数(默认为1)
+|pageSize       |N         |int     |每页显示的总记录数(默认为10)
+~~~
+
+**返回示例：**
+
+```
+ {
         "code": 200,
         "success": true,
         "message": "请求成功",
@@ -906,30 +1530,39 @@
             }
         ]
     }
+```
 
 
-### 23.5 模糊搜索书本
 
-#### 角色：
+
+### 根据书名模糊搜索书本
+
+**角色：**
 
 ~~~
 管理员 课程负责人 教研室主任
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
 
     localhost:8624/goushushenpixitong/book/like
 
-#### 请求方式：
+**请求方式：**
 
     GET
 
-### 参数类型:
+**参数类型:**
 
     |参数	    |是否必选 |类型        |说明
-    |like    |N       |string      |模糊搜索条件  空 为搜索全部书本
+    |bookName    |N       |string      |模糊搜索条件  空 为搜索全部书本
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
@@ -960,26 +1593,43 @@
 
 
 
-### 24、查询单条记录
+### 查询单条记录
 
-#### 角色：
+**角色：**
 
 ~~~
 管理员 课程负责人 教研室主任
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/book
+**Header：**
 
-#### 请求方式：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+ http://localhost:8624/goushushenpixitong/book
+```
+
+**请求方式：**
+
+```
     GET
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数	    |是否必选 |类型        |说明
     |id         |Y       |string      |图书ID
+```
 
-#### 返回示例：
-    {
+**返回示例：**
+
+```
+ {
         "code": 200,
         "success": true,
         "message": "请求成功",
@@ -999,21 +1649,39 @@
             "remarks": "教材知识新颖"
         }
     }
-### 25、添加书本记录
+```
 
-#### 角色：
+
+
+### 添加书本记录
+
+**角色：**
 
 ~~~
 管理员 课程负责人 
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
     http://localhost:8624/goushushenpixitong/book
+```
 
-#### 请求方式：
+**请求方式：**
+
+```
     POST
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数         |是否必选  |类型       |说明
     |id           |Y        |string     |图书编号
     |name         |Y        |string     |图书名字
@@ -1028,28 +1696,51 @@
     |price        |Y        |int        |价格
     |renew        |Y        |Boolean    |若教材版次更新，是否还需要征求意见
     |remarks      |N        |string      |备注
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
-### 26、更新
+```
 
-#### 角色：
+
+
+### 更新
+
+**角色：**
 
 ~~~
 管理员 课程负责人 
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/book
+**Header：**
 
-#### 请求方式：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+    http://localhost:8624/goushushenpixitong/book
+```
+
+**请求方式：**
+
+```
     PUT
-### 参数类型:
+
+```
+
+**参数类型:**
+
+```
     |参数	      |是否必选  |类型       |说明
     |id           |Y        |string     |图书编号
     |name         |Y        |string     |图书名字
@@ -1064,61 +1755,104 @@
     |price        |Y        |int        |价格
     |renew        |Y        |Boolean    |若教材版次更新，是否还需要征求意见
     |remarks      |N        |string      |备注
-#### 返回示例：
+```
+
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
-### 27、删除
+```
 
-#### 角色：
+
+
+### 删除
+
+**角色：**
 
 ~~~
 管理员 
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/book
+**Header：**
 
-#### 请求方式：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+   http://localhost:8624/goushushenpixitong/book
+```
+
+**请求方式：**
+
+```
     DELETE
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数       |是否必选 |类型      |说明
     |id         |Y       |string    |图书ID
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     } 
-### 28、分页获取教务处审核条目
+```
 
-#### 角色：
+## 教务处审核
+
+### 分页获取教务处审核条目
+
+**角色：**
 
 ~~~
 管理员 教研室主任
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/deanoffice/list
-
-#### 请求方式：
-    GET
-
-### 参数类型:
- 	|参数		|是否必选    |类型    |说明
+**Header：**
 
 ~~~
-|currentPage    |Y          |int     |当前页数
-|pageSize       |Y          |int     |每页显示的总记录数
+Authorization  :  token (登陆获取的token)
 ~~~
 
-#### 返回示例：
+**请求URL：**
+
+```
+http://localhost:8624/goushushenpixitong/deanoffice/list
+```
+
+**请求方式：**
+
+```
+   GET
+```
+
+**参数类型:**
+
+~~~
+|参数			 |是否必选    |类型    |说明
+|currentPage    |N          |int     |当前页数(默认为1)
+|pageSize       |N          |int     |每页显示的总记录数(默认为10)
+~~~
+
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
@@ -1136,26 +1870,46 @@
             }
         ]
     }
+```
 
-### 29、获取单条审核条目记录
 
-#### 角色：
+
+### 获取单条审核条目记录
+
+**角色：**
 
 ~~~
 管理员 教研室主任
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/deanoffice
+**Header：**
 
-#### 请求方式：
-    GET
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-### 参数类型:
+**请求URL：**
+
+```
+  http://localhost:8624/goushushenpixitong/deanoffice
+```
+
+**请求方式：**
+
+```
+  GET
+```
+
+**参数类型:**
+
+```
     |参数	    |是否必选 |类型        |说明
     |id         |Y       |int         |ID
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
@@ -1166,26 +1920,42 @@
             "remarks": ""
         }
     }
-### 30、获取科研室审核结果
+```
 
-#### 角色：
+
+
+### 获取科研室审核结果
+
+**角色：**
 
 ~~~
 管理员 教研室主任
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/deanoffice/opinions
+**Header：**
 
-#### 请求方式：
-    GET
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-### 参数类型:
+**请求URL：**
+
+```
+   http://localhost:8624/goushushenpixitong/deanoffice/opinions
+```
+
+**请求方式：**
+
+```
+ GET
+```
+
+**参数类型:**
 
     |参数	    	|是否必选 |类型        |说明
     |subjectId   |Y       |int         |ID
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
@@ -1216,47 +1986,119 @@
 
 
 
-### 31、添加审核条目
 
-#### 角色：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 添加审核条目
+
+**角色：**
 
 ~~~
 管理员 教研室主任
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/deanoffice
+**Header：**
 
-#### 请求方式：
-    POST
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-### 参数类型:
+**请求URL：**
+
+```
+http://localhost:8624/goushushenpixitong/deanoffice
+```
+
+**请求方式：**
+
+```
+ POST
+```
+
+**参数类型:**
+
+```
     |参数         |是否必选  |类型       |说明
     |id           |Y        |int        |ID
     |content      |Y        |string     |内容
-    |remarks      |N        |string     |备注    
-#### 返回示例：
+    |remarks      |N        |string     |备注
+```
+
+
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
-### 32、添加教务处审核结果
+```
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/deanoffice/opinions
 
-#### 请求方式：
+
+### 添加教务处审核结果
+
+**角色：**
+
+~~~
+管理员 教研室主任
+~~~
+
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+  http://localhost:8624/goushushenpixitong/deanoffice/opinions
+```
+
+**请求方式：**
 
 	POST
 
-#### 参数类型:
+**参数类型:**
 
 	|参数	       |是否必选 |类型     |说明
 	|subjectId  |Y       |int      |ID
 	|josnStr  	|Y		 |String   |
-	json格式:
+	json格式:（教务处审核结果规定为2个）
 	[
 	   {
 	      "id":1,
@@ -1265,95 +2107,150 @@
 	    {
 	      "id":2,
 	      "opinion":"yes"
-	    },
-	    {
-	      "id":3,
-	      "opinion":"yes"
 	    }
 	]
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
+        "data": null
+    }
+    
+    {
+        "code": 10000,
+        "success": false,
+        "message": "教务处审核结果规定为2个",
         "data": null
     }
 
 ​    
 
-### 33、更新条目信息
+### 更新条目信息
 
-#### 角色
+**角色**
 
 ~~~
 管理员  教研室主任
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/deanoffice
+**Header：**
 
-#### 请求方式：
-    PUT
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-### 参数类型:
+**请求URL：**
+
+```
+   http://localhost:8624/goushushenpixitong/deanoffice
+```
+
+**请求方式：**
+
+```
+PUT
+```
+
+**参数类型:**
+
+```
     |参数	      |是否必选  |类型       |说明
     |id           |Y        |int        |图书编号
     |content      |Y        |string     |内容
     |remarks      |N        |string     |备注
-#### 返回示例：
+```
+
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
-### 34、删除条目
+```
 
-#### 角色
+
+
+### 删除条目
+
+**角色**
 
 ~~~
 管理员 
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
     http://localhost:8624/goushushenpixitong/deanoffice
+```
 
-#### 请求方式：
-    DELETE
-### 参数类型:
-    |参数	    |是否必选 |类型      |说明
-    |id         |Y       |int       |图书ID
+**请求方式：**
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     } 
+```
 
-### 35、分页查询学院列表
 
-#### 角色：
+
+## 学院
+
+### 分页查询学院列表
+
+**角色：**
 
 ~~~
 管理员 
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
     http://localhost:8624/goushushenpixitong/institute/list
+```
 
-#### 请求方式：
-    GET
-### 参数类型:
-	|参数		|是否必选    |类型    |说明
-	|currentPage    |Y          |int     |当前页数
-	|pageSize       |Y          |int     |每页显示的总记录数
+**请求方式：**
 
-#### 返回示例：
-    {
+```
+  GET
+```
+
+**参数类型:**
+
+```
+	|参数			 |是否必选    |类型    |说明
+	|currentPage    |N          |int     |当前页数(默认为1)
+	|pageSize       |N          |int     |每页显示的总记录数(默认为10)
+```
+
+**返回示例：**
+
+```
+  {
         "code": 200,
         "success": true,
         "message": "请求成功",
@@ -1375,25 +2272,44 @@
             }
         ]
     }
-### 36、通过编号查询学院
+```
 
-#### 角色：
+
+
+### 通过编号查询学院
+
+**角色：**
 
 ~~~
 管理员 
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/institute
+**Header：**
 
-#### 请求方式：
-    GET
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-### 参数类型:
+**请求URL：**
+
+```
+   http://localhost:8624/goushushenpixitong/institute
+```
+
+**请求方式：**
+
+```
+ GET
+```
+
+**参数类型:**
+
+```
     |参数	    |是否必选 |类型     |说明
     |id         |Y       |string      |ID
+```
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
@@ -1406,27 +2322,42 @@
         }
     }
 
-### 37、注册学院
+### 注册学院
 
-#### 角色：
+**角色：**
 
 ~~~
 管理员 
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/institute
+**Header：**
 
-#### 请求方式：
-    POST
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-### 参数类型:
+**请求URL：**
+
+```
+  http://localhost:8624/goushushenpixitong/institute
+```
+
+**请求方式：**
+
+```
+   POST
+```
+
+**参数类型:**
+
+```
     |参数	    |是否必选 |类型     |说明
     |id         |Y       |string   |ID
     |name       |Y       |string   |内容
     |remarks    |N       |string    |备注
+```
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
@@ -1435,27 +2366,43 @@
         "data": null
     }
 
-### 38、修改学院信息：
+### 修改学院信息：
 
-#### 角色：
+**角色：**
 
 ~~~
 管理员 
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/institute
+**Header：**
 
-#### 请求方式：
-    PUT
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-### 参数类型:
+**请求URL：**
+
+```
+ http://localhost:8624/goushushenpixitong/institute
+```
+
+**请求方式：**
+    
+
+```
+PUT
+```
+
+**参数类型:**
+
+```
     |参数	    |是否必选 |类型     |说明
     |id         |Y       |string   |ID
     |name       |Y       |string   |内容
     |remarks    |N       |string    |备注
+```
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
@@ -1464,24 +2411,40 @@
         "data": null
     }
 
-### 39、删除学院
+### 删除学院
 
-#### 角色：
+**角色：**
 
 ~~~
 管理员 
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/institute
+**Header：**
 
-#### 请求方式：
-    DELETE
-### 参数类型:
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+    http://localhost:8624/goushushenpixitong/institute
+```
+
+**请求方式：**
+
+```
+ DELETE
+```
+
+**参数类型:**
+
+```
     |参数	    |是否必选 |类型     |说明
     |id         |Y       |string   |ID
+```
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
@@ -1490,26 +2453,47 @@
         "data": null
     }
 
-### 40、分页获取教研室审核条目
 
-#### 角色：
+
+## 教研室审核
+
+### 分页获取教研室审核条目
+
+**角色：**
 
 ~~~
 管理员  教研室主任
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/laboratory/list
+**Header：**
 
-#### 请求方式：
-    GET
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-### 参数类型:
-	|参数		|是否必选    |类型    |说明
-	|currentPage    |Y          |int     |当前页数
-	|pageSize       |Y          |int     |每页显示的总记录数
+**请求URL：**
 
-#### 返回示例：
+```
+ http://localhost:8624/goushushenpixitong/laboratory/list
+```
+
+**请求方式：**
+
+```
+ GET
+```
+
+**参数类型:**
+
+```
+	|参数			  |是否必选    |类型    |说明
+	|currentPage    |N          |int     |当前页数(默认为1)
+	|pageSize       |N          |int     |每页显示的总记录数(默认为10)
+```
+
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
@@ -1527,26 +2511,44 @@
             }
         ]
     }
+```
 
-### 41、获取单条审核条目记录
 
-#### 角色：
+
+### 获取单条审核条目记录
+
+**角色：**
 
 ~~~
 管理员   教研室主任
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/laboratory
+**Header：**
 
-#### 请求方式：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+  http://localhost:8624/goushushenpixitong/laboratory
+```
+
+**请求方式：**
+
+```
     GET
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数	    |是否必选 |类型     |说明
     |id         |Y       |int      |ID
+```
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
@@ -1559,28 +2561,34 @@
         }
     }
 
-### 42、获取科研室审核结果
+### 获取科研室审核结果
 
-#### 角色：
+**角色：**
 
 ~~~
 管理员 教研室主任
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
 
     http://localhost:8624/goushushenpixitong/laboratory/opinions
 
-#### 请求方式：
+**请求方式：**
 
     GET
 
-### 参数类型:
+**参数类型:**
 
     |参数	    	|是否必选 |类型        |说明
     |subjectId   |Y       |int         |ID
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
@@ -1611,49 +2619,110 @@
 
 
 
-### 43、添加审核条目
 
-#### 角色：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 添加审核条目
+
+**角色：**
 
 ~~~
 管理员   教研室主任
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/laboratory
+**Header：**
 
-#### 请求方式：
-    POST
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-### 参数类型:
+**请求URL：**
+
+```
+  http://localhost:8624/goushushenpixitong/laboratory
+```
+
+**请求方式：**
+
+```
+   POST
+```
+
+**参数类型:**
+
+```
     |参数       |是否必选 |类型     |说明
     |id         |Y       |int      |ID
     |content    |Y       |string   |内容
     |remarks    |N       |string   |备注
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
-### 44、添加教研室审核结果
+```
 
-#### 请求URL：
+
+
+### 添加教研室审核结果
+
+**请求URL：**
 
 	http://localhost:8624/goushushenpixitong/laboratory/opinions
 
-#### 请求方式：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求方式：**
 
 	POST
 
-#### 参数类型:
+**参数类型:**
 
 	|参数	       |是否必选 |类型     |说明
 	|subjectId  |Y       |int      |ID
 	|josnStr  	|Y		 |String   |
-	json格式:
+	json格式:（教研室审核意见规定为6个）
 	[
 	   {
 	      "id":1,
@@ -1669,7 +2738,7 @@
 	    }
 	]
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
@@ -1677,53 +2746,98 @@
         "message": "请求成功",
         "data": null
     }  
+    
+    {
+        "code": 10000,
+        "success": false,
+        "message": "教研室审核意见规定为6个",
+        "data": null
+    }
 
-### 45、更新条目信息
+### 更新条目信息
 
-#### 角色：
+**角色：**
 
 ~~~
 管理员   教研室主任
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/laboratory
+**Header：**
 
-#### 请求方式：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+  http://localhost:8624/goushushenpixitong/laboratory
+```
+
+**请求方式：**
+
+```
     PUT
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数	    |是否必选 |类型     |说明
     |id         |Y       |int      |ID
     |content    |Y       |string   |内容
     |remarks    |N       |string   |备注
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
+```
 
-### 46、删除条目
 
-#### 角色：
+
+### 删除条目
+
+**角色：**
 
 ~~~
 管理员   
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/laboratory
+**Header：**
 
-#### 请求方式：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+ http://localhost:8624/goushushenpixitong/laboratory
+```
+
+**请求方式：**
+
+```
     DELETE
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数	    |是否必选 |类型     |说明
-    |id         |Y       |int      |ID 
-#### 返回示例：
+    |id       |Y       |int      |ID 
+```
+
+**返回示例：**
+
+**返回示例：**
 
     {
         "code": 200,
@@ -1731,25 +2845,45 @@
         "message": "请求成功",
         "data": null
     }
-### 47、分页查询等级记录
+## 等级
 
-#### 角色：
+### 分页查询等级记录
+
+**角色：**
 
 ~~~
 管理员   教研室主任  课程负责人
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/level/list
+**Header：**
 
-#### 请求方式：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+  http://localhost:8624/goushushenpixitong/level/list
+```
+
+**请求方式：**
+
+```
     GET
+```
 
-### 参数类型:
-	|参数		|是否必选    |类型    |说明
-	|currentPage    |Y          |int     |当前页数
-	|pageSize       |Y          |int     |每页显示的总记录数
-#### 返回示例：
+**参数类型:**
+
+```
+	|参数			 |是否必选    |类型    |说明
+	|currentPage    |N          |int     |当前页数(默认为1)
+	|pageSize       |N          |int     |每页显示的总记录数(默认为10)
+```
+
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
@@ -1767,26 +2901,46 @@
             }
         ]
     }
+```
 
-### 48、通过id获取单条记录
 
-#### 角色：
+
+### 通过id获取单条记录
+
+**角色：**
 
 ~~~
 管理员   教研室主任  课程负责人
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/level
+**Header：**
 
-#### 请求方式：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+  http://localhost:8624/goushushenpixitong/level
+```
+
+**请求方式：**
+
+```
     GET
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数  	|是否必选   |类型      |说明
     |id     |Y         |int   |ID
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
@@ -1797,106 +2951,191 @@
             "remarks": "教材知识新颖"
         }
     }
+```
 
-### 49、添加等级
 
-#### 角色：
+
+### 添加等级
+
+**角色：**
 
 ~~~
 管理员   课程负责人
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
     http://localhost:8624/goushushenpixitong/level
+```
 
-#### 请求方式：
+**请求方式：**
+
+```
     POST
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数	      |是否必选 |类型      |说明
     |id           |Y       |int       |ID
     |name         |Y       |string    |内容
     |remarks      |N       |string    |备注
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
+```
 
-### 50、修改
 
-#### 角色：
+
+### 修改
+
+**角色：**
 
 ~~~
 管理员   课程负责人
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
     http://localhost:8624/goushushenpixitong/level
+```
 
-#### 请求方式：
+**请求方式：**
+
+```
     PUT
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数         |是否必选 |类型      |说明
     |id           |Y       |int       |ID
     |name         |Y       |string    |内容
     |remarks      |N       |string    |备注
-#### 返回示例：
+```
+
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
+```
 
-### 51、删除
 
-#### 角色：
+
+### 删除
+
+**角色：**
 
 ~~~
 管理员  
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/level
+**Header：**
 
-#### 请求方式：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+   http://localhost:8624/goushushenpixitong/level
+```
+
+**请求方式：**
+
+```
     DELETE
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数       |是否必选   |类型     |说明
     |id         |Y         |int      |ID
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
-### 52、分页查询专业记录
+```
 
-#### 角色：
+
+
+## 专业
+
+### 分页查询专业记录
+
+**角色：**
 
 ~~~
 管理员  
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
     http://localhost:8624/goushushenpixitong/major/list
+```
 
-#### 请求方式：
+**请求方式：**
+
+```
     GET
+```
 
-### 参数类型:
-	|参数		|是否必选    |类型    |说明
-	|currentPage    |Y          |int     |当前页数
-	|pageSize       |Y          |int     |每页显示的总记录数
-#### 返回示例：
+**参数类型:**
+
+```
+	|参数			  |是否必选    |类型    |说明
+	|currentPage    |N          |int     |当前页数(默认为1)
+	|pageSize       |N          |int     |每页显示的总记录数(默认为10)
+```
+
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
@@ -1916,26 +3155,46 @@
             }
         ]
     }
+```
 
-### 53、查询单条专业记录
 
-#### 角色：
+
+### 查询单条专业记录
+
+**角色：**
 
 ~~~
 管理员  
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/major
+**Header：**
 
-#### 请求方式：
-    GET
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-### 参数类型:
+**请求URL：**
+
+```
+  http://localhost:8624/goushushenpixitong/major
+```
+
+**请求方式：**
+
+```
+GET
+```
+
+**参数类型:**
+
+```
     |参数	    |是否必选   |类型      |说明
     |id         |Y         |string    |ID
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
@@ -1947,113 +3206,202 @@
             "remarks": ""
         }
     }
+```
 
-### 54、添加专业
 
-#### 角色：
+
+### 添加专业
+
+**角色：**
 
 ~~~
 管理员  
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
     http://localhost:8624/goushushenpixitong/major
+```
 
-#### 请求方式：
+**请求方式：**
+
+```
     POST
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数         |是否必选 |类型      |说明
     |id           |Y       |string    |ID
     |name         |Y       |string    |内容
     |instituteId  |Y       |string    |学院编号
     |remarks      |N       |string    |备注
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
+    学院不存在:
+    {
+        "code": 10000,
+        "success": false,
+        "message": "当前学院不存在",
+        "data": null
+	}
+```
 
-### 55、更新记录
 
-#### 角色：
+
+### 更新记录
+
+**角色：**
 
 ~~~
 管理员 
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
     http://localhost:8624/goushushenpixitong/major
+```
 
-#### 请求方式：
+**请求方式：**
+
+```
     PUT
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数         |是否必选 |类型      |说明
     |id           |Y       |string    |ID
     |name         |Y       |string    |内容
     |instituteId  |Y       |string    |学院编号
     |remarks      |N       |string    |备注
-#### 返回示例：
+```
+
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
+```
 
-### 56、删除专业
 
-#### 角色：
+
+### 删除专业
+
+**角色：**
 
 ~~~
 管理员  
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/major
+**Header：**
 
-#### 请求方式：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+   http://localhost:8624/goushushenpixitong/major
+```
+
+**请求方式：**
+
+```
     DELETE
-### 参数类型:
+```
+
+**参数类型:**
+
+```
     |参数       |是否必选   |类型     |说明
     |id         |Y         |string   |ID
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
-### 57、查询所有人员的角色信息
+```
 
-#### 角色：
+
+
+
+
+## 角色
+
+### 查询所有角色
+
+**角色：**
 
 ~~~
 管理员  
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/role/list
+**Header：**
 
-#### 请求方式：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+http://localhost:8624/goushushenpixitong/role/list
+```
+
+**请求方式：**
+
+```
     GET
+```
 
-### 参数类型:
- 	|参数		|是否必选    |类型    |说明
+**参数类型:**
 
 ~~~
-|currentPage    |Y          |int     |当前页数
-|pageSize       |Y          |int     |每页显示的总记录数
+|参数			|是否必选    |类型    |说明
+|currentPage   |N          |int     |当前页数(默认为1)
+|pageSize      |N          |int     |每页显示的总记录数(默认为10)
 ~~~
 
 
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
@@ -2061,35 +3409,336 @@
         "message": "请求成功",
         "data": [
             {
+                "id": 0,
+                "type": "管理员",
+                "remarks": null
+            },
+            {
+                "id": 1,
+                "type": "教务干事",
+                "remarks": null
+            },
+            {
+                "id": 2,
+                "type": "课程负责人",
+                "remarks": null
+            },
+            {
+                "id": 3,
+                "type": "教研室主任",
+                "remarks": null
+            }
+        ]
+    }
+
+
+
+### 查询某个角色信息
+
+**角色：**
+
+~~~
+管理员  
+~~~
+
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+http://localhost:8624/goushushenpixitong/role
+```
+
+**请求方式：**
+
+```
+    GET
+```
+
+**参数类型:**
+
+~~~
+|参数			|是否必选    |类型    |说明
+|roleId		  |Y		 |int	  |角色id 
+~~~
+
+
+
+**返回示例：**
+
+    {
+        "code": 200,
+        "success": true,
+        "message": "请求成功",
+        "data": {
+            "id": 1,
+            "type": "教务干事",
+            "remarks": null
+        }
+    }
+
+
+
+### 添加角色
+
+**角色：**
+
+~~~
+管理员  
+~~~
+
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+http://localhost:8624/goushushenpixitong/role
+```
+
+**请求方式：**
+
+```
+    POST
+```
+
+**参数类型:**
+
+~~~
+|参数			|是否必选    |类型    |说明
+|type		  |Y		 |String  |角色名称
+|remarks	  |Y		 |String  |备注
+~~~
+
+**返回示例：**
+
+    {
+        "code": 200,
+        "success": true,
+        "message": "请求成功",
+        "data": null
+    }
+
+
+
+### 修改角色信息
+
+**角色：**
+
+~~~
+管理员  
+~~~
+
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+http://localhost:8624/goushushenpixitong/role
+```
+
+**请求方式：**
+
+```
+    PUT
+```
+
+**参数类型:**
+
+~~~
+|参数			|是否必选    |类型    |说明
+|id			  |Y	     |int	  |要修改的角色id
+|type		  |Y		 |String  |角色名称
+|remarks	  |Y		 |String  |备注
+~~~
+
+**返回示例：**
+
+    {
+        "code": 200,
+        "success": true,
+        "message": "请求成功",
+        "data": null
+    }
+
+
+
+
+### 删除角色
+
+**角色：**
+
+~~~
+管理员  
+~~~
+
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+    http://localhost:8624/goushushenpixitong/role
+
+**请求方式：**
+
+    DELETE
+
+**参数类型:**
+
+     |参数	     |是否必选 |类型   |说明
+     |roleId        |Y       |int    |要删除的角色ID
+
+**返回示例：**
+
+    {
+        "code": 200,
+        "success": true,
+        "message": "请求成功",
+        "data": null
+    }
+
+​    
+
+
+
+
+
+
+
+### 查询所有人员的角色信息
+
+**角色：**
+
+~~~
+管理员  
+~~~
+
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+    http://localhost:8624/goushushenpixitong/staff_role/list
+```
+
+**请求方式：**
+
+```
+    GET
+```
+
+**参数类型:**
+
+~~~
+|参数			|是否必选    |类型    |说明
+|currentPage   |N          |int     |当前页数(默认为1)
+|pageSize      |N          |int     |每页显示的总记录数(默认为10)
+~~~
+
+
+
+**返回示例：**(这里只获取角色 ，权限全为null)
+
+    {
+        "code": 200,
+        "success": true,
+        "message": "请求成功",
+        "data": [
+            {
+                "id": "1003",
+                "name": "张三",
+                "role": "教务干事",
+                "power": null
+            },
+            {
+                "id": "1004",
+                "name": "李四",
+                "role": "课程负责人",
+                "power": null
+            },
+            {
                 "id": "1002",
-                "type": 3,
-                "remarks": ""
+                "name": "李晓华",
+                "role": "教研室主任",
+                "power": null
             },
             {
                 "id": "1001",
-                "type": 3,
-                "remarks": ""
+                "name": "陈小明",
+                "role": "管理员",
+                "power": null
+            },
+            {
+                "id": "1001",
+                "name": "陈小明",
+                "role": "教研室主任",
+                "power": null
+            },
+            {
+                "id": "1002",
+                "name": "李晓华",
+                "role": "教务干事",
+                "power": null
             }
         ]
     }
-### 58、查询某个工号的所有角色信息
 
-#### 角色：
+
+
+
+
+### 查询某个工号的所有角色信息
+
+**角色：**
 
 ~~~
 管理员  
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/role
+**Header：**
 
-#### 请求方式：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+    http://localhost:8624/goushushenpixitong/staff_role
+```
+
+**请求方式：**
+
+```
     GET
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数	      |是否必选 |类型      |说明
-    |id           |Y       |string    |ID
-#### 返回示例：
+    |staffId    |Y       |string    |员工id
+```
+
+**返回示例：**
 
     {
         "code": 200,
@@ -2097,32 +3746,55 @@
         "message": "请求成功",
         "data": [
             {
-                "id": "1002",
-                "type": 3,
-                "remarks": ""
+                "id": "1001",
+                "name": "陈小明",
+                "role": "管理员",
+                "power": null
+            },
+            {
+                "id": "1001",
+                "name": "陈小明",
+                "role": "教研室主任",
+                "power": null
             }
         ]
     }
-### 59、添加角色记录
 
-#### 角色：
+### 为某个成员添加角色
+
+**角色：**
 
 ~~~
 管理员  
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/role
+**Header：**
 
-#### 请求方式：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+    http://localhost:8624/goushushenpixitong/staff_role
+```
+
+**请求方式：**
+
+```
     POST
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数	      |是否必选 |类型      |说明
-    |id           |Y       |string    |ID
-    |type         |Y       |int       |角色类型
-    |remarks      |N       |string    |备注信息
-#### 返回示例：
+    |staffId    |Y 		 |String   |员工id
+    |roleId	    |Y		 |int 	   |角色id
+```
+
+**返回示例：**
 
     {
         "code": 200,
@@ -2130,57 +3802,299 @@
         "message": "请求成功",
         "data": null
     }
-### 60、更新角色信息
+    角色不存在：
+    {
+        "code": 10000,
+        "success": false,
+        "message": "当前角色不存在",
+        "data": null
+    }
+    人员不存在：
+    {
+        "code": 10000,
+        "success": false,
+        "message": "当前人员不存在",
+        "data": null
+    }
 
-#### 角色：
+
+
+### 删除某个人员的角色
+
+**角色：**
 
 ~~~
 管理员  
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/role
+**Header：**
 
-#### 请求方式：
-    PUT
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-### 参数类型:
-     |参数	       |是否必选 |类型      |说明
-     |id           |Y       |string    |ID
-     |type         |Y       |int       |角色类型
-     |remarks      |N       |string    |备注信息
-#### 返回示例：
+**请求URL：**
+
+```
+    http://localhost:8624/goushushenpixitong/staff_role
+```
+
+**请求方式：**
+
+```
+    DELETE
+```
+
+**参数类型:**
+
+```
+    |参数	     	   |是否必选 |类型      |说明
+    |staff_roleId    |Y 		 |String   |staff_role id
+```
+
+**返回示例：**
+
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
-    } 
+    }
 
-​    
 
-### 61、删除角色
 
-#### 角色：
+## 权限
+
+
+
+### 查询所有权限
+
+**角色：**
 
 ~~~
 管理员  
 ~~~
 
-#### 请求URL：
+**Header：**
 
-    http://localhost:8624/goushushenpixitong/role
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
 
-#### 请求方式：
+**请求URL：**
+
+```
+http://localhost:8624/goushushenpixitong/power/list
+```
+
+**请求方式：**
+
+```
+    GET
+```
+
+**参数类型:**
+
+~~~
+|参数			|是否必选    |类型    |说明
+|currentPage   |N          |int     |当前页数(默认为1)
+|pageSize      |N          |int     |每页显示的总记录数(默认为10)
+~~~
+
+
+
+**返回示例：**
+
+    {
+        "code": 200,
+        "success": true,
+        "message": "请求成功",
+        "data": [
+            {
+                "id": 1,
+                "powername": "test",
+                "remarks": null
+            },
+            {
+                "id": 2,
+                "powername": "test2",
+                "remarks": null
+            }
+        ]
+    }
+
+
+
+### 查询某个权限信息
+
+**角色：**
+
+~~~
+管理员  
+~~~
+
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+http://localhost:8624/goushushenpixitong/power
+```
+
+**请求方式：**
+
+```
+    GET
+```
+
+**参数类型:**
+
+~~~
+|参数			    |是否必选    |类型    |说明
+|powerId		  |Y		 |int	  |权限id 
+~~~
+
+
+
+**返回示例：**
+
+    {
+        "code": 200,
+        "success": true,
+        "message": "请求成功",
+        "data": {
+            "id": 1,
+            "powername": "test",
+            "remarks": null
+        }
+    }
+
+
+
+### 添加权限
+
+**角色：**
+
+~~~
+管理员  
+~~~
+
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+http://localhost:8624/goushushenpixitong/power
+```
+
+**请求方式：**
+
+```
+    POST
+```
+
+**参数类型:**
+
+~~~
+|参数			|是否必选    |类型    |说明
+|powerName	  |Y		 |String  |权限名称
+|remarks	  |Y		 |String  |备注
+~~~
+
+**返回示例：**
+
+    {
+        "code": 200,
+        "success": true,
+        "message": "请求成功",
+        "data": null
+    }
+
+
+
+### 修改权限信息
+
+**角色：**
+
+~~~
+管理员  
+~~~
+
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+http://localhost:8624/goushushenpixitong/power
+```
+
+**请求方式：**
+
+```
+    PUT
+```
+
+**参数类型:**
+
+~~~
+|参数			|是否必选    |类型    |说明
+|id			  |Y	     |int	  |要修改的角色id
+|powerName	  |Y		 |String  |权限名称
+|remarks	  |Y		 |String  |备注
+~~~
+
+**返回示例：**
+
+    {
+        "code": 200,
+        "success": true,
+        "message": "请求成功",
+        "data": null
+    }
+
+
+
+
+### 删除权限
+
+**角色：**
+
+~~~
+管理员  
+~~~
+
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+    http://localhost:8624/goushushenpixitong/power
+
+**请求方式：**
 
     DELETE
 
-### 参数类型:
+**参数类型:**
 
-     |参数	       |是否必选 |类型      |说明
-     |id           |Y       |string    |ID
+     |参数	     |是否必选 |类型   |说明
+     |powerId        |Y       |int    |要删除的角色ID
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
@@ -2189,30 +4103,286 @@
         "data": null
     }
 
-​    
 
 
+### 查询所有人员的权限信息
 
-### 62、查询所有人员信息
-
-#### 角色：
+**角色：**
 
 ~~~
 管理员  
 ~~~
 
-#### 请求URL：
-    http://localhost:8624/goushushenpixitong/staff/list
+**Header：**
 
-#### 请求方式：
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+    http://localhost:8624/goushushenpixitong/role_power/list
+```
+
+**请求方式：**
+
+```
     GET
+```
 
-### 参数类型:
-	|参数		|是否必选    |类型    |说明
-	|currentPage    |Y          |int     |当前页数
-	|pageSize       |Y          |int     |每页显示的总记录数
+**参数类型:**
 
-#### 返回示例：
+~~~
+|参数			|是否必选    |类型    |说明
+|currentPage   |N          |int     |当前页数(默认为1)
+|pageSize      |N          |int     |每页显示的总记录数(默认为10)
+~~~
+
+
+
+**返回示例：**(这里只获取权限 ，角色全为null)
+
+    {
+        "code": 200,
+        "success": true,
+        "message": "请求成功",
+        "data": [
+            {
+                "id": "1003",
+                "name": "张三",
+                "role": null,
+                "power": "test2"
+            },
+            {
+                "id": "1001",
+                "name": "陈小明",
+                "role": null,
+                "power": "test"
+            },
+            {
+                "id": "1001",
+                "name": "陈小明",
+                "role": null,
+                "power": "test2"
+            },
+            {
+                "id": "1002",
+                "name": "李晓华",
+                "role": null,
+                "power": "test2"
+            }
+        ]
+    }
+
+
+
+
+
+### 查询某个工号的所有权限信息
+
+**角色：**
+
+~~~
+管理员  
+~~~
+
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+    http://localhost:8624/goushushenpixitong/role_power
+```
+
+**请求方式：**
+
+```
+    GET
+```
+
+**参数类型:**
+
+```
+    |参数	      |是否必选 |类型      |说明
+    |staffId    |Y       |string    |员工id
+```
+
+**返回示例：**(这里只获取权限 ，角色全为null)
+
+    {
+        "code": 200,
+        "success": true,
+        "message": "请求成功",
+        "data": [
+            {
+                "id": "1001",
+                "name": "陈小明",
+                "role": null,
+                "power": "test"
+            },
+            {
+                "id": "1001",
+                "name": "陈小明",
+                "role": null,
+                "power": "test2"
+            }
+        ]
+    }
+
+### 为某个角色添加权限
+
+**角色：**
+
+~~~
+管理员  
+~~~
+
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+    http://localhost:8624/goushushenpixitong/role_power
+```
+
+**请求方式：**
+
+```
+    POST
+```
+
+**参数类型:**
+
+```
+    |参数	      |是否必选 |类型      |说明
+    |roleId	    |Y		 |int 	   |角色id
+    |powerId    |Y 		 |String   |权限id
+```
+
+**返回示例：**
+
+    {
+        "code": 200,
+        "success": true,
+        "message": "请求成功",
+        "data": null
+    }
+    角色不存在：
+    {
+        "code": 10000,
+        "success": false,
+        "message": "当前角色不存在",
+        "data": null
+    }
+    权限不存在:
+    {
+        "code": 10000,
+        "success": false,
+        "message": "当前权限不存在",
+        "data": null
+    }
+
+
+
+### 删除某个角色的权限
+
+**角色：**
+
+~~~
+管理员  
+~~~
+
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+    http://localhost:8624/goushushenpixitong/role_power
+```
+
+**请求方式：**
+
+```
+    DELETE
+```
+
+**参数类型:**
+
+```
+    |参数	     	   |是否必选    |类型      |说明
+    |role_powerId    |Y 		 |String   |role_power id
+```
+
+**返回示例：**
+
+    {
+        "code": 200,
+        "success": true,
+        "message": "请求成功",
+        "data": null
+    }
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 人员
+
+**角色：**
+
+~~~
+管理员  
+~~~
+
+**请求URL：**
+
+```
+    http://localhost:8624/goushushenpixitong/staff/list
+```
+
+**请求方式：**
+
+```
+    GET
+```
+
+**参数类型:**
+
+```
+	|参数		 	  |是否必选    |类型    |说明
+	|currentPage    |N          |int     |当前页数(默认为1)
+	|pageSize       |N          |int     |每页显示的总记录数(默认为10)
+```
+
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
@@ -2238,26 +4408,106 @@
             }
         ]
     }
+```
 
-### 63、查询单条记录
 
-#### 角色：
+
+
+
+### 查询所有人员信息
+
+**角色：**
 
 ~~~
 管理员  
 ~~~
 
- #### 请求URL：
-     http://localhost:8624/goushushenpixitong/major
+**请求URL：**
 
- #### 请求方式：
+```
+    http://localhost:8624/goushushenpixitong/staff/list
+```
+
+**请求方式：**
+
+```
+    GET
+```
+
+**参数类型:**
+
+```
+	|参数		 	  |是否必选    |类型    |说明
+	|currentPage    |N          |int     |当前页数(默认为1)
+	|pageSize       |N          |int     |每页显示的总记录数(默认为10)
+```
+
+**返回示例：**
+
+```
+    {
+        "code": 200,
+        "success": true,
+        "message": "请求成功",
+        "data": [
+            {
+                "id": "1001",
+                "name": "陈小明",
+                "majorId": "XXR001",
+                "instituteId": "XX1052",
+                "tel": "13232330479",
+                "remarks": "",
+                "pwd": "hello123456"
+            },
+            {
+                "id": "1002",
+                "name": "李晓华",
+                "majorId": "XXT001",
+                "instituteId": "HK1011",
+                "tel": "13232330102",
+                "remarks": "",
+                "pwd": "hello123456789"
+            }
+        ]
+    }
+```
+
+
+
+### 查询单条记录
+
+**角色：**
+
+~~~
+管理员  
+~~~
+
+ **Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
+ http://localhost:8624/goushushenpixitong/major
+```
+
+ **请求方式：**
+
+```
      GET
+```
 
- ### 参数类型:
+ **参数类型:**
+
+```
      |参数	     |是否必选   |类型     |说明
      |id         |Y         |string   |ID
+```
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
@@ -2266,21 +4516,35 @@
         "data": null
          }  
 
-### 64、添加人员
+### 添加人员
 
-#### 角色：
+**角色：**
 
 ~~~
 管理员  
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
     http://localhost:8624/goushushenpixitong/staff
+```
 
-#### 请求方式：
+**请求方式：**
+
+```
     POST
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数         |是否必选   |类型     |说明
     |id           |Y         |string   |ID
     |name         |Y         |string   |名字
@@ -2289,30 +4553,64 @@
     |pwd          |Y         |string   |密码
     |tel          |Y         |string   |联系电话
     |remarks      |N         |string   |备注信息
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
          "code": 200,
          "success": true,
          "message": "请求成功",
          "data": null
     }
+    专业不存在:
+    {
+        "code": 10000,
+        "success": false,
+        "message": "当前专业不存在",
+        "data": null
+    }
+    学院不存在：
+    {
+        "code": 10000,
+        "success": false,
+        "message": "当前学院不存在",
+        "data": null
+    }
+```
 
-### 65、更新信息
 
-#### 角色：
+
+### 更新信息
+
+**角色：**
 
 ~~~
 管理员  
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+```
     http://localhost:8624/goushushenpixitong/staff
+```
 
-#### 请求方式：
+**请求方式：**
+
+```
     PUT
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数	      |是否必选   |类型     |说明
     |id           |Y         |string   |ID
     |name         |Y         |string   |名字
@@ -2321,44 +4619,69 @@
     |pwd          |Y         |string   |密码
     |tel          |Y         |string   |联系电话
     |remarks      |N         |string   |备注信息
+```
 
-#### 返回示例：
+**返回示例：**
+
+```
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
         }
+```
 
-### 67、登陆
 
-#### 角色：
+
+## 登陆
+
+### 登陆
+
+**角色：**
 
 ~~~
   无
 ~~~
 
-#### 请求URL：
-    localhost:8624/goushushenpixitong/login?id=1001&password=hello123456
+**Header：**
 
-#### 请求方式：
+~~~
+无
+~~~
+
+**请求URL：**
+
+```
+    localhost:8624/goushushenpixitong/login
+```
+
+**请求方式：**
+
+```
     POST
+```
 
-### 参数类型:
+**参数类型:**
+
+```
     |参数       |是否必选   |类型     |说明
     |id         |Y         |string   |ID
     |password   |Y         |string   |密码
+```
 
-#### 返回示例：
+**返回示例：**
+
     登陆成功：
     {
         "code": 200,
         "success": true,
-        "message": "请求成功",
-        "data": null
+        "message": "登陆成功",
+        "data": {
+            "token": "login_token_61bc3ff5-0c00-4048-b12e-708c625abc11"
+        }
     }
-    
-    账号/密码错误：
+        账号/密码错误：
     {
         "code": 10000,
         "success": false,
@@ -2368,28 +4691,34 @@
 
 
 
-### 68、退出登陆
+### 退出登陆
 
-#### 角色：
+**角色：**
 
 ~~~
   无
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+无
+~~~
+
+**请求URL：**
 
     http://localhost:8624/goushushenpixitong/logout
 
-#### 请求方式：
+**请求方式：**
 
     GET
 
-### 参数类型:
+**参数类型:**
 
     |参数       |是否必选   |类型     |说明
     无
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
@@ -2398,53 +4727,73 @@
         "data": null
     }
 
-### 69、导出教材征订计划表
 
-#### 角色：
+
+## 文件操作
+
+### 导出教材征订计划表
+
+**角色：**
 
 ~~~
   管理员
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
 
     http://localhost:8624/goushushenpixitong/excel/schedule
 
-#### 请求方式：
+**请求方式：**
 
     GET
 
-### 参数类型:
+**参数类型:**
 
     |参数       |是否必选   |类型     |说明
     无
 
-#### 返回示例：
+**返回示例：**
 
     弹出保存文件
 
-### 70、导入教材征订计划表数据（添加course）
 
-#### 角色：
+
+
+
+### 导入教材征订计划表数据（添加course）
+
+**角色：**
 
 ~~~
   管理员   教务干事
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
 
     http://localhost:8624/goushushenpixitong/excel/schedule
 
-#### 请求方式：
+**请求方式：**
 
     POST
 
-### 参数类型:
+**参数类型:**
 
     |参数       |是否必选   |类型     |说明
     |file		|Y		  |excel文件|上传的excel文件
 
-#### 返回示例：
+**返回示例：**
 
     {
         "code": 200,
@@ -2455,60 +4804,140 @@
 
 
 
+### 导出教职工信息表上传模板
 
-
-### 71、导出教职工信息表
-
-#### 角色：
+**角色：**
 
 ~~~
   管理员
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
 
     http://localhost:8624/goushushenpixitong/staff/excel
 
-#### 请求方式：
+**请求方式：**
 
     GET
 
-### 参数类型:
+**参数类型:**
 
     |参数       |是否必选   |类型     |说明
     无
 
-#### 返回示例：
+**返回示例：**
 
-    弹出保存文件
+    弹出教职工信息表上传模板,保存文件
 
-### 72、导入教职工信息表数据（添加staff）
+### 导入教职工信息表数据（添加staff）
 
-#### 角色：
+**角色：**
 
 ~~~
   管理员   
 ~~~
 
-#### 请求URL：
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
 
     http://localhost:8624/goushushenpixitong/staff/excel
 
-#### 请求方式：
+**请求方式：**
 
     POST
 
-### 参数类型:
+**参数类型:**
 
     |参数       |是否必选   |类型     |说明
     |file		|Y		  |excel文件|上传的教职工信息表excel文件
 
-#### 返回示例：
+**返回示例：**
 
+    上传并解析成功(成功添加员工):
     {
         "code": 200,
         "success": true,
         "message": "请求成功",
         "data": null
     }
+    工号已存在：
+    {
+        "code": 10000,
+        "success": false,
+        "message": "第3行的工号\"210030204\"已存在",
+        "data": null
+    }
+    员工已存在：
+    {
+        "code": 10000,
+        "success": false,
+        "message": "第3行的员工姓名\"张文远\"已存在",
+        "data": null
+    }
+    学院不存在：
+    {
+        "code": 10000,
+        "success": false,
+        "message": "第3行的学院\"a学院\"不存在",
+        "data": null
+    }
+    专业不存在：
+    {
+        "code": 10000,
+        "success": false,
+        "message": "第3行的学院\"软件工程\"不存在",
+        "data": null
+    }
+    
+    出错,解析失败：
+    {
+        "code": 10000,
+        "success": false,
+        "message": "解析失败！",
+        "data": null
+    }
+
+
+
+### 导出某个课程用书的审查表
+
+**角色：**
+
+~~~
+  管理员
+~~~
+
+**Header：**
+
+~~~
+Authorization  :  token (登陆获取的token)
+~~~
+
+**请求URL：**
+
+    http://localhost:8624/goushushenpixitong/excel/approvalform
+
+**请求方式：**
+
+    GET
+
+**参数类型:**
+
+    |参数       |是否必选   |类型     |说明
+    |subjectId	|Y		  |String   |要导出的课程用书的id
+
+**返回示例：**
+
+    弹出保存文件
 

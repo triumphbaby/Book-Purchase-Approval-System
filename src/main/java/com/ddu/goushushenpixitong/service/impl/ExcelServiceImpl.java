@@ -188,7 +188,7 @@ public class ExcelServiceImpl implements ExcelService {
 
         Subject subject = subjectService.findById(subjectId);
         Term term = termService.findById(subject.getTermId());
-        Course course = courseService.findById(subject.getCourseId(), term.getId());
+        Course course = courseService.findById(subject.getCourseId());
         Book book = bookService.findById(subject.getBookId());
         Staff principal = staffService.findById(course.getPrincipalId());
         Institute institute = instituteService.findById(principal.getInstituteId());
@@ -223,7 +223,7 @@ public class ExcelServiceImpl implements ExcelService {
             DeanOffice deanOffice = deanOfficeService.findById(id);
             jo.put("content", deanOffice.getContent());
         }
-        ApprovalFormUtil.setDeanOfficeOpinions(dataMap, options);
+            ApprovalFormUtil.setDeanOfficeOpinions(dataMap, options);
 
         ApprovalFormUtil.setSignatureDateOfTeacher(dataMap, "年   月   日");
         ApprovalFormUtil.setSignatureDateOfLab(dataMap, "年   月   日");
@@ -297,7 +297,7 @@ public class ExcelServiceImpl implements ExcelService {
                 String staffId = staffService.findIdByname(teacherName);
                 //验证是否这个老师是否存在  不存在返回错误信息
                 if(staffId == null) {
-                    return CommonResult.failure("不存在"+teacherName+"，请检查或联系管理员");
+                    return CommonResult.failure("第"+(i+1)+"行错误,不存在"+teacherName+",请检查 ");
                 }
 
                  String usable_range =  row.getCell(8).getStringCellValue().replace(" ", ",").replace("\n", ","); //使用年级、专业及方向
@@ -310,8 +310,7 @@ public class ExcelServiceImpl implements ExcelService {
             }
 
             if(!cources.isEmpty()){
-                for (Course c:
-                     cources) {
+                for (Course c: cources) {
                     courseService.add(c);
                 }
             }

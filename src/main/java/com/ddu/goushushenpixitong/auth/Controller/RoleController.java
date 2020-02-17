@@ -3,13 +3,13 @@ package com.ddu.goushushenpixitong.auth.Controller;
 import com.ddu.goushushenpixitong.auth.Service.RoleService;
 import com.ddu.goushushenpixitong.auth.entity.Role;
 import com.ddu.goushushenpixitong.util.CommonResult;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 
 @RequiresRoles("管理员")
 @RestController
@@ -22,61 +22,63 @@ public class RoleController {
     private RoleService roleService;
 
     /**
-     * 查询所有人员的角色信息
+     * 查询所有的角色
      *
      * @param currentPage 当前页数
      * @param pageSize    每页显示的总记录数
      * @return
      */
     @GetMapping("/list")
-        public CommonResult list(@RequestParam("currentPage") Integer currentPage, @RequestParam("pageSize") Integer pageSize) {
-        return CommonResult.success(roleService.findRoleByPage(currentPage, pageSize));
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
+    public CommonResult list(@RequestParam(name = "currentPage",defaultValue = "1") Integer currentPage,
+                                 @RequestParam(name = "pageSize",defaultValue = "10") Integer pageSize) {
+        return CommonResult.success(roleService.findAllRole(currentPage, pageSize));
     }
 
     /**
-     * 查询某个工号的所有角色信息
-     *
-     * @param id 工号
+     * 查询某个角色的信息
+     * @param roleId 角色id
      * @return
      */
     @GetMapping
-    public CommonResult getOne(@RequestParam("id") int id) {
-        return CommonResult.success(roleService.findById(id));
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
+    public CommonResult getOne(@RequestParam("roleId")int roleId){
+        return  CommonResult.success(roleService.findRoleByRoleId(roleId));
     }
 
     /**
-     * 添加角色记录
-     *
-     * @param role
+     * 添加角色
+     * @param role 新角色
      * @return
      */
     @PostMapping
-    public CommonResult register(Role role) {
-        return CommonResult.expect(roleService.add(role));
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
+    public CommonResult add(Role role){
+        return  CommonResult.expect(roleService.add(role));
     }
 
+
     /**
-     * 更新信息
-     *
-     * @param role
+     * 修改某个角色信息
+     * @param role 修改的角色信息
      * @return
      */
     @PutMapping
-    public CommonResult amend(@Valid Role role) {
-        if (role.getId() == null) {
-            return CommonResult.failure("id不能为空");
-        }
-        return CommonResult.expect(roleService.modify(role));
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
+    public  CommonResult update(Role role){
+        return CommonResult.expect(roleService.updateRole(role));
     }
+
 
     /**
      * 删除角色
-     * @param id
+     * @param roleId 角色id
      * @return
      */
     @DeleteMapping
-    public CommonResult delete(@RequestParam("id") String id) {
-        return CommonResult.expect(roleService.remove(id));
+    @RequiresPermissions("root")
+    public CommonResult delete(@RequestParam("roleId") int roleId) {
+        return CommonResult.expect(roleService.remove(roleId));
     }
 
 }

@@ -2,6 +2,7 @@ package com.ddu.goushushenpixitong.controller;
 
 import com.ddu.goushushenpixitong.entity.TeachingUnit;
 import com.ddu.goushushenpixitong.service.ApprovalService;
+import com.ddu.goushushenpixitong.service.SubjectService;
 import com.ddu.goushushenpixitong.service.TeachingUnitService;
 import com.ddu.goushushenpixitong.util.CommonResult;
 import org.apache.shiro.authz.annotation.Logical;
@@ -27,6 +28,9 @@ public class TeachingUnitController {
     @Autowired
     private ApprovalService approvalService;
 
+    @Autowired
+    private SubjectService subjectService;
+
     /**
      * 分页获取开课教学单位审核条目
      *
@@ -35,7 +39,9 @@ public class TeachingUnitController {
      * @return
      */
     @GetMapping("/list")
-    public CommonResult list(@RequestParam("currentPage") Integer currentPage, @RequestParam("pageSize") Integer pageSize) {
+    @RequiresPermissions(logical = Logical.OR,value = {"teachingUnit_query","root"})
+    public CommonResult list(@RequestParam(name = "currentPage",defaultValue = "1") Integer currentPage,
+                             @RequestParam(name = "pageSize",defaultValue = "10") Integer pageSize) {
         return CommonResult.success(teachingUnitService.findTeachingUnitByPage(currentPage, pageSize));
     }
 
@@ -46,6 +52,7 @@ public class TeachingUnitController {
      * @return
      */
     @GetMapping
+    @RequiresPermissions(logical = Logical.OR,value = {"teachingUnit_query","root"})
     public CommonResult getOne(@RequestParam("id") Integer id) {
         return CommonResult.success(teachingUnitService.findById(id));
     }
@@ -57,6 +64,7 @@ public class TeachingUnitController {
      * @return
      */
     @GetMapping("/opinions")
+    @RequiresPermissions(logical = Logical.OR,value = {"approval_query","root"})
     public CommonResult showOpinion(@RequestParam("subjectId") Integer subjectId) {
         return CommonResult.success(approvalService.findTeachingUnitOpinions(subjectId));
     }
@@ -68,6 +76,7 @@ public class TeachingUnitController {
      * @return
      */
     @PostMapping
+    @RequiresPermissions(logical = Logical.OR,value = {"teachingUnit_add","root"})
     public CommonResult register(TeachingUnit teachingUnit) {
         return CommonResult.expect(teachingUnitService.add(teachingUnit));
     }
@@ -80,8 +89,10 @@ public class TeachingUnitController {
      * @return
      */
     @PostMapping("/opinions")
+    @RequiresPermissions(logical = Logical.OR,value = {"approval_add","root"})
     public CommonResult submitOpinion(@RequestParam("subjectId") Integer subjectId, @RequestBody String jsonString) {
-        return CommonResult.expect(approvalService.addTeachingUnitOpinions(subjectId, jsonString));
+        if(subjectService.findById(subjectId) == null) return CommonResult.failure("当前课程用书不存在");
+        return approvalService.addTeachingUnitOpinions(subjectId, jsonString);
     }
 
     /**
@@ -91,6 +102,7 @@ public class TeachingUnitController {
      * @return
      */
     @PutMapping
+    @RequiresPermissions(logical = Logical.OR,value = {"teachingUnit_update","root"})
     public CommonResult amend(@Valid TeachingUnit teachingUnit) {
         if (teachingUnit.getId() == null) {
             return CommonResult.failure("id不能为空");
@@ -104,7 +116,7 @@ public class TeachingUnitController {
      * @param id
      * @return
      */
-    @RequiresRoles("管理员")
+    @RequiresPermissions("root")
     @DeleteMapping
     public CommonResult delete(@RequestParam("id") Integer id) {
         return CommonResult.expect(teachingUnitService.remove(id));

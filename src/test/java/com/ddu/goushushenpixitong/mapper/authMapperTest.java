@@ -18,8 +18,11 @@ public class authMapperTest extends BaseTest {
 
     @Test
     public void getAll(){
+
         List<AuthDAO> result = authMapper.getAllStaff_RoleAndPower();
-        System.out.println(result);
+        for (AuthDAO a:result) {
+            System.out.println(a);
+        }
     }
 
 

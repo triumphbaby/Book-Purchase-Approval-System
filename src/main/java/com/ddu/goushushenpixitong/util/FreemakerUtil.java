@@ -50,7 +50,7 @@ public class FreemakerUtil {
         response.setContentType("application/force-download");
 
         try {
-            response.addHeader("Content-Disposition", "attachment;fileName="
+            response.addHeader("Content-disposition", "attachment;filename="
                     + new String((fileName + ".doc").getBytes(), "iso-8859-1"));
         } catch (UnsupportedEncodingException e1) {
             logger.info(e1.getMessage());

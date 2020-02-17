@@ -1,8 +1,11 @@
 package com.ddu.goushushenpixitong.service.impl;
 
 import com.ddu.goushushenpixitong.entity.Staff;
+import com.ddu.goushushenpixitong.enums.insituteEnum;
+import com.ddu.goushushenpixitong.enums.majorEnum;
 import com.ddu.goushushenpixitong.mapper.StaffMapper;
 import com.ddu.goushushenpixitong.service.StaffService;
+import com.ddu.goushushenpixitong.util.CommonResult;
 import com.ddu.goushushenpixitong.util.PageBean;
 import com.ddu.goushushenpixitong.util.PoiUtil;
 import com.github.pagehelper.PageHelper;
@@ -19,6 +22,7 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -121,48 +125,84 @@ public class StaffServiceImpl implements StaffService {
         row.getCell(1).setCellStyle(PoiUtil.getHSSFCellStyle(PoiUtil.setHSSFCellStyle(wb, HorizontalAlignment.CENTER_SELECTION, VerticalAlignment.CENTER, false),
                 PoiUtil.setFontStyle(wb, "宋体", (short) 10, false)));
 
-        row.createCell(2).setCellValue(0);
+        row.createCell(2).setCellValue("人工智能");
         row.getCell(2).setCellStyle(PoiUtil.getHSSFCellStyle(PoiUtil.setHSSFCellStyle(wb, HorizontalAlignment.CENTER_SELECTION, VerticalAlignment.CENTER, false),
                 PoiUtil.setFontStyle(wb, "宋体", (short) 10, false)));
 
-        row.createCell(3).setCellValue(0);
+        row.createCell(3).setCellValue("计算机学院");
         row.getCell(3).setCellStyle(PoiUtil.getHSSFCellStyle(PoiUtil.setHSSFCellStyle(wb, HorizontalAlignment.CENTER_SELECTION, VerticalAlignment.CENTER, false),
                 PoiUtil.setFontStyle(wb, "宋体", (short) 10, false)));
+
+
+        /**
+         * 生成提示信息
+         */
+        String[] marjorList = {"人工智能","信息安全技术","通信技术"};
+        sheet = PoiUtil.setHSSFValidation(sheet,marjorList,2,100,2,2);
+
+        String[] institutelist = { "航空学院", "计算机学院", "商学院", "信息学院", "艺术学院" };
+        sheet = PoiUtil.setHSSFValidation(sheet,institutelist,2,100,3,3);
+
 
         return wb;
     }
 
     @Override
-    public Boolean parseExcel(MultipartFile file) {
+    public CommonResult parseExcel(MultipartFile file) {
         if (file.isEmpty()) {
-            return false;
+            return CommonResult.failure("解析失败！");
         }
         try {
             String fileName = file.getOriginalFilename();
             InputStream in = file.getInputStream();
             Workbook wb = PoiUtil.getWorkbook(in, fileName);
-
             Sheet sheet = wb.getSheetAt(0);
+
+            //解析出的人员
+            List<Staff> staffs = new ArrayList<>();
             /**
              * 内容获取
+             * 若解析的专业，学院不存在直接返回错误 不进行添加操作
              */
             for (int i = 2; sheet.getRow(i) != null; i++) {
                 Row row = sheet.getRow(i);
-
                 String id = PoiUtil.double2Int(row.getCell(0).getNumericCellValue()) + "";
+                Staff s = staffMapper.selectByPrimaryKey(id);
+                if(s!=null)
+                    return CommonResult.failure("第"+ (i+1) +"行的工号\""+id+"\"已存在");
+
                 String name = row.getCell(1).getStringCellValue();
-                String majorId = row.getCell(2).getStringCellValue() ;
-                String instituteId = row.getCell(3).getStringCellValue();
-                Staff staff = new Staff(id, name, majorId, instituteId, null, null, null);
-                staffMapper.insertSelective(staff);
+                String s1 = staffMapper.selectIdByName(name);
+                if(s1 != null)
+                    return CommonResult.failure("第"+ (i+1) +"行的员工姓名\""+name+"\"已存在");
+
+                String majorStr = row.getCell(2).getStringCellValue();
+                String majorId = majorEnum.majorTypeOf(majorStr);
+                if(majorId==null)
+                    return CommonResult.failure("第"+ (i+1) +"行的专业\""+majorStr+"\"不存在");
+
+                String instituteStr = row.getCell(3).getStringCellValue();
+                String insituteId = insituteEnum.insituteTypeOf(instituteStr);
+                if(insituteId==null)
+                    return CommonResult.failure("第"+ (i+1) +"行的学院\""+instituteStr+"\"不存在");
+
+                Staff staff = new Staff(id, name, majorId, insituteId, null, null, null);
+                staffs.add(staff);
             }
-            return true;
+
+            //添加员工
+            if(staffs.size()>0){
+                for (Staff staff: staffs){
+                    staffMapper.insertSelective(staff);
+                }
+            }
+            return CommonResult.success();
 
         } catch (Exception e) {
             e.printStackTrace();
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
         }
-        return false;
+        return CommonResult.failure("解析失败！");
     }
 
     @Override

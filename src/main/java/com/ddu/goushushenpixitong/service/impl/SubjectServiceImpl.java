@@ -1,5 +1,6 @@
 package com.ddu.goushushenpixitong.service.impl;
 
+import com.ddu.goushushenpixitong.entity.Book;
 import com.ddu.goushushenpixitong.entity.Staff;
 import com.ddu.goushushenpixitong.entity.Subject;
 import com.ddu.goushushenpixitong.mapper.StaffMapper;
@@ -48,6 +49,7 @@ public class SubjectServiceImpl implements SubjectService {
         Staff staff = staffMapper.selectByPrimaryKey(LoginStaffUtil.getLogInStaffId());
         //根据当前人员所属的学院获取subject
         List<Subject> allSubjects = subjectMapper.getSubjectByInstituteId(staff.getInstituteId());
+        if(allSubjects == null) return null;
 
         int countNums = subjectMapper.selectCount(new Subject());
         PageBean<Subject> pageData = new PageBean<>(currentPage, pageSize, countNums);
@@ -58,5 +60,28 @@ public class SubjectServiceImpl implements SubjectService {
     @Override
     public Subject findById(Integer id) {
         return subjectMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<Subject> findAll(int currentPage, int pageSize) {
+        PageHelper.startPage(currentPage, pageSize);
+        List<Subject> subjects = subjectMapper.selectAll();
+        int countNums = subjectMapper.selectCount(new Subject());
+        PageBean<Subject> pageData = new PageBean<>(currentPage, pageSize, countNums);
+        pageData.setItems(subjects);
+        return pageData.getItems();
+    }
+
+    @Override
+    public List<Book> fuzzySearch(int currentPage, int pageSize,String bookName, String termName, String courseName) {
+
+        PageHelper.startPage(currentPage, pageSize);
+        List<Book> books = subjectMapper.fuzzySearch(bookName, termName, courseName);
+        if(books == null) return null;
+
+        int countNums = books.size();
+        PageBean<Book> pageData = new PageBean<>(currentPage, pageSize, countNums);
+        pageData.setItems(books);
+        return pageData.getItems();
     }
 }

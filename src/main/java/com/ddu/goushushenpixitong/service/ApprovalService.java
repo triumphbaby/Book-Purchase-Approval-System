@@ -2,6 +2,7 @@ package com.ddu.goushushenpixitong.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ddu.goushushenpixitong.entity.Approval;
+import com.ddu.goushushenpixitong.util.CommonResult;
 
 public interface ApprovalService {
     /**
@@ -35,7 +36,7 @@ public interface ApprovalService {
      * @param json      json字符串(科研室审核结果)
      * @return
      */
-    Boolean addLaboratoryOpinions(Integer subjectId, String json);
+    CommonResult addLaboratoryOpinions(Integer subjectId, String json);
 
     /**
      * 获取教研室审核意见结果
@@ -52,7 +53,7 @@ public interface ApprovalService {
      * @param json
      * @return
      */
-    Boolean addTeachingUnitOpinions(Integer subjectId, String json);
+    CommonResult addTeachingUnitOpinions(Integer subjectId, String json);
 
     /**
      * 获取开课教学单位结果
@@ -69,7 +70,7 @@ public interface ApprovalService {
      * @param json
      * @return
      */
-    Boolean addDeanOfficeOpinions(Integer subjectId, String json);
+    CommonResult addDeanOfficeOpinions(Integer subjectId, String json);
 
     /**
      * 获取教务处审核结果

@@ -3,15 +3,16 @@ package com.ddu.goushushenpixitong.util;
 import com.ddu.goushushenpixitong.dto.BookPurchasingSchedule;
 import com.ddu.goushushenpixitong.entity.Course;
 import com.ddu.goushushenpixitong.entity.Staff;
+import com.ddu.goushushenpixitong.enums.insituteEnum;
+import com.ddu.goushushenpixitong.enums.majorEnum;
+import com.ddu.goushushenpixitong.mapper.StaffMapper;
 import com.ddu.goushushenpixitong.service.CourseService;
 import com.ddu.goushushenpixitong.service.StaffService;
 import com.ddu.goushushenpixitong.service.TermService;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.ss.util.CellRangeAddressList;
 import org.apache.poi.ss.util.PropertyTemplate;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PoiTest extends BaseTest {
+
+    @Autowired
+    StaffMapper staffMapper;
 
     /**
      * 处理教职工信息表
@@ -43,20 +47,42 @@ public class PoiTest extends BaseTest {
              * 内容获取
              */
             row = sheet.getRow(2);
+            List<Staff> staffs = new ArrayList<>();
             for (int i = 2; sheet.getRow(i) != null; i++) {
                 row = sheet.getRow(i);
-                try {
-                    String id = PoiUtil.double2Int(row.getCell(0).getNumericCellValue()) + "";
-                    String name = row.getCell(1).getStringCellValue();
-                    String majorId = PoiUtil.double2Int(row.getCell(2).getNumericCellValue()) + "";
-                    String instituteId = PoiUtil.double2Int(row.getCell(3).getNumericCellValue()) + "";
-                    Staff staff = new Staff(id, name, majorId, instituteId, null, null, null);
-                    System.out.println(staff);
-                } catch (NullPointerException e) {
-                    System.out.println("信息不全");
-                } catch (Exception e1) {
-                    System.out.println("检查类型");
+                String id = PoiUtil.double2Int(row.getCell(0).getNumericCellValue()) + "";
+                Staff s = staffMapper.selectByPrimaryKey(id);
+                if(s!=null){
+                    System.out.println("第"+ (i+1) +"行的工号\""+id+"\"已存在");
+                    break;
                 }
+
+                String name = row.getCell(1).getStringCellValue();
+                String s1 = staffMapper.selectIdByName(name);
+                if(s1 != null){
+                    System.out.println("第"+ (i+1) +"行的员工姓名\""+name+"\"已存在");
+                    break;
+                }
+
+                String majorStr = row.getCell(2).getStringCellValue();
+                String majorId = majorEnum.majorTypeOf(majorStr);
+                if(majorId==null){
+                    System.out.println("第"+ (i+1) +"行的专业\""+majorStr+"\"不存在");
+                    break;
+                }
+
+                String instituteStr = row.getCell(3).getStringCellValue();
+                String insituteId = insituteEnum.insituteTypeOf(instituteStr);
+                if(insituteId==null){
+                    System.out.println("第"+ (i+1) +"行的学院\""+instituteStr+"\"不存在");
+                    break;
+                }
+
+                Staff staff = new Staff(id, name, majorId, insituteId, null, null, null);
+                staffs.add(staff);
+            }
+            for (Staff s:staffs){
+                System.out.println(s);
             }
 
         } catch (FileNotFoundException e) {
@@ -76,6 +102,7 @@ public class PoiTest extends BaseTest {
         HSSFSheet sheet = wb.createSheet("Sheet1");
         HSSFRow row;
         HSSFCell cell;
+
 
         for (int i = 0; i < 4; i++) {
             sheet.setColumnWidth(i, 3766);
@@ -131,13 +158,22 @@ public class PoiTest extends BaseTest {
         row.getCell(1).setCellStyle(PoiUtil.getHSSFCellStyle(PoiUtil.setHSSFCellStyle(wb, HorizontalAlignment.CENTER_SELECTION, VerticalAlignment.CENTER, false),
                 PoiUtil.setFontStyle(wb, "宋体", (short) 10, false)));
 
-        row.createCell(2).setCellValue(0);
+        row.createCell(2).setCellValue("计算机学院");
         row.getCell(2).setCellStyle(PoiUtil.getHSSFCellStyle(PoiUtil.setHSSFCellStyle(wb, HorizontalAlignment.CENTER_SELECTION, VerticalAlignment.CENTER, false),
                 PoiUtil.setFontStyle(wb, "宋体", (short) 10, false)));
 
         row.createCell(3).setCellValue(0);
         row.getCell(3).setCellStyle(PoiUtil.getHSSFCellStyle(PoiUtil.setHSSFCellStyle(wb, HorizontalAlignment.CENTER_SELECTION, VerticalAlignment.CENTER, false),
                 PoiUtil.setFontStyle(wb, "宋体", (short) 10, false)));
+
+        /**
+         * 生成提示信息
+         */
+        String[] institutelist = { "航空学院", "计算机学院", "商学院", "信息学院", "艺术学院" };
+        sheet = PoiUtil.setHSSFValidation(sheet,institutelist,2,100,3,3);
+
+        String[] marjorList = {"人工智能","信息安全技术","通信技术"};
+        sheet = PoiUtil.setHSSFValidation(sheet,marjorList,2,100,2,2);
 
         /**
          * 输出
@@ -479,6 +515,28 @@ public class PoiTest extends BaseTest {
         outputStream.flush();
 
     }
+
+
+    /**
+     * 生成下拉框选择和单元提示
+     * @throws IOException
+     */
+    @Test
+    public void test() throws  IOException{
+        HSSFWorkbook wb = new HSSFWorkbook();// excel文件对象
+        HSSFSheet sheetlist = wb.createSheet("sheetlist");// 工作表对象
+
+        FileOutputStream out = new FileOutputStream("E:\\success.xls");
+        String[] textlist = { "列表1", "列表2", "列表3", "列表4", "列表5" };
+
+        sheetlist = PoiUtil.setHSSFValidation(sheetlist, textlist, 0, 500, 0, 0);// 第一列的前501行都设置为选择列表形式.
+//         sheetlist = setHSSFPrompt(sheetlist, "promt Title", "prompt Content",
+//         0, 500, 1, 1);// 第二列的前501行都设置提示.
+
+        wb.write(out);
+        out.close();
+    }
+
 
 
 }

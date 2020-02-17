@@ -26,7 +26,6 @@ public interface AuthMapper {
             @Result(property = "name", column = "name"),
             @Result(property = "role", column = "type"),
             @Result(property = "power", column = "powerName"),
-            @Result(property = "id", column = "id")
     })
     List<AuthDAO> getAllStaff_RoleAndPower();
 
@@ -44,7 +43,6 @@ public interface AuthMapper {
             @Result(property = "name", column = "name"),
             @Result(property = "role", column = "type"),
             @Result(property = "power", column = "powerName"),
-            @Result(property = "id", column = "id")
     })
     List<AuthDAO> getStaff_RoleAndPower(String staffId);
 

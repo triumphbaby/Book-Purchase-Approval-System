@@ -1,5 +1,6 @@
 package com.ddu.goushushenpixitong.util;
 
+import com.ddu.goushushenpixitong.entity.Staff;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 
@@ -14,8 +15,8 @@ public class LoginStaffUtil {
      * @return
      */
     public static String getLogInStaffId(){
-        Subject subject = SecurityUtils.getSubject();
-        return subject.getPrincipal().toString();
+        Staff staff = (Staff) SecurityUtils.getSubject().getPrincipal();
+        return staff.getId();
     }
 
 

@@ -3,6 +3,8 @@ package com.ddu.goushushenpixitong.controller;
 import com.ddu.goushushenpixitong.entity.Institute;
 import com.ddu.goushushenpixitong.service.InstituteService;
 import com.ddu.goushushenpixitong.util.CommonResult;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,13 +25,14 @@ public class InstituteController {
 
     /**
      * 分页查询学院列表
-     *
      * @param currentPage 当前页数
      * @param pageSize    每页显示的总记录数
      * @return
      */
     @GetMapping("/list")
-    public CommonResult list(@RequestParam("currentPage") Integer currentPage, @RequestParam("pageSize") Integer pageSize) {
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
+    public CommonResult list(@RequestParam(name = "currentPage",defaultValue = "1") Integer currentPage,
+                             @RequestParam(name = "pageSize",defaultValue = "10") Integer pageSize) {
         return CommonResult.success(instituteService.findInstituteByPage(currentPage, pageSize));
     }
 
@@ -40,6 +43,7 @@ public class InstituteController {
      * @return
      */
     @GetMapping
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
     public CommonResult getOne(@RequestParam("id") String id) {
         return CommonResult.success(instituteService.findById(id));
     }
@@ -51,6 +55,7 @@ public class InstituteController {
      * @return
      */
     @PostMapping
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
     public CommonResult register(Institute institute) {
         return CommonResult.expect(instituteService.add(institute));
     }
@@ -62,6 +67,7 @@ public class InstituteController {
      * @return
      */
     @PutMapping
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
     public CommonResult amend(@Valid Institute institute) {
         if (institute.getId() == null) {
             return CommonResult.failure("id不能为空");
@@ -75,6 +81,7 @@ public class InstituteController {
      * @param id 学院编号
      * @return
      */
+    @RequiresPermissions("root")
     @DeleteMapping
     public CommonResult delete(@RequestParam("id") String id) {
         return CommonResult.expect(instituteService.remove(id));

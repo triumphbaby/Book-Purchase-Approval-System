@@ -1,4 +1,4 @@
-package com.ddu.goushushenpixitong.controller;
+package com.ddu.goushushenpixitong.auth.Controller;
 
 import com.ddu.goushushenpixitong.util.CommonResult;
 import org.apache.shiro.SecurityUtils;

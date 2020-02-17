@@ -1,5 +1,6 @@
 package com.ddu.goushushenpixitong.service;
 
+import com.ddu.goushushenpixitong.entity.Book;
 import com.ddu.goushushenpixitong.entity.Subject;
 
 import java.util.List;
@@ -45,4 +46,23 @@ public interface SubjectService {
      * @return
      */
     Subject findById(Integer id);
+
+    /**
+     * 分页获取所有的课程用书
+     * @return
+     */
+    List<Subject> findAll(int currentPage, int pageSize);
+
+
+    /**
+     * 分页模糊搜索课程用书记录
+     * @param currentPage 当前页数
+     * @param pageSize    每页显示的总记录数
+     * @param bookName 书名
+     * @param termName 学期
+     * @param courseName 课程名
+     * @return 程用书记录
+     */
+    List<Book> fuzzySearch(int currentPage, int pageSize,String bookName,String termName,String courseName);
+
 }

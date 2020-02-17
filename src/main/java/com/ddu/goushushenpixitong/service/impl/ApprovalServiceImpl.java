@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.ddu.goushushenpixitong.entity.Approval;
 import com.ddu.goushushenpixitong.mapper.ApprovalMapper;
 import com.ddu.goushushenpixitong.service.ApprovalService;
+import com.ddu.goushushenpixitong.util.CommonResult;
 import com.ddu.goushushenpixitong.util.FastjsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,8 +40,11 @@ public class ApprovalServiceImpl implements ApprovalService {
     }
 
     @Override
-    public Boolean addLaboratoryOpinions(Integer subjectId, String json) {
+    public CommonResult addLaboratoryOpinions(Integer subjectId, String json) {
         if (validityCheck(json)) {
+            JSONObject[] objects = FastjsonUtil.jsonStr2Array(json);
+            if(objects.length != 6)
+                return CommonResult.failure("教研室审核意见规定为6个");
             Approval approval = approvalMapper.selectByPrimaryKey(subjectId);
             if (approval == null) {
                 approval = new Approval(subjectId, json, null, null);
@@ -49,9 +53,9 @@ public class ApprovalServiceImpl implements ApprovalService {
                 approval.setOptionLab(json);
                 approvalMapper.updateByPrimaryKeySelective(approval);
             }
-            return true;
+            return CommonResult.success();
         }
-        return false;
+        return CommonResult.failure("格式错误");
     }
 
     @Override
@@ -62,8 +66,11 @@ public class ApprovalServiceImpl implements ApprovalService {
     }
 
     @Override
-    public Boolean addTeachingUnitOpinions(Integer subjectId, String json) {
+    public CommonResult addTeachingUnitOpinions(Integer subjectId, String json) {
         if (validityCheck(json)) {
+            JSONObject[] objects = FastjsonUtil.jsonStr2Array(json);
+            if(objects.length != 1)
+                return CommonResult.failure("开课教学单位结果规定为1个");
             Approval approval = approvalMapper.selectByPrimaryKey(subjectId);
             if (approval == null) {
                 approval = new Approval(subjectId, null, json, null);
@@ -72,9 +79,9 @@ public class ApprovalServiceImpl implements ApprovalService {
                 approval.setOptionUnit(json);
                 approvalMapper.updateByPrimaryKeySelective(approval);
             }
-            return true;
+            return CommonResult.success();
         }
-        return false;
+        return CommonResult.failure("格式错误");
     }
 
     @Override
@@ -85,8 +92,11 @@ public class ApprovalServiceImpl implements ApprovalService {
     }
 
     @Override
-    public Boolean addDeanOfficeOpinions(Integer subjectId, String json) {
+    public CommonResult addDeanOfficeOpinions(Integer subjectId, String json) {
         if (validityCheck(json)) {
+            JSONObject[] objects = FastjsonUtil.jsonStr2Array(json);
+            if(objects.length != 2)
+                return CommonResult.failure("教务处审核结果规定为2个");
             Approval approval = approvalMapper.selectByPrimaryKey(subjectId);
             if (approval == null) {
                 approval = new Approval(subjectId, null, null, json);
@@ -95,9 +105,9 @@ public class ApprovalServiceImpl implements ApprovalService {
                 approval.setOptionDean(json);
                 approvalMapper.updateByPrimaryKeySelective(approval);
             }
-            return true;
+            return CommonResult.success();
         }
-        return false;
+        return CommonResult.failure("格式错误");
     }
 
     @Override

@@ -1,9 +1,13 @@
 package com.ddu.goushushenpixitong.controller;
 
 import com.ddu.goushushenpixitong.entity.Staff;
+import com.ddu.goushushenpixitong.service.InstituteService;
+import com.ddu.goushushenpixitong.service.MajorService;
 import com.ddu.goushushenpixitong.service.StaffService;
 import com.ddu.goushushenpixitong.util.CommonResult;
 import com.ddu.goushushenpixitong.util.PoiUtil;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +29,12 @@ public class StaffController {
     @Autowired
     private StaffService staffService;
 
+    @Autowired
+    private MajorService majorService;
+
+    @Autowired
+    private InstituteService instituteService;
+
     /**
      * 查询所有人员信息
      *
@@ -33,7 +43,9 @@ public class StaffController {
      * @return
      */
     @GetMapping("/list")
-    public CommonResult list(@RequestParam("currentPage") Integer currentPage, @RequestParam("pageSize") Integer pageSize) {
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
+    public CommonResult list(@RequestParam(name = "currentPage",defaultValue = "1") Integer currentPage,
+                             @RequestParam(name = "pageSize",defaultValue = "10") Integer pageSize) {
         return CommonResult.success(staffService.findStaffByPage(currentPage, pageSize));
     }
 
@@ -44,6 +56,7 @@ public class StaffController {
      * @param response
      */
     @GetMapping("/excel")
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
     public void importTemplate(HttpServletRequest request, HttpServletResponse response) {
         PoiUtil.export(staffService.getTemplate(), "教职工信息表", response);
     }
@@ -55,6 +68,7 @@ public class StaffController {
      * @return
      */
     @GetMapping
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
     public CommonResult getOne(@RequestParam("id") String id) {
         return CommonResult.success(staffService.findById(id));
     }
@@ -66,7 +80,10 @@ public class StaffController {
      * @return
      */
     @PostMapping
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
     public CommonResult register(Staff staff) {
+        if(majorService.findById(staff.getMajorId()) == null) return CommonResult.failure("当前专业不存在");
+        if(instituteService.findById(staff.getInstituteId()) == null) return CommonResult.failure("当前学院不存在");
         return CommonResult.expect(staffService.add(staff));
     }
 
@@ -76,8 +93,9 @@ public class StaffController {
      * @return
      */
     @PostMapping("/excel")
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
     public CommonResult parseExcel(@RequestParam("file") MultipartFile file) {
-        return CommonResult.expect(staffService.parseExcel(file));
+        return staffService.parseExcel(file);
     }
 
     /**
@@ -87,6 +105,7 @@ public class StaffController {
      * @return
      */
     @PutMapping
+    @RequiresPermissions(logical = Logical.OR,value = {"root"})
     public CommonResult amend(@Valid Staff staff) {
         if (staff.getId() == null) {
             return CommonResult.failure("id不能为空");
@@ -100,6 +119,7 @@ public class StaffController {
      * @param id
      * @return
      */
+    @RequiresPermissions("root")
     @DeleteMapping
     public CommonResult delete(@RequestParam("id") String id) {
         return CommonResult.expect(staffService.remove(id));

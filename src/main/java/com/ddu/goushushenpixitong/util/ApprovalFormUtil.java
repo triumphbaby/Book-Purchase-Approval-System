@@ -406,7 +406,9 @@ public class ApprovalFormUtil {
         ApprovalFormUtil.setInstitute(dataMap, institute.getName());
         ApprovalFormUtil.setCourseName(dataMap, course.getName());
         ApprovalFormUtil.setCourseId(dataMap, course.getId());
-        ApprovalFormUtil.setCourseCharacter(dataMap, subject.getRemarks().equals("required") ? true : false);
+        if(subject.getRemarks() != null){
+            ApprovalFormUtil.setCourseCharacter(dataMap, subject.getRemarks().equals("required") ? true : false);
+        }else ApprovalFormUtil.setCourseCharacter(dataMap, false);
         ApprovalFormUtil.setBookName(dataMap, book.getName());
         ApprovalFormUtil.setCoursePeriod(dataMap, course.getPeriod() + "");
         ApprovalFormUtil.setCourseCredit(dataMap, course.getCredit() + "");

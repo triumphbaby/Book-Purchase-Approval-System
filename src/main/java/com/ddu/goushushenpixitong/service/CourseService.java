@@ -40,10 +40,17 @@ public interface CourseService {
 
     /**
      * 查询单条记录
-     *
-     * @param id
-     * @param termId
+     *根据id  和 学期id获取
+     * @param id 课程id
+     * @param termId 学期id
      * @return
      */
-    Course findById(String id, Integer termId);
+    Course findByIdAndTermId(String id, Integer termId);
+
+    /**
+     * 根据课程id获取单条记录
+     * @param id 课程id
+     * @return
+     */
+    Course findById(String id);
 }
